@@ -21,7 +21,7 @@ class Profile extends Component {
   createHouse = (e) => {
     e.preventDefault();
     axios.post('/house/create', {
-      name: this.props.houseName,
+      name: this.state.houseName,
       user: this.props.user
     });
   }
