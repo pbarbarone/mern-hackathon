@@ -9,13 +9,19 @@ import Shopping from './roomy-layout/Shopping.js';
 class Roommate extends Component {
 	render(){
 		return(
-			<div>
-			<p>Roommate page reached</p>
-			<Messages />
-			<Chores />
-			<Bills />
-			<Shopping />
-
+			<div className="widget-container">
+				<div>
+					<Chores />
+				</div>
+				<div>
+					<Shopping />
+				</div>
+				<div>
+					<Bills />
+				</div>
+				<div>
+					<Messages />
+				</div>
 			</div>
 		);
 	}

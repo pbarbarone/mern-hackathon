@@ -9,7 +9,7 @@ nav a {
   margin: 10px;
   text-decoration: none;
   font-size: 18px;
-  color: #4ff;
+  color: rgb(248,110, 113);
 }
 
 nav a:hover {
@@ -79,6 +79,49 @@ nav a:hover {
   float: right;
 }
 
+.home-form{
+  background-color: rgba(130,130,130,.3);
+  height: 150px;
+  display: inline-block;
+  width: 700px;
+}
+
+.form-form{
+  padding-top: 60px;
+}
+
+.login-button{
+  background-color: rgb(248,110, 113);
+
+  color: black;
+  margin-top: 20px;
+  width: 150px;
+  height: 30px;
+}
+
+.login-input{
+  height: 40px;
+  width: 300px;
+  font-size: 18px;;
+}
+
+
+.messages-container,.bills-container, .shopping-container, .chore-container {
+  height: 300px;
+  width: 300px;
+  display: inline-block;
+  margin: 30px 30px;
+  background-color: rgba(100,100,100,.3);
+}
+
+.widget-container{
+  height: 900px;
+  width: 900px;
+  margin-left: auto;
+  margin-bottom: auto
+}
+
+
 /* DEFAULT STYLES FROM CREATE REACT APP MODULE */
 .App {
   text-align: center;
@@ -90,7 +133,9 @@ nav a:hover {
 }
 
 .App-header {
-  background-color: #222;
+  background-color: rgb(139,215,204);
+  font-size: 58px;
+  letter-spacing: 6px;
   height: 150px;
   padding: 20px;
   color: white;

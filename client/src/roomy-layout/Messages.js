@@ -3,7 +3,11 @@ import React, {Component} from 'react';
 class Messages extends Component {
 	render(){
 		return(
-	<div><p>This Works Messages</p></div>
+	<div className="messages-container">
+		<h2>Messages</h2>
+		<p>Tag your roommate in a message</p>
+		<input type="text" placeholder="Say something nice"   required />
+	</div>
 		
 		)
 	}
