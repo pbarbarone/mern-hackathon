@@ -6,7 +6,7 @@ import Bills from './roomy-layout/Bills.js';
 import Shopping from './roomy-layout/Shopping.js';
 
 
-class Roommate extends Component {
+class Househub extends Component {
 	render(){
 		return(
 			<div className="widget-container">
@@ -19,4 +19,4 @@ class Roommate extends Component {
 	}
 }
 
-export default Roommate;
+export default Househub;

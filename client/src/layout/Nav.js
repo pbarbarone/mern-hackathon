@@ -11,7 +11,7 @@ class Nav extends Component {
         <span>
           <Link to="/profile">Profile</Link>
           <Logout updateUser={this.props.updateUser} />
-          <Link to="/roommate">Roommate's Hub</Link>
+          <Link to="/househub">House Hub</Link>
         </span>);
     }
     else {
