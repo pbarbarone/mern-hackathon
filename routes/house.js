@@ -20,10 +20,14 @@ router.post('/create', function(req, res, next){
 			console.log(house);
 			house.users.push(user.id)///this works
 			// console.log(house.users.length + "see colin????");
-			house.save(function (err) {
-				console.log(err);
-  				if (!err) console.log('Success!');
+			// house.save(function (err) {
+			// 	console.log(err);
+  	// 			if (!err) console.log('Success!');
 
+			// });
+			User.findOneAndUpdate({ email: user.email }, {house: house.id}, function(err, user) {
+						if(err) console.log(err);
+						console.log(user);
 			});
 		}
 	});
