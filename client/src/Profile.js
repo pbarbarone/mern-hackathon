@@ -5,17 +5,17 @@ class Profile extends Component {
   constructor(props) {
     super(props);
     this.state =  {
-      houseName: ''
+      houseName: '',
+      houseId: ''
     }
   }
 
-  handleChange = (e) => {
+  handleNameChange = (e) => {
     this.setState({houseName: e.target.value});
   }
 
-  joinHouse = (e) => {
-    e.preventDefault();
-    console.log("joinHouse called!");
+  handleIdChange = (e) => {
+    this.setState({houseId: e.target.value});
   }
 
   createHouse = (e) => {
@@ -29,7 +29,7 @@ class Profile extends Component {
   joinHouse = (e) => {
     e.preventDefault();
     axios.post('/house/join', {
-      name: this.state.houseName,
+      houseId: this.state.houseId,
       user: this.props.user
     });
   }
@@ -47,14 +47,14 @@ class Profile extends Component {
           {/*render add/join house form component*/}
 
           <form  className="join-house" onSubmit={this.joinHouse}>
-            <label>House Name</label>
-            <input type="text" name="houseName" onChange={this.handleChange} required/>
+            <label>House ID</label>
+            <input type="text" onChange={this.handleIdChange} required/>
             <button type="submit">Join House</button>
           </form>
 
           <form className="create-house" onSubmit={this.createHouse}>
             <label>House Name</label>
-            <input type="text" name="houseName" onChange={this.handleChange} required/>
+            <input type="text" onChange={this.handleNameChange} required/>
             <button type="submit">Create House</button>
           </form>
 

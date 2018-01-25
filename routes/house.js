@@ -5,6 +5,7 @@ var mongoose = require('mongoose');
 var User = require('../models/user');
 var House = require('../models/house');
 
+//CREATE HOUSE
 router.post('/create', function(req, res, next){
 	var user = req.body.user
 	console.log("house post (create) route called, req.body: "+ req.body.name);
@@ -33,8 +34,14 @@ router.post('/create', function(req, res, next){
 	});
 });
 
+//JOIN HOUSE
 router.post('/join', function(req, res, next){
 	console.log("house post (join) route called, req.body: "+ req.body);
+	var user = req.body.user;
+	User.findOneAndUpdate({ email: user.email }, {house: req.body.houseId}, function(err, user) {
+		if(err) console.log(err);
+		console.log(user);
+	});
 });
 
 module.exports = router;
