@@ -37,13 +37,11 @@ class Chores extends Component {
 	render(){
 		return(
 			<div className="chore-container">
-				<h2 className="chore-header"> My Chores </h2>
-				
-
+				<h2 className="chore-header"> Chores </h2>
 				<form className="chore-form" onSubmit={this.add}>
-        	<input type="text" placeholder="Add a Chore" onChange={this.addChore} value={this.state.newTask} required/>
-        	<input type="text" placeholder="Who Doin' "   required/>
-        	<input type="text" placeholder="When to complete"   required/>
+        			<input type="text" placeholder="Add a Chore" onChange={this.addChore} value={this.state.newTask} required/>
+        			<input type="text" placeholder="Who Doin' "   required/>
+        			<input type="text" placeholder="When to complete"   required/>
 				</form>
 				<button className="pressy-thing" onClick={this.add}> Add to List </button>
 				<ChoreList items={this.state.tasks} onDelete={this.deleteItem} />

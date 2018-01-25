@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import Roomate from './Roommate.js';
 
 class Profile extends Component {
   constructor(props) {
@@ -43,6 +44,7 @@ class Profile extends Component {
     }
     else {
       return (<div>
+        <h1>This only shows up if you haven't joined a house yet.</h1>
           <h2>ADD OR JOIN A HOUSE</h2>
           {/*render add/join house form component*/}
 
@@ -57,7 +59,8 @@ class Profile extends Component {
             <input type="text" onChange={this.handleNameChange} required/>
             <button type="submit">Create House</button>
           </form>
-
+        <h1>This shows up if you HAVE joined a house.</h1>
+        <Roomate />
         </div>
       );
     }
