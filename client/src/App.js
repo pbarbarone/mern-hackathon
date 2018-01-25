@@ -79,7 +79,8 @@ class App extends Component {
             <Nav user={this.state.user} />
             <div className="space">
               <Flash flashType={this.state.flashType} flash={this.state.flash} setFlash={this.setFlash} cancelFlash={this.cancelFlash} />
-              <Route exact path="/" component={Home} />
+              <Route exact path="/" component={
+                () => (<Home user={this.state.user} setFlash={this.setFlash} />)} />
               <Route path="/login" component={
                 () => (<Login user={this.state.user} setFlash={this.setFlash} updateUser={this.updateUser} />)} />
               <Route path="/signup" component={
