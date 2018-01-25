@@ -15,15 +15,18 @@ router.post('/create', function(req, res, next){
 			console.log('DB error', err);
 		}
 		else {
-			console.log(user.id);
+			console.log(user.id);//working
 			console.log('house id', house.id)
 			console.log(house);
-			// house.users.push(user.id);
-			// house.save(function (err) {
-  	// 			if (!err) console.log('Success!');
-			// });
+			house.users.push(user.id)///this works
+			// console.log(house.users.length + "see colin????");
+			house.save(function (err) {
+				console.log(err);
+  				if (!err) console.log('Success!');
+
+			});
 		}
-	})
+	});
 });
 
 router.post('/join', function(req, res, next){
