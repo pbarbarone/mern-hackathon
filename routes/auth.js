@@ -28,7 +28,8 @@ router.post('/login', function(req, res, next) {
       var token = jwt.sign(user.toObject(), process.env.JWT_SECRET, {
         expiresIn: 60 * 60 * 24 // expires in 24 hours
       });
-      res.send({user: user, token: token});
+      res.send({user: user, token: token, house: user.house});
+      console.log('user houseid ' + user.house )
     }
     else {
       // Return an error

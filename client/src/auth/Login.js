@@ -7,7 +7,8 @@ class Login extends Component {
     super(props)
     this.state = {
       email: '',
-      password: ''
+      password: '',
+      houseId:''
     }
   }
 
@@ -19,15 +20,22 @@ class Login extends Component {
     this.setState({password: e.target.value});
   }
 
+
   handleSubmit = (e) => {
     e.preventDefault();
     axios.post('/auth/login', {
       email: this.state.email,
-      password: this.state.password
+      password: this.state.password,
+      house: this.state.houseId
     }).then((result) => {
       localStorage.setItem('mernToken', result.data.token);
+      console.log("state of the house 1 " + result.data.user + result.data.house);
+
+      this.setState({houseId: result.data.house})
       this.setState({ success: true });
       this.props.updateUser();
+      console.log("state of the house" + this.state.houseId);
+
     }).catch((error) => {
       console.log('error returned', error.response.data);
       this.props.setFlash('error', error.response.status + ': ' + (error.response.data && error.response.data.error ? error.response.data.message : error.response.statusText));
