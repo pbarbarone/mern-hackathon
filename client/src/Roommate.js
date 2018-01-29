@@ -10,7 +10,7 @@ class Roommate extends Component {
 	render(){
 		return(
 			<div className="widget-container">
-					<Chores />
+					<Chores houseId={this.props.houseId} />
 					<Shopping />
 					<Bills />
 					<Messages />

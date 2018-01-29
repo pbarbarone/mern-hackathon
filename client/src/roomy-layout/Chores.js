@@ -29,6 +29,7 @@ class Chores extends Component {
 			date: this.state.date
 		})
 		console.log(this.state.newTask +' ' + this.state.name + ' ' + this.state.date)
+		console.log(this.props.houseId);
 }
 
 

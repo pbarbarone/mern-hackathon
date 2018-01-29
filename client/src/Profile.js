@@ -60,7 +60,7 @@ class Profile extends Component {
             <button type="submit">Create House</button>
           </form>
         <h1>This shows up if you HAVE joined a house.</h1>
-        <Roomate />
+        <Roomate houseId={this.state.houseId} />
         </div>
       );
     }
