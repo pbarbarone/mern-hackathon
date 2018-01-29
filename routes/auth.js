@@ -3,6 +3,7 @@ var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
 var User = require('../models/user');
+var House = require('../models/house');
 var bcrypt = require('bcrypt');
 var jwt = require('jsonwebtoken');
 
@@ -29,6 +30,8 @@ router.post('/login', function(req, res, next) {
         expiresIn: 60 * 60 * 24 // expires in 24 hours
       });
       res.send({user: user, token: token, house: user.house});
+      console.log("USER:"+user);
+      console.log("USER.HOUSE"+user.house);
     }
     else {
       // Return an error
@@ -103,9 +106,21 @@ router.post('/me/from/token', function(req, res, next) {
       var token = jwt.sign(user.toObject(), process.env.JWT_SECRET, {
         expiresIn: 60 * 60 * 24 // expires in 24 hours
       });
+      // console.log("USER:"+user);
+      // console.log("USER.HOUSE:"+user.house);
+      var userHouse;
+      House.findById(user.house, function(err, house) {
+        if(err) {
+          console.log(err);
+        } else {
+          userHouse = house;
+          console.log("USERHOUSE!!!!!"+userHouse);
+        }
+      });
       res.json({
         user: user,
-        token: token
+        token: token,
+        house: userHouse
       });
     });
   });

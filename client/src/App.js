@@ -16,7 +16,8 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-      user: {}
+      user: {},
+      house: {}
     }
   }
   componentDidMount = () => {
@@ -30,7 +31,8 @@ class App extends Component {
       localStorage.removeItem('mernToken');
       this.setState({
         token: '',
-        user: null
+        user: null,
+        house: null
       });
     } else {
       //   Validate the token against the server
@@ -41,8 +43,14 @@ class App extends Component {
         localStorage.setItem('mernToken', response.data.token);
         this.setState({
           token: response.data.token,
-          user: response.data.user
+          user: response.data.user,
+          house: response.data.house
         });
+        console.log("************"+response.data.user);
+        console.log("???????????"+response.data.token);
+        console.log("!!!!!!!!!!"+response.data.house);
+        console.log("####this.state.user: "+this.state.user);
+        console.log("%%%%%this.state.house: "+this.state.house);
         //   Pass User into child components and display main app
       }).catch(err => {
         // Both the JWT and db errors will be caught here
@@ -91,7 +99,6 @@ class App extends Component {
                 () => (<Profile user={this.state.user} setFlash={this.setFlash} />)} />
               <Route path="/househub" component={
                 () => (<Househub user={this.state.user} setFlash={this.setFlash} />)} />
-
             </div>
           </div>
         </Router>
