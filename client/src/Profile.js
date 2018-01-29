@@ -40,7 +40,7 @@ class Profile extends Component {
       return (
         <div>
           <h2>HELLO AGAIN {this.props.user.name}!</h2>
-          {console.log("USER.HOUSE:"+this.props.user.house)}
+          {console.log("this.props:"+this.props)}
         </div>)
     }
     else {

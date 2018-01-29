@@ -29,10 +29,7 @@ class Login extends Component {
       house: this.state.houseId
     }).then((result) => {
       localStorage.setItem('mernToken', result.data.token);
-      console.log("state of the house 1 " + result.data.user + result.data.house);
-      console.log("state of the house  " + result.data.user.house + result.data.house);
-
-
+      console.log("state of the house  " + result.data.house);
       this.setState({houseId: result.data.house})
       this.setState({ success: true });
       this.props.updateUser();
@@ -47,7 +44,7 @@ class Login extends Component {
   render() {
     let form = '';
     if(this.props.user){
-      return (<Redirect to="/profile" />);
+      return (<Redirect to="/profile" house={this.state.houseId} />);
     }
     else {
       form = (<form onSubmit={this.handleSubmit}>
