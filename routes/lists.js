@@ -6,7 +6,7 @@ var User = require('../models/user');
 var House = require('../models/house');
 
 //Post new chore route
-router.get('/create', function (req, res){
+router.post('/create', function (req, res){
 
 	res.send('create chore route reached');
 	console.log('create chore console log');

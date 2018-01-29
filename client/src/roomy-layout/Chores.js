@@ -11,15 +11,15 @@ class Chores extends Component {
 			}
 	}
 
-	deleteItem = (item) => {
-		let tasksDelete = this.state.tasks;
-		let taskIndex = tasksDelete.indexOf(item);
+	// deleteItem = (item) => {
+	// 	let tasksDelete = this.state.tasks;
+	// 	let taskIndex = tasksDelete.indexOf(item);
 
-		if(taskIndex >= 0){
-			tasksDelete.splice(taskIndex, 1);
-			this.setState({tasks: tasksDelete});
-		}
-	}
+	// 	if(taskIndex >= 0){
+	// 		tasksDelete.splice(taskIndex, 1);
+	// 		this.setState({tasks: tasksDelete});
+	// 	}
+	// }
 
 	add = (e) => {
 		e.preventDefault();
@@ -28,11 +28,13 @@ class Chores extends Component {
 			roommate: this.state.name,
 			date: this.state.date
 		})
+		console.log(this.state.newTask +' ' + this.state.name + ' ' + this.state.date)
 }
 
 
 	addChore = (e) =>{
 		this.setState({newTask: e.target.value})
+
 	}
 
 	addDate = (e) =>{
