@@ -16,18 +16,15 @@ router.post('/create', function(req, res, next){
 			console.log('DB error', err);
 		}
 		else {
-
-			//NEW CODE
 			House.findOneAndUpdate({_id: house._id}, {$push: {users: user.id}}, function(err, house) {
 				if(err) console.log(err);
-				console.log("HOUSE: "+house);
-				console.log("HOUSE.ID: "+house.id);
-				console.log("HOUSE._ID: "+house._id);
-				console.log("USER: "+user);
-				console.log("USER.ID: "+user.id);
-				console.log("USER._ID: "+user._id);
+				// console.log("HOUSE: "+house);
+				// console.log("HOUSE.ID: "+house.id);
+				// console.log("HOUSE._ID: "+house._id);
+				// console.log("USER: "+user);
+				// console.log("USER.ID: "+user.id);
+				// console.log("USER._ID: "+user._id);
 			});
-			//
 
 			User.findOneAndUpdate({ email: user.email }, {house: house.id}, function(err, user) {
 						if(err) console.log(err);
@@ -44,11 +41,11 @@ router.post('/join', function(req, res, next){
 
 	House.findOneAndUpdate({_id: req.body.houseId}, {$push: {users: user.id}}, function(err, house) {
 		if(err) console.log(err);
-		console.log("HOUSE: "+house);
+		// console.log("HOUSE: "+house);
 		// console.log("HOUSE.ID: "+house.id);
 		// console.log("HOUSE._ID: "+house._id);
-		console.log("USER: "+user);
-		console.log("USER.ID: "+user.id);
+		// console.log("USER: "+user);
+		// console.log("USER.ID: "+user.id);
 		// console.log("USER._ID: "+user._id);
 	});
 

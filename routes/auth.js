@@ -30,8 +30,6 @@ router.post('/login', function(req, res, next) {
       });
       res.send({user: user, token: token, house: user.house});
 
-      console.log('user houseid ' + user.house  )
-      console.log(user);
     }
     else {
       // Return an error
