@@ -29,7 +29,9 @@ router.post('/login', function(req, res, next) {
         expiresIn: 60 * 60 * 24 // expires in 24 hours
       });
       res.send({user: user, token: token, house: user.house});
-      console.log('user houseid ' + user.house )
+
+      console.log('user houseid ' + user.house  )
+      console.log(user);
     }
     else {
       // Return an error

@@ -30,6 +30,8 @@ class Login extends Component {
     }).then((result) => {
       localStorage.setItem('mernToken', result.data.token);
       console.log("state of the house 1 " + result.data.user + result.data.house);
+      console.log("state of the house  " + result.data.user.house + result.data.house);
+
 
       this.setState({houseId: result.data.house})
       this.setState({ success: true });
