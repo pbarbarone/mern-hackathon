@@ -5,7 +5,8 @@ class Chores extends Component {
 		super(props)
 			this.state= {
 				newTask: '',
-				tasks: []
+				date: '',
+				name: ''
 			}
 	}
 
@@ -18,19 +19,27 @@ class Chores extends Component {
 			this.setState({tasks: tasksDelete});
 		}
 	}
+
 	add = (e) => {
 		e.preventDefault();
-		console.log(this.state.newTask);
-		if(this.state.newTask){
+		axios.post('/lists/create', {
+			task: this.state.newTask,
+			roommate: this.state.name,
+			date: this.state.date
+		})
+}
 
-			let localTask = this.state.tasks;
-			localTask.push(this.state.newTask)
-			this.setState({newTask: '', tasks: localTask})
-		}
-	}
 
 	addChore = (e) =>{
 		this.setState({newTask: e.target.value})
+	}
+
+	addDate = (e) =>{
+		this.setState({date: e.target.value})
+	}
+
+	addName = (e) =>{
+		this.setState({name: e.target.value})
 	}
 
 
@@ -40,8 +49,8 @@ class Chores extends Component {
 				<h2 className="chore-header"> Chores </h2>
 				<form className="chore-form" onSubmit={this.add}>
         			<input type="text" placeholder="Add a Chore" onChange={this.addChore} value={this.state.newTask} required/>
-        			<input type="text" placeholder="Who Doin' "   required/>
-        			<input type="text" placeholder="When to complete"   required/>
+        			<input type="text" placeholder="Who Doin' "  onChange={this.addName} value={this.state.name} required/>
+        			<input type="text" placeholder="When to complete" onChange={this.addDate} value={this.state.date}  required/>
 				</form>
 				<button className="pressy-thing" onClick={this.add}> Add to List </button>
 				<ChoreList items={this.state.tasks} onDelete={this.deleteItem} />
@@ -50,31 +59,31 @@ class Chores extends Component {
 	}
 }
 
-class ChoreList extends Component {
-	render(){
-			const allChores = this.props.items.map(chore => {
-				return (<ListItem item={chore} onDelete={this.props.onDelete} />)
-			})
-		return(
-			<ul className ="chore-list">{allChores}</ul>
+// class ChoreList extends Component {
+// 	render(){
+// 			const allChores = this.props.items.map(chore => {
+// 				return (<ListItem item={chore} onDelete={this.props.onDelete} />)
+// 			})
+// 		return(
+// 			<ul className ="chore-list">{allChores}</ul>
 
-		)
-	}
-}
+// 		)
+// 	}
+// }
 
-class ListItem extends Component {
-	deleteHandler = () => {
-		this.props.onDelete(this.props.item)
-	}
-	render(){
-		return(
-			<li className="list-item">
-				{this.props.item}
-				<button className="delete-button" onClick={this.deleteHandler}>X</button>
-			</li>
-		)
-	}
-}
+// class ListItem extends Component {
+// 	deleteHandler = () => {
+// 		this.props.onDelete(this.props.item)
+// 	}
+// 	render(){
+// 		return(
+// 			<li className="list-item">
+// 				{this.props.item}
+// 				<button className="delete-button" onClick={this.deleteHandler}>X</button>
+// 			</li>
+// 		)
+// 	}
+// }
 
 
 

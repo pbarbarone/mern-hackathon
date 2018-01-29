@@ -26,9 +26,11 @@ app.use(function(req, res, next) {
 // Controllers
 app.use('/auth', require('./routes/auth'));
 app.use('/house', require('./routes/house'));
+app.use('/lists', require('./routes/lists'));
 
 app.get('*', function(req, res, next) {
 	res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
 });
+
 
 module.exports = app;

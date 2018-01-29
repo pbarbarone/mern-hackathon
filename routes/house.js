@@ -16,16 +16,6 @@ router.post('/create', function(req, res, next){
 			console.log('DB error', err);
 		}
 		else {
-			// console.log(user.id);//working
-			// console.log('house id', house.id)
-			// console.log(house);
-			// house.users.push(user.id)///this works
-			// console.log(house.users.length + "see colin????");
-			// house.save(function (err) {
-			// 	console.log(err);
-  	// 			if (!err) console.log('Success!');
-
-			// });
 
 			//NEW CODE
 			House.findOneAndUpdate({_id: house._id}, {$push: {users: user.id}}, function(err, house) {
