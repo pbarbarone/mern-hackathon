@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import axios from 'axios';
 
 class Chores extends Component {
 	constructor(props){
@@ -53,7 +54,7 @@ class Chores extends Component {
         			<input type="text" placeholder="When to complete" onChange={this.addDate} value={this.state.date}  required/>
 				</form>
 				<button className="pressy-thing" onClick={this.add}> Add to List </button>
-				<ChoreList items={this.state.tasks} onDelete={this.deleteItem} />
+				{/*<ChoreList items={this.state.tasks} onDelete={this.deleteItem} /> */}
 			</div>
 		)
 	}
