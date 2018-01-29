@@ -36,35 +36,40 @@ class Profile extends Component {
   }
 
   render(){
-    if(this.props.user && this.props.user.name && this.props.user.house){
-      return (<div>
+    if(this.props.user && this.props.user.name){
+      return (
+        <div>
           <h2>HELLO AGAIN {this.props.user.name}!</h2>
-          {/*render normal dashboard component*/}
-        </div>);
+          {console.log("USER.HOUSE:"+this.props.user.house)}
+        </div>)
     }
     else {
-      return (<div>
-        <h1>This only shows up if you haven't joined a house yet.</h1>
-          <h2>ADD OR JOIN A HOUSE</h2>
-          {/*render add/join house form component*/}
-
-          <form  className="join-house" onSubmit={this.joinHouse}>
-            <label>House ID</label>
-            <input type="text" onChange={this.handleIdChange} required/>
-            <button type="submit">Join House</button>
-          </form>
-
-          <form className="create-house" onSubmit={this.createHouse}>
-            <label>House Name</label>
-            <input type="text" onChange={this.handleNameChange} required/>
-            <button type="submit">Create House</button>
-          </form>
-        <h1>This shows up if you HAVE joined a house.</h1>
-        <Roomate houseId={this.state.houseId} />
+      return (
+        <div>
+          <Roomate />
         </div>
       );
     }
   }
+}
+
+function createJoinHouseFrom() {
+  <div className="create-join-house-form">
+    <h2>ADD OR JOIN A HOUSE</h2>
+
+    <form  className="join-house" onSubmit={this.joinHouse}>
+      <label>House ID</label>
+      <input type="text" onChange={this.handleIdChange} required/>
+      <button type="submit">Join House</button>
+    </form>
+
+    <form className="create-house" onSubmit={this.createHouse}>
+      <label>House Name</label>
+      <input type="text" onChange={this.handleNameChange} required/>
+      <button type="submit">Create House</button>
+    </form>
+
+  </div>
 }
 
 export default Profile;
