@@ -15,13 +15,17 @@ var houseSchema = new mongoose.Schema({
 	shoppingItems: [{
 						item:String,
 						user: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
-						date:Date
+						date: Date
 					}],
-	billPerUser: {
+	billPerUser: [{
 					rent: String, //price
 					utilities: String, //price
 					dueDate: Date
-				}
+				}],
+	memos: [{
+					subject: String,
+					content: String
+			}]
 });
 
 var House = mongoose.model('House', houseSchema);
