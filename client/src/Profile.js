@@ -50,14 +50,14 @@ class Profile extends Component {
       return (
         <div>
           {console.log("I am in the else statement!")}
-          <createJoinHouseForm user={this.props.user} />
+          <HouseForm user={this.props.user} />
         </div>
       );
     }
   }
 }
 
-{/*const createJoinHouseForm = props => {
+const HouseForm = props => {
   
     if(Object.keys(props.user)){
       return (
@@ -74,13 +74,13 @@ class Profile extends Component {
               <label>House Name</label>
               <input type="text" onChange={this.handleNameChange} required/>
               <button type="submit">Create House</button>
-            </form>}
+            </form>
           </div>
       )
     }
     else {
       return "Object.keys(props.user) is falsy";
     }
-}*/}
+}
 
 export default Profile;
