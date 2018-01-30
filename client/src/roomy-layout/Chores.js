@@ -7,7 +7,7 @@ class Chores extends Component {
 			this.state= {
 				newTask: '',
 				date: '',
-				name: ''
+				roommateId: ''
 			}
 	}
 
@@ -29,8 +29,9 @@ class Chores extends Component {
 			date: this.state.date,
 			house: this.props.house._id
 		})
-		console.log(this.state.newTask +' ' + this.state.name + ' ' + this.state.date)
+		console.log(this.state.newTask +' ' + this.state.roommateId + ' ' + this.state.date)
 		console.log('this should be a house ' + this.props.house._id);
+		console.log('these are our roommates' + this.props.roommates);
 }
 
 
@@ -43,19 +44,25 @@ class Chores extends Component {
 		this.setState({date: e.target.value})
 	}
 
-	addName = (e) =>{
-		this.setState({name: e.target.value})
+	addRoommate = (e) =>{
+		this.setState({roommateId: e.target.value})
 
 	}
 
 
 	render(){
+		const roommateOptions = this.props.roommates.map(r => {
+			return <option value={r.id}>{r.id}</option>
+			});
 		return(
 			<div className="chore-container">
 				<h2 className="chore-header"> Chores </h2>
 				<form className="chore-form" onSubmit={this.add}>
         			<input type="text" placeholder="Add a Chore" onChange={this.addChore} value={this.state.newTask} required/>
-        			<input type="text" placeholder="Who Doin' "  onChange={this.addName} value={this.state.name} required/>
+        			<select required onChange={this.addRoommate}>
+        				<option value="" disabled selected hidden>Assign a Roommate</option>
+        				{roommateOptions}
+        			</select>
         			<input type="date" onChange={this.addDate} value={this.state.date}  required/>
 				</form>
 				<button className="pressy-thing" onClick={this.add}> Add to List </button>
@@ -64,6 +71,8 @@ class Chores extends Component {
 		)
 	}
 }
+
+
 
 // class ChoreList extends Component {
 // 	render(){

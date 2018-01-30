@@ -12,7 +12,7 @@ class Roommate extends Component {
 			<div className="widget-container">
 				<h1> {this.props.house._id} </h1>
 				<h1> peter likes cats </h1>
-					<Chores house={this.props.house}  />
+					<Chores house={this.props.house} roommates={this.props.roommates}  />
 					<Shopping />
 					<Bills />
 					<Messages />
