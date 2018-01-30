@@ -109,7 +109,7 @@ router.post('/me/from/token', function(req, res, next) {
         if(err) {
           console.log(err);
         } 
-        else {
+        else if (house) {
           var roommates = [];
           //First thing we want it to do is grab a roommate from the array house.users
           //Next thing we want it to do is query User to find that user
@@ -135,9 +135,15 @@ router.post('/me/from/token', function(req, res, next) {
             });
           });
         }
-      });
+        else {
+            res.json({
+              user: user,
+              token: token
+            });
+        }
     });
   });
+});
 });
 
 module.exports = router;

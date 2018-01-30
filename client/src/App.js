@@ -47,7 +47,6 @@ class App extends Component {
           house: response.data.house,
           roommates: response.data.roommates
         });
-        console.log("*****ROOOOOM*******"+response.data.roommates);
         //   Pass User into child components and display main app
       }).catch(err => {
         // Both the JWT and db errors will be caught here

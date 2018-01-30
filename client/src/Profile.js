@@ -44,7 +44,6 @@ class Profile extends Component {
           <Roomate house={this.props.house} roommates={this.props.roommates} />
           {console.log("User has a house!"+ this.props.house)}
           {console.log("ROOMATES: "+this.props.roommates)}
-
         </div>)
     }
     else {
@@ -58,23 +57,30 @@ class Profile extends Component {
   }
 }
 
-const createJoinHouseForm = (props) => {
-  <div className="create-join-house-form">
-    {console.log("User does not have a house!")}
-    <h2>ADD OR JOIN A HOUSE</h2>
+{/*const createJoinHouseForm = props => {
+  
+    if(Object.keys(props.user)){
+      return (
+          <div>
+            {console.log("User does not have a house!")}
+            <h2>ADD OR JOIN A HOUSE</h2>
+            <form  className="join-house" onSubmit={this.joinHouse}>
+              <label>House ID</label>
+              <input type="text" onChange={this.handleIdChange} required/>
+              <button type="submit">Join House</button>
+            </form>
 
-    <form  className="join-house" onSubmit={this.joinHouse}>
-      <label>House ID</label>
-      <input type="text" onChange={this.handleIdChange} required/>
-      <button type="submit">Join House</button>
-    </form>
-
-    <form className="create-house" onSubmit={this.createHouse}>
-      <label>House Name</label>
-      <input type="text" onChange={this.handleNameChange} required/>
-      <button type="submit">Create House</button>
-    </form>
-  </div>
-}
+            <form className="create-house" onSubmit={this.createHouse}>
+              <label>House Name</label>
+              <input type="text" onChange={this.handleNameChange} required/>
+              <button type="submit">Create House</button>
+            </form>}
+          </div>
+      )
+    }
+    else {
+      return "Object.keys(props.user) is falsy";
+    }
+}*/}
 
 export default Profile;
