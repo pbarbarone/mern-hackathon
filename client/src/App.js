@@ -90,15 +90,15 @@ class App extends Component {
             <div className="space">
               <Flash flashType={this.state.flashType} flash={this.state.flash} setFlash={this.setFlash} cancelFlash={this.cancelFlash} />
               <Route exact path="/" component={
-                () => (<Home user={this.state.user} setFlash={this.setFlash} />)} />
+                () => (<Home user={this.state.user} house={this.state.house} setFlash={this.setFlash} />)} />
               <Route path="/login" component={
-                () => (<Login user={this.state.user} setFlash={this.setFlash} updateUser={this.updateUser} />)} />
+                () => (<Login user={this.state.user} house={this.state.house} setFlash={this.setFlash} updateUser={this.updateUser} />)} />
               <Route path="/signup" component={
-                () => (<Signup user={this.state.user} setFlash={this.setFlash} updateUser={this.updateUser} />)} />
+                () => (<Signup user={this.state.user} house={this.state.house} setFlash={this.setFlash} updateUser={this.updateUser} />)} />
               <Route path="/profile" component={
-                () => (<Profile user={this.state.user} setFlash={this.setFlash} />)} />
+                () => (<Profile user={this.state.user} house={this.state.house} setFlash={this.setFlash} />)} />
               <Route path="/househub" component={
-                () => (<Househub user={this.state.user} setFlash={this.setFlash} />)} />
+                () => (<Househub user={this.state.user} house={this.state.house} setFlash={this.setFlash} />)} />
             </div>
           </div>
         </Router>
