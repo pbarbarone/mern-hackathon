@@ -23,13 +23,14 @@ class Chores extends Component {
 
 	add = (e) => {
 		e.preventDefault();
-		axios.post('/lists/create', {
+		axios.post('/lists/chore/create', {
 			task: this.state.newTask,
-			roommate: this.state.name,
-			date: this.state.date
+			roommate: null,
+			date: this.state.date,
+			house: this.props.house._id
 		})
 		console.log(this.state.newTask +' ' + this.state.name + ' ' + this.state.date)
-		console.log('this should be a house ' + this.props.house);
+		console.log('this should be a house ' + this.props.house._id);
 }
 
 
@@ -44,6 +45,7 @@ class Chores extends Component {
 
 	addName = (e) =>{
 		this.setState({name: e.target.value})
+
 	}
 
 
@@ -54,7 +56,7 @@ class Chores extends Component {
 				<form className="chore-form" onSubmit={this.add}>
         			<input type="text" placeholder="Add a Chore" onChange={this.addChore} value={this.state.newTask} required/>
         			<input type="text" placeholder="Who Doin' "  onChange={this.addName} value={this.state.name} required/>
-        			<input type="text" placeholder="When to complete" onChange={this.addDate} value={this.state.date}  required/>
+        			<input type="date" onChange={this.addDate} value={this.state.date}  required/>
 				</form>
 				<button className="pressy-thing" onClick={this.add}> Add to List </button>
 				{/*<ChoreList items={this.state.tasks} onDelete={this.deleteItem} /> */}
