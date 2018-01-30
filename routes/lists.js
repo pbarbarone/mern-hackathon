@@ -6,26 +6,43 @@ var User = require('../models/user');
 var House = require('../models/house');
 
 //Post new chore route
-router.post('/create', function (req, res, next){
+router.post('/chore/create', function (req, res, next){
 	console.log('post route firing', req.body.task, req.body.roommate, req.body.date);
-	// House.findOneAndUpdate({_id: house._id}, function(err, chore){
-		// if(err) console.log(err);
-		// console.log('house?  '+ house._id)
-	// });
+	House.findOneAndUpdate({_id: req.body.houseId}, 
+		{$push: {chores: {
+			task: req.body.task,
+			user: req.body.roommate,
+			date: req.body}}},
+		function(err, chore){
+			if(err) res.send(err);
+		});
+	});
 
-	res.send('create chore route reached');
-	console.log('create chore console log');
-})
 
 
 
 // Delete chore route
-
+router.delete('/delete/:id', function(req, res, next){
+	House.chores.findOneAndRemove({task: req.params.task}, function(err){
+		if(err) return res.send(err);
+		console.log('task completed');
+	});
+	res.redirect('/')
+});
 
 
 
 //Post new shopping item
-
+router.post('/shopping/create', function (req, res, next){
+	House.findOneAndUpdate({_id: req.body.houseId},
+		{$push: {
+			shoppingItems: {
+				item: req.body.item,
+				user: req.body.roommate,
+				date: req.body.date
+			}
+		}})
+})
 
 
 
