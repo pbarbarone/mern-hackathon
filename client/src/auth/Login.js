@@ -8,7 +8,8 @@ class Login extends Component {
     this.state = {
       email: '',
       password: '',
-      houseId:''
+      house:'',
+      roommates: ''
     }
   }
 
@@ -26,14 +27,14 @@ class Login extends Component {
     axios.post('/auth/login', {
       email: this.state.email,
       password: this.state.password,
-      house: this.state.houseId
+      // house: this.state.house
     }).then((result) => {
       localStorage.setItem('mernToken', result.data.token);
-      console.log("state of the house  " + result.data.house);
-      this.setState({houseId: result.data.house})
+      // console.log("state of the house  " + result.data.house);
+      // this.setState({house: result.data.house})
+      // this.setState({roommates: result.data.roommates})
       this.setState({ success: true });
       this.props.updateUser();
-      console.log("state of the house" + this.state.houseId);
 
     }).catch((error) => {
       console.log('error returned', error.response.data);
@@ -44,7 +45,7 @@ class Login extends Component {
   render() {
     let form = '';
     if(this.props.user){
-      return (<Redirect to="/profile" house={this.state.houseId} />);
+      return (<Redirect to="/profile" />);
     }
     else {
       form = (<form onSubmit={this.handleSubmit}>

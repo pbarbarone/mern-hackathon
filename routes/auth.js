@@ -1,6 +1,7 @@
 require('dotenv').config();
 var express = require('express');
 var router = express.Router();
+var async = require('async');
 var mongoose = require('mongoose');
 var User = require('../models/user');
 var House = require('../models/house');
@@ -29,9 +30,7 @@ router.post('/login', function(req, res, next) {
       var token = jwt.sign(user.toObject(), process.env.JWT_SECRET, {
         expiresIn: 60 * 60 * 24 // expires in 24 hours
       });
-      res.send({user: user, token: token, house: user.house});
-      console.log("USER:"+user);
-      console.log("USER.HOUSE"+user.house);
+      res.send({user: user, token: token});
     }
     else {
       // Return an error
@@ -112,7 +111,10 @@ router.post('/me/from/token', function(req, res, next) {
         } 
         else {
           var roommates = [];
-          house.users.forEach(roommate => {
+          //First thing we want it to do is grab a roommate from the array house.users
+          //Next thing we want it to do is query User to find that user
+          //Next push that user into the roommates array
+          async.forEach(house.users, function(roommate, callback){
             User.findById(roommate, function(err, roommate) {
               if(err) {
                 console.log(err);
@@ -121,13 +123,16 @@ router.post('/me/from/token', function(req, res, next) {
                 roommates.push(roommate);
                 console.log(roommates);
               }
+              callback(null);
             });
-          });
-          res.json({
+          },
+          function(){
+            res.json({
               user: user,
               token: token,
               house: house,
               roommates: roommates
+            });
           });
         }
       });

@@ -35,13 +35,16 @@ class Profile extends Component {
     });
   }
 
+
   render(){
     if(this.props.user && this.props.user.name && this.props.house){
       return (
         <div>
-          {console.log("ROOMATES: "+this.props.roommates)}
+          {console.log("is there a useeeeeeeeer?" + this.props.user)}
           <Roomate house={this.props.house} roommates={this.props.roommates} />
-          {console.log("User has a house!")}
+          {console.log("User has a house!"+ this.props.house)}
+          {console.log("ROOMATES: "+this.props.roommates)}
+
         </div>)
     }
     else {
