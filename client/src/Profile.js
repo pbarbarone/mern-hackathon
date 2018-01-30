@@ -39,22 +39,22 @@ class Profile extends Component {
     if(this.props.user && this.props.user.name && this.props.house){
       return (
         <div>
-          <h2>HELLO AGAIN {this.props.user.name}!</h2>
-          <h3>You live in {this.props.house.name}?</h3>
-          {console.log("this.props:"+this.props)}
+
+          <Roomate house={this.props.house} />
+
         </div>)
     }
     else {
       return (
         <div>
-          <Roomate />
+        <createJoinHouseForm user={this.props.user} />
         </div>
       );
     }
   }
 }
 
-function createJoinHouseFrom() {
+function createJoinHouseForm() {
   <div className="create-join-house-form">
     <h2>ADD OR JOIN A HOUSE</h2>
 

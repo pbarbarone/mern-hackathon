@@ -21,28 +21,28 @@ router.post('/chore/create', function (req, res, next){
 
 
 
-// Delete chore route
-router.delete('/delete/:id', function(req, res, next){
-	House.chores.findOneAndRemove({task: req.params.task}, function(err){
-		if(err) return res.send(err);
-		console.log('task completed');
-	});
-	res.redirect('/')
-});
+// // Delete chore route
+// router.delete('/delete/:id', function(req, res, next){
+// 	House.chores.findOneAndRemove({task: req.params.task}, function(err){
+// 		if(err) return res.send(err);
+// 		console.log('task completed');
+// 	});
+// 	res.redirect('/')
+// });
 
 
 
-//Post new shopping item
-router.post('/shopping/create', function (req, res, next){
-	House.findOneAndUpdate({_id: req.body.houseId},
-		{$push: {
-			shoppingItems: {
-				item: req.body.item,
-				user: req.body.roommate,
-				date: req.body.date
-			}
-		}})
-})
+// //Post new shopping item
+// router.post('/shopping/create', function (req, res, next){
+// 	House.findOneAndUpdate({_id: req.body.houseId},
+// 		{$push: {
+// 			shoppingItems: {
+// 				item: req.body.item,
+// 				user: req.body.roommate,
+// 				date: req.body.date
+// 			}
+// 		}})
+// })
 
 
 
