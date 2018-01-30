@@ -48,6 +48,13 @@ router.post('/chore/create', function (req, res, next){
 
 
 //Delete shopping item
+// router.delete('/delete/:id', function(req, res, next){
+// 	House.shoppingItems.findOneAndRemove({task: req.params.task}, function(err){
+// 		if(err) return res.send(err);
+// 		console.log('task completed');
+// 	});
+// 	res.redirect('/')
+// });
 
 
 

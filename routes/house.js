@@ -56,4 +56,28 @@ router.post('/join', function(req, res, next){
 
 });
 
+
+// //DELETE ROOMMATE FROM HOUSE
+// router.delete('/delete/roommate/:id', function (req, res, next){
+// 	House.users.findOneAndRemove()
+// })
+
+//DELETE HOUSE
+// router.delete('/delete/:id', function (req, res, next){
+// 	House.findOneAndRemove({_id: req.params.id}, function(err){
+// 		if(err) return console.log(err);
+// 	})
+// 	res.redirect('/');
+// })
+
+
+
+
+
+
+
+
+
+
+
 module.exports = router;

@@ -27,6 +27,8 @@ app.use(function(req, res, next) {
 app.use('/auth', require('./routes/auth'));
 app.use('/house', require('./routes/house'));
 app.use('/lists', require('./routes/lists'));
+app.use('/bills', require('./routes/bills'));
+app.use('/memos', require('./routes/memos'));
 
 app.get('*', function(req, res, next) {
 	res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
