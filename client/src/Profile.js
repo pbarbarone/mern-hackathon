@@ -36,10 +36,11 @@ class Profile extends Component {
   }
 
   render(){
-    if(this.props.user && this.props.user.name){
+    if(this.props.user && this.props.user.name && this.props.house){
       return (
         <div>
           <h2>HELLO AGAIN {this.props.user.name}!</h2>
+          <h3>You live in {this.props.house.name}?</h3>
           {console.log("this.props:"+this.props)}
         </div>)
     }

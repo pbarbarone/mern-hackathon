@@ -106,21 +106,16 @@ router.post('/me/from/token', function(req, res, next) {
       var token = jwt.sign(user.toObject(), process.env.JWT_SECRET, {
         expiresIn: 60 * 60 * 24 // expires in 24 hours
       });
-      // console.log("USER:"+user);
-      // console.log("USER.HOUSE:"+user.house);
-      var userHouse;
       House.findById(user.house, function(err, house) {
         if(err) {
           console.log(err);
         } else {
-          userHouse = house;
-          console.log("USERHOUSE!!!!!"+userHouse);
+          res.json({
+              user: user,
+              token: token,
+              house: house
+          });
         }
-      });
-      res.json({
-        user: user,
-        token: token,
-        house: userHouse
       });
     });
   });
