@@ -81,7 +81,7 @@ class Chores extends Component {
         			<input type="date" onChange={this.addDate} value={this.state.date}  required/>
 				</form>
 				<button className="pressy-thing" onClick={this.add}> Add to List </button>
-				{/*<ChoreList items={this.state.tasks} onDelete={this.deleteItem} /> */}
+				<ChoreList chores={this.props.house.chores} onDelete={this.deleteItem} /> 
 			</div>
 		)
 	}
@@ -91,8 +91,8 @@ class Chores extends Component {
 
 class ChoreList extends Component {
 	render(){
-			const allChores = this.props.house.chores.map(chore => {
-				return (<ListItem task={chore.task} date={chore.date} roommate={chore.user} onDelete={this.props.onDelete} />)
+			const allChores = this.props.chores.map(chore => {
+				return (<ListItem task={chore.task} date={chore.date} roommate={chore.roommateName} onDelete={this.props.onDelete} />)
 			})
 		return(
 			<ul className ="chore-list">{allChores}</ul>
@@ -103,7 +103,7 @@ class ChoreList extends Component {
 
 class ListItem extends Component {
 	deleteHandler = () => {
-		this.props.onDelete(this.props.item)
+		this.props.onDelete(this.props.task)
 	}
 	render(){
 		return(
