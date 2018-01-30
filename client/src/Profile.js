@@ -39,15 +39,13 @@ class Profile extends Component {
     if(this.props.user && this.props.user.name && this.props.house){
       return (
         <div>
-
           <Roomate house={this.props.house} />
-
         </div>)
     }
     else {
       return (
         <div>
-        <createJoinHouseForm user={this.props.user} />
+          <createJoinHouseFrom user={this.props.user} />
         </div>
       );
     }
