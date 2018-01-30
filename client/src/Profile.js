@@ -40,20 +40,23 @@ class Profile extends Component {
       return (
         <div>
           <Roomate house={this.props.house} />
+          {console.log("User has a house!")}
         </div>)
     }
     else {
       return (
         <div>
-          <createJoinHouseFrom user={this.props.user} />
+          {console.log("I am in the else statement!")}
+          <createJoinHouseForm user={this.props.user} />
         </div>
       );
     }
   }
 }
 
-function createJoinHouseForm() {
+const createJoinHouseForm = (props) => {
   <div className="create-join-house-form">
+    {console.log("User does not have a house!")}
     <h2>ADD OR JOIN A HOUSE</h2>
 
     <form  className="join-house" onSubmit={this.joinHouse}>
@@ -67,7 +70,6 @@ function createJoinHouseForm() {
       <input type="text" onChange={this.handleNameChange} required/>
       <button type="submit">Create House</button>
     </form>
-
   </div>
 }
 
