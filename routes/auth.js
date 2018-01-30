@@ -109,11 +109,25 @@ router.post('/me/from/token', function(req, res, next) {
       House.findById(user.house, function(err, house) {
         if(err) {
           console.log(err);
-        } else {
+        } 
+        else {
+          var roommates = [];
+          house.users.forEach(roommate => {
+            User.findById(roommate, function(err, roommate) {
+              if(err) {
+                console.log(err);
+              }
+              else {
+                roommates.push(roommate);
+                console.log(roommates);
+              }
+            });
+          });
           res.json({
               user: user,
               token: token,
-              house: house
+              house: house,
+              roommates: roommates
           });
         }
       });

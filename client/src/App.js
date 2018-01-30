@@ -44,7 +44,8 @@ class App extends Component {
         this.setState({
           token: response.data.token,
           user: response.data.user,
-          house: response.data.house
+          house: response.data.house,
+          roomates: response.data.roomates
         });
         console.log("************"+response.data.user);
         console.log("???????????"+response.data.token);
@@ -96,7 +97,7 @@ class App extends Component {
               <Route path="/signup" component={
                 () => (<Signup user={this.state.user} house={this.state.house} setFlash={this.setFlash} updateUser={this.updateUser} />)} />
               <Route path="/profile" component={
-                () => (<Profile user={this.state.user} house={this.state.house} setFlash={this.setFlash} />)} />
+                () => (<Profile user={this.state.user} house={this.state.house} roommates={this.state.roommates} setFlash={this.setFlash} />)} />
               <Route path="/househub" component={
                 () => (<Househub user={this.state.user} house={this.state.house} setFlash={this.setFlash} />)} />
             </div>

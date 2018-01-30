@@ -39,7 +39,8 @@ class Profile extends Component {
     if(this.props.user && this.props.user.name && this.props.house){
       return (
         <div>
-          <Roomate house={this.props.house} />
+          {console.log("ROOMATES: "+this.props.roommates)}
+          <Roomate house={this.props.house} roommates={this.props.roommates} />
           {console.log("User has a house!")}
         </div>)
     }
