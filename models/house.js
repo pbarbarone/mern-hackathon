@@ -10,12 +10,14 @@ var houseSchema = new mongoose.Schema({
 	chores: [{
 				task: String,
 				user: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
-				date: Date
+				date: Date,
+				roommateName: String
 			}],
 	shoppingItems: [{
 						item:String,
 						user: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
-						date: Date
+						date: Date,
+						roommateName: String
 					}],
 	billPerUser: [{
 					rent: String, //price
