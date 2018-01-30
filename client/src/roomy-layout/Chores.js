@@ -7,7 +7,8 @@ class Chores extends Component {
 			this.state= {
 				newTask: '',
 				date: '',
-				roommateId: ''
+				roommateId: '',
+				roommateName:''
 			}
 	}
 
@@ -25,9 +26,10 @@ class Chores extends Component {
 		e.preventDefault();
 		axios.post('/lists/chore/create', {
 			task: this.state.newTask,
-			roommate: null,
+			roommateId: this.state.roommateId,
 			date: this.state.date,
-			house: this.props.house._id
+			house: this.props.house._id,
+			roommateName: this.state.roommateName
 		})
 		console.log(this.state.newTask +' ' + this.state.roommateId + ' ' + this.state.date)
 		console.log('this should be a house ' + this.props.house._id);
@@ -44,15 +46,28 @@ class Chores extends Component {
 		this.setState({date: e.target.value})
 	}
 
-	addRoommate = (e) =>{
-		this.setState({roommateId: e.target.value})
+	addName = (name) => {
+		this.setState({roommateName: name});
+	}
 
+
+
+	addRoommate = (e) =>{
+		let base = this;
+		const roommateId = e.target.value;
+		base.setState({roommateId: roommateId});
+		base.props.roommates.forEach(function(rm){
+			console.log("drop down name" + rm.name);
+			if(rm.id === roommateId){
+				base.addName(rm.name);
+			}
+		});
 	}
 
 
 	render(){
 		const roommateOptions = this.props.roommates.map(r => {
-			return <option value={r.id}>{r.id}</option>
+			return <option value={r.id}>{r.name}</option>
 			});
 		return(
 			<div className="chore-container">
@@ -74,31 +89,31 @@ class Chores extends Component {
 
 
 
-// class ChoreList extends Component {
-// 	render(){
-// 			const allChores = this.props.items.map(chore => {
-// 				return (<ListItem item={chore} onDelete={this.props.onDelete} />)
-// 			})
-// 		return(
-// 			<ul className ="chore-list">{allChores}</ul>
+class ChoreList extends Component {
+	render(){
+			const allChores = this.props.house.chores.map(chore => {
+				return (<ListItem task={chore.task} date={chore.date} roommate={chore.user} onDelete={this.props.onDelete} />)
+			})
+		return(
+			<ul className ="chore-list">{allChores}</ul>
 
-// 		)
-// 	}
-// }
+		)
+	}
+}
 
-// class ListItem extends Component {
-// 	deleteHandler = () => {
-// 		this.props.onDelete(this.props.item)
-// 	}
-// 	render(){
-// 		return(
-// 			<li className="list-item">
-// 				{this.props.item}
-// 				<button className="delete-button" onClick={this.deleteHandler}>X</button>
-// 			</li>
-// 		)
-// 	}
-// }
+class ListItem extends Component {
+	deleteHandler = () => {
+		this.props.onDelete(this.props.item)
+	}
+	render(){
+		return(
+			<li className="list-item">
+				{this.props.task}
+				<button className="delete-button" onClick={this.deleteHandler}>X</button>
+			</li>
+		)
+	}
+}
 
 
 

@@ -8,15 +8,16 @@ var House = require('../models/house');
 //Post new chore route
 router.post('/chore/create', function (req, res, next){
 	console.log('post route firing', req.body.task, req.body.roommate, req.body.date, req.body.house);
-	House.findOneAndUpdate({_id: req.body.house}, 
-		{$push: {chores: {
+		House.findOneAndUpdate({_id: req.body.house}, 
+			{$push: {chores: {
 			task: req.body.task,
-			user: req.body.roommate,
-			date: req.body.date}}},
+			user: req.body.roommateId,
+			date: req.body.date,
+			roommateName: req.body.roommateName}}},
 		function(err, house){
 			if(err) res.send(err);
-			console.log('what the fuck we lookin at', house)
-		});
+			console.log('what the fuck we lookin at', house);
+		});	
 	});
 
 
