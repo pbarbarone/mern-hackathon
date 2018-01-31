@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import HouseForm from './HouseForm.js';
+import HouseBoard from './HouseBoard.js';
 
 class Profile extends Component {
 
@@ -13,6 +14,7 @@ class Profile extends Component {
       return (
         <div>
           <h1>PROFILE PAGE!!</h1>
+          <HouseBoard house={this.props.house} roommates={this.props.roommates} />
         </div>
       )
     }
