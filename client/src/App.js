@@ -7,7 +7,6 @@ import Footer from './layout/Footer.js';
 import Home from './Home.js';
 import Nav from './layout/Nav.js';
 import Login from './auth/Login.js';
-import Profile from './Profile.js';
 import Signup from './auth/Signup.js';
 import Househub from './Househub.js';
 
@@ -90,10 +89,10 @@ class App extends Component {
                 () => (<Login user={this.state.user} house={this.state.house} setFlash={this.setFlash} updateUser={this.updateUser} />)} />
               <Route path="/signup" component={
                 () => (<Signup user={this.state.user} house={this.state.house} setFlash={this.setFlash} updateUser={this.updateUser} />)} />
-              <Route path="/profile" component={
-                () => (<Profile user={this.state.user} house={this.state.house} roommates={this.state.roommates} setFlash={this.setFlash} />)} />
+              {/*<Route path="/profile" component={
+                () => (<Profile user={this.state.user} house={this.state.house} roommates={this.state.roommates} setFlash={this.setFlash} />)} />*/}
               <Route path="/househub" component={
-                () => (<Househub user={this.state.user} house={this.state.house} roommates={this.state.roommates} setFlash={this.setFlash} />)} />
+                () => (<Househub user={this.state.user} house={this.state.house} setFlash={this.setFlash} />)} />
             </div>
           </div>
         </Router>
