@@ -94,7 +94,7 @@ class App extends Component {
               <Route path="/profile" component={
                 () => (<Profile user={this.state.user} house={this.state.house} roommates={this.state.roommates} setFlash={this.setFlash} />)} />
               <Route path="/househub" component={
-                () => (<Househub user={this.state.user} house={this.state.house} setFlash={this.setFlash} />)} />
+                () => (<Househub user={this.state.user} house={this.state.house} roommates={this.state.roommates} setFlash={this.setFlash} />)} />
             </div>
           </div>
         </Router>
