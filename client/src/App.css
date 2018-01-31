@@ -121,8 +121,6 @@ nav a:hover {
 }
 
 .messages-container,.bills-container, .shopping-container, .chore-container {
-/*  display: inline-block;*/
-/*  margin: 30px 30px;*/
   background-color: rgba(100,100,100,.3);
 }
 

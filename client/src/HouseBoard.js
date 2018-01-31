@@ -12,7 +12,7 @@ class HouseBoard extends Component {
 				<h1> {this.props.house.name} </h1>
 				<h1> This is the House Hub </h1>
 					<Chores house={this.props.house} roommates={this.props.roommates}  />
-					<Shopping />
+					<Shopping house={this.props.house} roommates={this.props.roommates} />
 					<Bills />
 					<Messages />
 			</div>

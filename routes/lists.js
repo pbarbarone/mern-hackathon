@@ -34,17 +34,19 @@ router.post('/chore/create', function (req, res, next){
 
 
 
-// //Post new shopping item
-// router.post('/shopping/create', function (req, res, next){
-// 	House.findOneAndUpdate({_id: req.body.houseId},
-// 		{$push: {
-// 			shoppingItems: {
-// 				item: req.body.item,
-// 				user: req.body.roommate,
-// 				date: req.body.date
-// 			}
-// 		}})
-// })
+router.post('/shopping/create', function (req, res, next){
+	console.log('shopping post route firing', req.body.item, req.body.roommateId, req.body.date, req.body.house);
+	House.findOneAndUpdate({_id: req.body.house}, 
+		{$push: {shoppingItems: {
+		item: req.body.item,
+		user: req.body.roommateId,
+		date: req.body.date,
+		roommateName: req.body.roommateName}}},
+	function(err, house){
+		if(err) res.send(err);
+		console.log('what the fuck we lookin at', house);
+	});	
+});
 
 
 

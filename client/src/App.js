@@ -82,7 +82,7 @@ class App extends Component {
       <div className="App">
         <Router>
           <div className="content-container">
-            <Nav user={this.state.user} />
+            <Nav user={this.state.user} updateUser={this.updateUser} />
             <main>
               <Flash flashType={this.state.flashType} flash={this.state.flash} setFlash={this.setFlash} cancelFlash={this.cancelFlash} />
               <Route exact path="/" component={
