@@ -87,8 +87,6 @@ class Chores extends Component {
 	}
 }
 
-
-
 class ChoreList extends Component {
 	render(){
 			const allChores = this.props.chores.map(chore => {
@@ -96,7 +94,6 @@ class ChoreList extends Component {
 			})
 		return(
 			<ul className ="chore-list">{allChores}</ul>
-
 		)
 	}
 }
