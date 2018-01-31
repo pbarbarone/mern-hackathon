@@ -9,7 +9,6 @@ import Nav from './layout/Nav.js';
 import Login from './auth/Login.js';
 import Profile from './Profile.js';
 import Signup from './auth/Signup.js';
-import Roommate from './Roommate.js';
 import Househub from './Househub.js';
 
 class App extends Component {
