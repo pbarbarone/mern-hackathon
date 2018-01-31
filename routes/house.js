@@ -7,7 +7,7 @@ var House = require('../models/house');
 
 //CREATE HOUSE
 router.post('/create', function(req, res, next){
-	var user = req.body.user
+	var user = req.body.user;
 	console.log("house post (create) route called, req.body: "+ req.body.name);
 	House.create({
 		name: req.body.name
@@ -18,17 +18,16 @@ router.post('/create', function(req, res, next){
 		else {
 			House.findOneAndUpdate({_id: house._id}, {$push: {users: user.id}}, function(err, house) {
 				if(err) console.log(err);
-				// console.log("HOUSE: "+house);
-				// console.log("HOUSE.ID: "+house.id);
-				// console.log("HOUSE._ID: "+house._id);
-				// console.log("USER: "+user);
-				// console.log("USER.ID: "+user.id);
-				// console.log("USER._ID: "+user._id);
+				console.log("HOUSE: "+house);
+				console.log("HOUSE.ID: "+house.id);
+				console.log("HOUSE._ID: "+house._id);
+				console.log("USER: "+user);
+				console.log("USER.ID: "+user.id);
+				console.log("USER._ID: "+user._id);
 			});
-
 			User.findOneAndUpdate({ email: user.email }, {house: house.id}, function(err, user) {
 						if(err) console.log(err);
-						// console.log(user);
+						console.log(user);
 			});
 		}
 	});

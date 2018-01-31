@@ -24,13 +24,10 @@ class Nav extends Component {
 
     return(
         <div>
-          <nav className="nav">
+          <nav>
             <a href="/">Home</a>
             {links}
           </nav>
-          <header className="App-header">
-            <h1 className="App-title">Housemate Hub</h1>
-          </header>
         </div>
       );
   }
