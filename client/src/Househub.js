@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import HouseBoard from './HouseBoard.js';
 import HouseForm from './HouseForm.js';
-import axios from 'axios';
-import async from 'async';
 
 class Househub extends Component {
 
