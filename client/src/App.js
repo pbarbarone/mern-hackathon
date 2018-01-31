@@ -80,9 +80,9 @@ class App extends Component {
     return (
       <div className="App">
         <Router>
-          <div>
+          <div className="content-container">
             <Nav user={this.state.user} />
-            <div className="space">
+            <main>
               <Flash flashType={this.state.flashType} flash={this.state.flash} setFlash={this.setFlash} cancelFlash={this.cancelFlash} />
               <Route exact path="/" component={
                 () => (<Home user={this.state.user} house={this.state.house} setFlash={this.setFlash} />)} />
@@ -94,7 +94,8 @@ class App extends Component {
                 () => (<Profile user={this.state.user} house={this.state.house} roommates={this.state.roommates} setFlash={this.setFlash} />)} />
               <Route path="/househub" component={
                 () => (<Househub user={this.state.user} house={this.state.house} roommates={this.state.roommates} setFlash={this.setFlash} />)} />
-            </div>
+            </main>
+            <div className="push"></div>
           </div>
         </Router>
         <Footer />
