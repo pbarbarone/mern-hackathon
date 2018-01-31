@@ -96,7 +96,7 @@ class App extends Component {
                 () => (<Househub user={this.state.user} house={this.state.house} roommates={this.state.roommates} setFlash={this.setFlash} />)} />
             </main>
             <div className="push"></div>
-          </div>
+            </div>
         </Router>
         <Footer />
       </div>

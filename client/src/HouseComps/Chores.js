@@ -12,15 +12,6 @@ class Chores extends Component {
 			}
 	}
 
-	// deleteItem = (item) => {
-	// 	let tasksDelete = this.state.tasks;
-	// 	let taskIndex = tasksDelete.indexOf(item);
-
-	// 	if(taskIndex >= 0){
-	// 		tasksDelete.splice(taskIndex, 1);
-	// 		this.setState({tasks: tasksDelete});
-	// 	}
-	// }
 
 	add = (e) => {
 		e.preventDefault();
@@ -39,7 +30,6 @@ class Chores extends Component {
 
 	addChore = (e) =>{
 		this.setState({newTask: e.target.value})
-
 	}
 
 	addDate = (e) =>{
@@ -66,6 +56,7 @@ class Chores extends Component {
 
 
 	render(){
+		console.log("length of roommates array" + this.props.roommates.length);
 		const roommateOptions = this.props.roommates.map(r => {
 			return <option value={r.id}>{r.name}</option>
 			});
