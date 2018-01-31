@@ -6,14 +6,17 @@ body {
 }
 
 .content-container {
-/*  min-height:100%;
-*/  position:relative;
+  position:relative;
   margin-bottom: -20px;
 }
 
 nav {
   background-color: #555;
   padding: 10px;
+}
+
+.push {
+  height: 20px;
 }
 
 .footer {
@@ -35,15 +38,15 @@ nav a:hover {
   color: #7f4dd2;
 }
 
-.push {
-  height: 20px;
-}
-
-
-
 .footer-text {
   color: #fff;
   font-size: 10px;
+}
+
+.home {
+  background-image: url('./paintedladies.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .btn-primary {
