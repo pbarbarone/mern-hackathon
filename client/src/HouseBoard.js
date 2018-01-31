@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-
 import Messages from './HouseComps/Messages.js';
 import Chores from './HouseComps/Chores.js';
 import Bills from './HouseComps/Bills.js';

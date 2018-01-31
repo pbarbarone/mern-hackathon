@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import HouseBoard from './HouseBoard.js';
 
 class HouseForm extends Component {
 	constructor(props) {
@@ -10,7 +9,6 @@ class HouseForm extends Component {
 	      houseId: ''
     	}
   	}
- 
 
   handleNameChange = (e) => {
     this.setState({houseName: e.target.value});
@@ -26,6 +24,9 @@ class HouseForm extends Component {
     axios.post('/house/create', {
       name: this.state.houseName,
       user: this.props.user
+    }).then(response => {
+    	console.log("CREATEHOUSE AXIOS RESPONSE: "+response.data.user);
+    	this.props.obtainHouse();
     });
   }
 
@@ -34,8 +35,11 @@ class HouseForm extends Component {
     axios.post('/house/join', {
       houseId: this.state.houseId,
       user: this.props.user
+    }).then(response => {
+    	console.log("JOINHOUSE AXIOS RESPONSE: "+response.data);
+    	this.props.obtainHouse();
     });
-	}
+}
 
     render(){
     	if(Object.keys(this.props.user)){

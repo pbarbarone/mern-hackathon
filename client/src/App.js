@@ -24,6 +24,7 @@ class App extends Component {
   }
 
   getUser = () => {
+    console.log("GET USER CALLED!");
     // If there is a token in localStorage
     let token = localStorage.getItem('mernToken');
     if (token === 'undefined' || token === null || token === '' || token === undefined) {
@@ -93,7 +94,7 @@ class App extends Component {
               {/*<Route path="/profile" component={
                 () => (<Profile user={this.state.user} house={this.state.house} roommates={this.state.roommates} setFlash={this.setFlash} />)} />*/}
               <Route path="/househub" component={
-                () => (<Househub user={this.state.user} house={this.state.house} roommates={this.state.roommates} setFlash={this.setFlash} />)} />
+                () => (<Househub  user={this.state.user} house={this.state.house} roommates={this.state.roommates} refreshUser={this.getUser} setFlash={this.setFlash} />)} />
             </main>
             <div className="push"></div>
             </div>
