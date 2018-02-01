@@ -38,6 +38,7 @@ class App extends Component {
       });
     } else {
       console.log("heyheyhey HEY HEY HELEN HEY!!!!!");
+      console.log("appJS-tEST-user"+this.state.user);
       //   Validate the token against the server
       axios.post('/auth/me/from/token', {
         token: token
@@ -97,7 +98,7 @@ class App extends Component {
               <Route path="/profile" component={
                 () => (<Profile user={this.state.user} house={this.state.house} roommates={this.state.roommates} refreshUser={this.getUser} setFlash={this.setFlash} />)} />
               <Route path="/househub" component={
-                () => (<Househub  user={this.state.user} house={this.state.house} roommates={this.state.roommates} refreshUser={this.getUser} setFlash={this.setFlash} />)} />
+                () => (<Househub user={this.state.user} house={this.state.house} roommates={this.state.roommates} refreshUser={this.getUser} setFlash={this.setFlash} />)} />
             </main>
             <div className="push"></div>
             </div>
