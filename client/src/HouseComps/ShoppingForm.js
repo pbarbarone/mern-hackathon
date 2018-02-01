@@ -65,7 +65,6 @@ class ShoppingForm extends Component {
 
 		return(
 			<div className="shopping-container">
-				<h2 className="shopping-header"> Pantry List </h2>
 				<form className="shopping-form" onSubmit={this.add}>
         			<input type="text" placeholder="Add an item" onChange={this.addItem} value={this.state.newItem} required/>
         			<select required onChange={this.addRoommate}>
