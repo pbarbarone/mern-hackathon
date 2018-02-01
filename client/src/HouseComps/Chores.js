@@ -7,7 +7,6 @@ class Chores extends Component {
 			this.state= {
 				newTask: '',
 				date: '',
-				roommateId: '',
 				roommateName:'',
 				dashboard: ''
 			}
@@ -18,12 +17,15 @@ class Chores extends Component {
 	}
 
 	render(){
-		console.log("DASHBOARD "+this.state.dashboard);
+
 		if(this.state.dashboard==="househub"){
+
 			return(
 			<div className="chore-container">
 				<h2 className="chore-header"> Chores </h2>
-				<ChoreList chores={this.props.house.chores} onDelete={this.deleteItem} /> 
+
+				<ChoreList dashboard={this.state.dashboard} user={this.props.user} chores={this.props.house.chores} onDelete={this.deleteItem} /> 
+
 				<ChoreForm house={this.props.house} refreshList={this.props.refreshList} roommates={this.props.roommates} />
 			</div>
 			)
@@ -31,28 +33,51 @@ class Chores extends Component {
 			return(
 			<div className="chore-container">
 				<h2 className="chore-header"> Chores </h2>
-				<ChoreList chores={this.props.house.chores} onDelete={this.deleteItem} /> 
+				<ChoreList dashboard={this.state.dashboard} user={this.props.user} chores={this.props.house.chores} onDelete={this.deleteItem} /> 
 			</div>
 			)
 		} else {
-			console.log("dashboard broken");
 		}
 	}
 }
 
 //if state.dashboard===profile, only render chores for user
+
+
+
+
 class ChoreList extends Component {
+
 	render(){
-		const allChores = this.props.chores.map(chore => {
-			return (<ListItem task={chore.task} date={chore.date} roommate={chore.roommateName} onDelete={this.props.onDelete} />)
-		})
-		return(
-			<div>
+		if(this.props.dashboard==="profile"){
+			const userChores = [];
+			for(var i=0; i < this.props.chores.length; i++){
+
+				if(this.props.user.id == this.props.chores[i].user){
+					userChores.push(this.props.chores[i]);
+				}
+			}
+
+			const choresUser = userChores.map(choreU => {
+				return(<ListItem task={choreU.task} date={choreU.date} roommate={choreU.roommateName} onDelete={this.props.onDelete} />)
+			})
+			return(
+				<div>
+					<ul className ="chore-list">{choresUser}</ul>
+				</div>
+				)
+		}else if(this.props.dashboard==="househub"){
+			const allChores = this.props.chores.map(chore => {
+				return (<ListItem task={chore.task} date={chore.date} roommate={chore.roommateName} onDelete={this.props.onDelete} />)
+			})
+			return(
 				<ul className ="chore-list">{allChores}</ul>
-			</div>
-		)
+				)
+		}else {
+			console.log("error in chorelist conditional smarty")
+		}
 	}
-}
+}	
 
 class ListItem extends Component {
 	deleteHandler = () => {

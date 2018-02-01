@@ -38,6 +38,7 @@ class App extends Component {
         house: null
       });
     } else {
+
       //   Validate the token against the server
       axios.post('/auth/me/from/token', {
         token: token
@@ -98,9 +99,11 @@ class App extends Component {
               <Route path="/profile" component={
                 () => (<Profile user={this.state.user} house={this.state.house} roommates={this.state.roommates} refreshUser={this.getUser} setFlash={this.setFlash} />)} />
               <Route path="/househub" component={
+
                 () => (<Househub  user={this.state.user} house={this.state.house} roommates={this.state.roommates} refreshUser={this.getUser} setFlash={this.setFlash} />)} />
               <Route path="/newbill" component={
                 () => (<BillForm house={this.state.house} />)} />
+
             </main>
             <div className="push"></div>
             </div>
