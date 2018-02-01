@@ -16,8 +16,8 @@ class Shopping extends Component {
 		this.setState({dashboard: this.props.dashboard});
 	}
 
-	
 	render(){
+
 		if(this.state.dashboard === "househub"){
 			return(
 				<div className="shopping-container">

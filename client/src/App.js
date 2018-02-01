@@ -10,6 +10,7 @@ import Login from './auth/Login.js';
 import Profile from './Profile.js';
 import Signup from './auth/Signup.js';
 import Househub from './Househub.js';
+import BillForm from './BillForm.js';
 
 class App extends Component {
   constructor(props){
@@ -37,8 +38,7 @@ class App extends Component {
         house: null
       });
     } else {
-      console.log("heyheyhey HEY HEY HELEN HEY!!!!!");
-      console.log("appJS-tEST-user"+this.state.user);
+
       //   Validate the token against the server
       axios.post('/auth/me/from/token', {
         token: token
@@ -99,7 +99,11 @@ class App extends Component {
               <Route path="/profile" component={
                 () => (<Profile user={this.state.user} house={this.state.house} roommates={this.state.roommates} refreshUser={this.getUser} setFlash={this.setFlash} />)} />
               <Route path="/househub" component={
-                () => (<Househub user={this.state.user} house={this.state.house} roommates={this.state.roommates} refreshUser={this.getUser} setFlash={this.setFlash} />)} />
+
+                () => (<Househub  user={this.state.user} house={this.state.house} roommates={this.state.roommates} refreshUser={this.getUser} setFlash={this.setFlash} />)} />
+              <Route path="/newbill" component={
+                () => (<BillForm house={this.state.house} />)} />
+
             </main>
             <div className="push"></div>
             </div>
