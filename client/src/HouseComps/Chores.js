@@ -20,11 +20,14 @@ class Chores extends Component {
 			date: this.state.date,
 			house: this.props.house._id,
 			roommateName: this.state.roommateName
-		})
+		}).then(response => {
+			this.props.refreshList();
+			console.log("refresh list firing");
+		});
 		console.log(this.state.newTask +' ' + this.state.roommateId + ' ' + this.state.date)
 		console.log('this should be a house ' + this.props.house._id);
 		console.log('these are our roommates' + this.props.roommates);
-}
+};
 
 
 	addChore = (e) =>{

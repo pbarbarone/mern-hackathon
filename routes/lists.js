@@ -17,6 +17,7 @@ router.post('/chore/create', function (req, res, next){
 		function(err, house){
 			if(err) res.send(err);
 			console.log('what the fuck we lookin at', house);
+			res.json(house);
 		});	
 	});
 
@@ -45,6 +46,7 @@ router.post('/shopping/create', function (req, res, next){
 	function(err, house){
 		if(err) res.send(err);
 		console.log('what the fuck we lookin at', house);
+		res.json(house);
 	});	
 });
 

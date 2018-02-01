@@ -30,6 +30,9 @@ class Shopping extends Component {
 			date: this.state.date,
 			house: this.props.house._id,
 			roommateName: this.state.roommateName
+		}).then(response => {
+			console.log("refeshlist is firing in shopping");
+			this.props.refreshList();
 		})
 		console.log(this.state.newItem +' ' + this.state.roommateId + ' ' + this.state.date)
 }
