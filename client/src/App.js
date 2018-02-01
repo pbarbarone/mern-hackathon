@@ -19,6 +19,7 @@ class App extends Component {
       house: {}
     }
   }
+  
   componentDidMount = () => {
     this.getUser();
   }
