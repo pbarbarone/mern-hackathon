@@ -17,11 +17,12 @@ class App extends Component {
     this.state = {
       user: {},
       house: {},
-      roommates: ["this is an id"]
-    }
+      token: ''
+    };
   }
 
   componentDidMount = () => {
+    console.log('cdm');
     this.getUser();
   }
 
@@ -44,6 +45,7 @@ class App extends Component {
       }).then(response => {
         //   Store the token and user
         localStorage.setItem('mernToken', response.data.token);
+        console.log('returned data', response.data);
         this.setState({
           token: response.data.token,
           user: response.data.user,
