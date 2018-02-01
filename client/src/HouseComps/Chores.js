@@ -12,7 +12,6 @@ class Chores extends Component {
 			}
 	}
 
-
 	add = (e) => {
 		e.preventDefault();
 		axios.post('/lists/chore/create', {

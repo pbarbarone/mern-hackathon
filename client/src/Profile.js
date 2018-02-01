@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import HouseBoard from './HouseBoard.js';
 import HouseForm from './HouseForm.js';
+import HouseBoard from './HouseBoard.js';
 
-class Househub extends Component {
+class Profile extends Component {
 
   addHouse = () => {
     console.log("addHouse called in Househub.js");
@@ -10,24 +10,29 @@ class Househub extends Component {
   }
 
   render(){
-    if(this.props.house){
+    if(this.props.user && this.props.house) {
       return (
         <div>
-          {console.log("is there a useeeeeeeeer?" + this.props.user)}
+          <h1>PROFILE PAGE!!</h1>
           <HouseBoard house={this.props.house} roommates={this.props.roommates} />
-          {console.log("User has a house!"+ this.props.house)}
-          {console.log("ROOMATES: "+this.props.roommates)}
-        </div>)
+        </div>
+      )
+    }
+    else if (this.props.user && !this.props.house){
+      return (
+        <div>
+          <HouseForm user={this.props.user} obtainHouse={this.addHouse} />
+        </div>
+      )
     }
     else {
       return (
         <div>
-          {console.log("I am in the else statement!")}
-          <HouseForm user={this.props.user} obtainHouse={this.addHouse} />
+          <h1>You must be logged in to see this page!</h1>
         </div>
-      );
+      )
     }
   }
 }
 
-export default Househub;
+export default Profile;
