@@ -18,10 +18,8 @@ class Shopping extends Component {
 		this.setState({dashboard: this.props.dashboard});
 	}
 
-	
 	render(){
 		console.log("shoppingDash"+this.state.dashboard);
-		console.log("length of roommates array in shopping = " + this.props.roommates.length)
 		if(this.state.dashboard==="househub"){
 			return(
 				<div className="shopping-container">

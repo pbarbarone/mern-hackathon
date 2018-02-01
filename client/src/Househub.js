@@ -11,10 +11,10 @@ class Househub extends Component {
   }
 
   render(){
-    if(!this.props.roommates){
+{/*    if(!this.props.roommates){
       return (<Redirect to="/" />);
-    }
-    else if(this.props.house){
+    }*/}
+    {/*else*/} if(this.props.user && this.props.house){
       return (
         <div>
           {console.log("is there a useeeeeeeeer?" + this.props.user)}
@@ -23,13 +23,20 @@ class Househub extends Component {
           <HouseBoard house={this.props.house} roommates={this.props.roommates} refreshList={this.addHouse} dashboard={"househub"}/>
         </div>)
     }
-    else {
+    else if (this.props.user && !this.props.house) {
       return (
         <div>
           {console.log("I am in the else statement!")}
           <HouseForm user={this.props.user} obtainHouse={this.addHouse} />
         </div>
       );
+    }
+    else {
+      return (
+        <div>
+          <h1>You must be logged in to see this page!</h1>
+        </div>
+      )
     }
   }
 }

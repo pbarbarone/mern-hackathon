@@ -20,7 +20,6 @@ class Chores extends Component {
 
 	render(){
 		console.log("DASHBOARD "+this.state.dashboard);
-		console.log("length of roommates array" + this.props.roommates.length);
 		if(this.state.dashboard==="househub"){
 			return(
 			<div className="chore-container">
