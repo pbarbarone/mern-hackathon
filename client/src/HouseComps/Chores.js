@@ -42,6 +42,7 @@ class Chores extends Component {
 	}
 }
 
+//if state.dashboard===profile, only render chores for user
 class ChoreList extends Component {
 	render(){
 		const allChores = this.props.chores.map(chore => {
