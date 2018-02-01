@@ -17,7 +17,7 @@ class Househub extends Component {
           {console.log("is there a useeeeeeeeer?" + this.props.user)}
           {console.log("ROOMATES: " + this.props.roommates)}
           {console.log("User has a house!"+ this.props.house)}
-          <HouseBoard house={this.props.house} roommates={this.props.roommates} refreshList={this.addHouse} dashboard={"househub"}/>
+          <HouseBoard user={this.props.user} house={this.props.house} roommates={this.props.roommates} refreshList={this.addHouse} dashboard={"househub"}/>
         </div>)
     }
     else {

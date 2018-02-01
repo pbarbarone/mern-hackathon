@@ -8,7 +8,6 @@ class Chores extends Component {
 			this.state= {
 				newTask: '',
 				date: '',
-				roommateId: '',
 				roommateName:'',
 				dashboard: ''
 			}
@@ -19,7 +18,12 @@ class Chores extends Component {
 	}
 
 	render(){
+
 		console.log("DASHBOARD "+this.state.dashboard);
+		console.log("user--ID"+this.props.user.id);
+		console.log("chore-user-id"+this.props.house.chores[13].user);
+		console.log("chore-user-LENGTH"+this.props.house.chores.length);
+		console.log("HOUSE--"+this.props.house);
 		console.log("length of roommates array" + this.props.roommates.length);
 		if(this.state.dashboard==="househub"){
 			return(
@@ -33,7 +37,7 @@ class Chores extends Component {
 			return(
 			<div className="chore-container">
 				<h2 className="chore-header"> Chores </h2>
-				<ChoreList chores={this.props.house.chores} onDelete={this.deleteItem} /> 
+				<ChoreList user={this.props.user} chores={this.props.house.chores} onDelete={this.deleteItem} /> 
 			</div>
 			)
 		} else {
@@ -43,8 +47,25 @@ class Chores extends Component {
 }
 
 //if state.dashboard===profile, only render chores for user
+
+
+
+
 class ChoreList extends Component {
+		
 	render(){
+
+		let userChores =[];
+
+		for(let i=0; i < this.props.chores.length; i++){
+			if(this.props.user.id === this.props.chores[i].user){
+			userChores.push(this.props.chores[i].task);
+			}
+		}
+		
+		console.log("this is the chores if statement");
+		console.log("userchores " + userChores);
+		console.log("user chores getting to choreList component " + userChores);
 		const allChores = this.props.chores.map(chore => {
 			return (<ListItem task={chore.task} date={chore.date} roommate={chore.roommateName} onDelete={this.props.onDelete} />)
 		})
