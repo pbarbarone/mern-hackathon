@@ -59,7 +59,6 @@ class ChoreForm extends Component {
 		console.log(this.props.roommates.length);
 		console.log(this.props.house);
 		const roommateOptions = this.props.roommates.map(r => {
-
 			return <option value={r.id}>{r.name}</option>
 		});
 		return(
