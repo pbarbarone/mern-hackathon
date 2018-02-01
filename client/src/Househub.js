@@ -11,11 +11,6 @@ class Househub extends Component {
   }
 
   render(){
-    {/*if(!this.props.roommates){
-      return (<Redirect to="/" />);
-    }
-
-    else */} 
       if(this.props.user && this.props.house){
       return (
         <div>
