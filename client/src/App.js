@@ -16,9 +16,11 @@ class App extends Component {
     super(props);
     this.state = {
       user: {},
-      house: {}
+      house: {},
+      roommates: ["this is an id"]
     }
   }
+
   componentDidMount = () => {
     this.getUser();
   }
@@ -35,6 +37,7 @@ class App extends Component {
         house: null
       });
     } else {
+      console.log("heyheyhey HEY HEY HELEN HEY!!!!!");
       //   Validate the token against the server
       axios.post('/auth/me/from/token', {
         token: token
