@@ -115,18 +115,20 @@ router.post('/me/from/token', function(req, res, next) {
           //Next thing we want it to do is query User to find that user
           //Next push that user into the roommates array
           async.forEach(house.users, function(roommate, callback){
+            console.log("ASYNC FOREACH:"+roommate); //THIS DOES WHAT IT IS SUPPOSED TO
             User.findById(roommate, function(err, roommate) {
               if(err) {
                 console.log(err);
               }
               else {
+                console.log("USER.FINDBYID: "+roommate); //THIS DOES WHAT IT IS SUPPOSED TO
                 roommates.push(roommate);
-                console.log(roommates);
               }
               callback(null);
             });
           },
           function(){
+            console.log("ROOMMATES:"+roommates); //THIS DOES WHAT IT IS SUPPOSED TO
             res.json({
               user: user,
               token: token,
