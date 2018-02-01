@@ -20,16 +20,12 @@ class Chores extends Component {
 	render(){
 
 		console.log("DASHBOARD "+this.state.dashboard);
-		console.log("user--ID"+this.props.user.id);
-		console.log("chore-user-id"+this.props.house.chores[13].user);
-		console.log("chore-user-LENGTH"+this.props.house.chores.length);
 		console.log("HOUSE--"+this.props.house);
-		console.log("length of roommates array" + this.props.roommates.length);
 		if(this.state.dashboard==="househub"){
 			return(
 			<div className="chore-container">
 				<h2 className="chore-header"> Chores </h2>
-				<ChoreList chores={this.props.house.chores} onDelete={this.deleteItem} /> 
+				<ChoreList user={this.props.user} chores={this.props.house.chores} onDelete={this.deleteItem} /> 
 				<ChoreForm house={this.props.house} refreshList={this.props.refreshList} roommates={this.props.roommates} />
 			</div>
 			)
