@@ -19,7 +19,6 @@ class Chores extends Component {
 	render(){
 
 		if(this.state.dashboard==="househub"){
-
 			return(
 			<div className="chore-container">
 				<h2 className="chore-header"> Chores </h2>
@@ -36,15 +35,11 @@ class Chores extends Component {
 				<ChoreList dashboard={this.state.dashboard} user={this.props.user} chores={this.props.house.chores} onDelete={this.deleteItem} /> 
 			</div>
 			)
-		} else {
 		}
 	}
 }
 
 //if state.dashboard===profile, only render chores for user
-
-
-
 
 class ChoreList extends Component {
 

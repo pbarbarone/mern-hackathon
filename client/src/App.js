@@ -11,6 +11,7 @@ import Profile from './Profile.js';
 import Signup from './auth/Signup.js';
 import Househub from './Househub.js';
 import BillForm from './BillForm.js';
+import MemoForm from './MemoForm.js';
 
 class App extends Component {
   constructor(props){
@@ -99,11 +100,11 @@ class App extends Component {
               <Route path="/profile" component={
                 () => (<Profile user={this.state.user} house={this.state.house} roommates={this.state.roommates} refreshUser={this.getUser} setFlash={this.setFlash} />)} />
               <Route path="/househub" component={
-
                 () => (<Househub  user={this.state.user} house={this.state.house} roommates={this.state.roommates} refreshUser={this.getUser} setFlash={this.setFlash} />)} />
               <Route path="/newbill" component={
                 () => (<BillForm house={this.state.house} />)} />
-
+              <Route path="/newmemo" component={
+                () => (<MemoForm house={this.state.house} />)} />
             </main>
             <div className="push"></div>
             </div>
