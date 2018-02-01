@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import ShoppingForm from './ShoppingForm.js';
 
 class Shopping extends Component {
 	constructor(props){
@@ -8,83 +9,39 @@ class Shopping extends Component {
 				newItem: '',
 				date: '',
 				roommateId: '',
-				roommateName:''
+				roommateName:'',
+				dashboard: ''
 			}
 	}
 
-	// deleteItem = (item) => {
-	// 	let tasksDelete = this.state.tasks;
-	// 	let taskIndex = tasksDelete.indexOf(item);
-
-	// 	if(taskIndex >= 0){
-	// 		tasksDelete.splice(taskIndex, 1);
-	// 		this.setState({tasks: tasksDelete});
-	// 	}
-	// }
-
-	add = (e) => {
-		e.preventDefault();
-		axios.post('/lists/shopping/create', {
-			item: this.state.newItem,
-			roommateId: this.state.roommateId,
-			date: this.state.date,
-			house: this.props.house._id,
-			roommateName: this.state.roommateName
-		}).then(response => {
-			console.log("refeshlist is firing in shopping");
-			this.props.refreshList();
-		})
-		console.log(this.state.newItem +' ' + this.state.roommateId + ' ' + this.state.date)
-}
-
-	addItem = (e) =>{
-		this.setState({newItem: e.target.value})
-
+	componentWillMount(){
+		this.setState({dashboard: this.props.dashboard});
 	}
 
-	addDate = (e) =>{
-		this.setState({date: e.target.value})
-	}
-
-	addName = (name) => {
-		this.setState({roommateName: name});
-	}
-
-	addRoommate = (e) =>{
-		let base = this;
-		const roommateId = e.target.value;
-		base.setState({roommateId: roommateId});
-		base.props.roommates.forEach(function(rm){
-			console.log("drop down name" + rm.name);
-			if(rm.id === roommateId){
-				base.addName(rm.name);
-			}
-		});
-	}
-//probably want to update this so you can only add an shopping item as user, not assign to other rooommate
+	
 	render(){
+		console.log("shoppingDash"+this.state.dashboard);
 		console.log("length of roommates array in shopping = " + this.props.roommates.length)
-		const roommateOptions = this.props.roommates.map(r => {
-			return <option value={r.id}>{r.name}</option>
-			});
-		return(
-			<div className="shopping-container">
-				<h2 className="shopping-header"> Pantry List </h2>
-				<form className="shopping-form" onSubmit={this.add}>
-        			<input type="text" placeholder="Add an item" onChange={this.addItem} value={this.state.newItem} required/>
-        			<select required onChange={this.addRoommate}>
-        				<option value="" disabled selected hidden>Assign a Roommate</option>
-        				{roommateOptions}
-        			</select>
-        			<input type="date" onChange={this.addDate} value={this.state.date}  required/>
-				</form>
-				<button className="pressy-thing" onClick={this.add}> Add to List </button>
-				<PantryList pantry={this.props.house.shoppingItems} onDelete={this.deleteItem} /> 
-			</div>
-		)
+		if(this.state.dashboard==="househub"){
+			return(
+				<div className="shopping-container">
+					<h2 className="shopping-header"> Pantry List </h2>
+					<PantryList pantry={this.props.house.shoppingItems} onDelete={this.deleteItem} /> 
+					<ShoppingForm house={this.props.house} refreshList={this.props.refreshList} roommates={this.props.roommates} />
+				</div>
+			)
+		}else if(this.state.dashboard==="profile"){
+			return(
+				<div className="shopping-container">
+					<h2 className="shopping-header"> Pantry List </h2>
+					<PantryList pantry={this.props.house.shoppingItems} onDelete={this.deleteItem} /> 
+				</div>
+				)
+		}else{
+			console.log("dashboard failure on shop")
+		}
 	}
 }
-
 
 
 class PantryList extends Component {
