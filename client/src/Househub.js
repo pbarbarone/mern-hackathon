@@ -14,7 +14,9 @@ class Househub extends Component {
     {/*if(!this.props.roommates){
       return (<Redirect to="/" />);
     }
-    else*/} if(this.props.user && this.props.house){
+
+    else */} 
+      if(this.props.user && this.props.house){
       return (
         <div>
           {console.log("is there a useeeeeeeeer?" + this.props.user)}
@@ -23,7 +25,9 @@ class Househub extends Component {
           <HouseBoard user={this.props.user} house={this.props.house} roommates={this.props.roommates} refreshList={this.props.refreshUser} dashboard={"househub"}/>
         </div>)
     }
+
     else if(this.props.user && !this.props.house){
+
       return (
         <div>
           {console.log("I am in the else statement!")}
