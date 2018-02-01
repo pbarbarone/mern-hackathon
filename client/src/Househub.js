@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 import HouseBoard from './HouseBoard.js';
 import HouseForm from './HouseForm.js';
 
@@ -10,8 +11,10 @@ class Househub extends Component {
   }
 
   render(){
-
-    if(this.props.house){
+    if(!this.props.roommates){
+      return (<Redirect to="/" />);
+    }
+    else if(this.props.house){
       return (
         <div>
           {console.log("is there a useeeeeeeeer?" + this.props.user)}
