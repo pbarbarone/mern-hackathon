@@ -17,7 +17,9 @@ class Chores extends Component {
 	}
 
 	render(){
-		if(this.props.dashboard==="househub"){
+
+		if(this.state.dashboard==="househub"){
+
 			return(
 			<div className="chore-container">
 				<h2 className="chore-header"> Chores </h2>
