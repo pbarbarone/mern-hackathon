@@ -14,7 +14,7 @@ class Profile extends Component {
       return (
         <div>
           <h1>PROFILE PAGE!!</h1>
-          <HouseBoard house={this.props.house} roommates={this.props.roommates} />
+          <HouseBoard house={this.props.house} roommates={this.props.roommates} refreshList={this.addHouse} dashboard={"profile"} />
         </div>
       )
     }
