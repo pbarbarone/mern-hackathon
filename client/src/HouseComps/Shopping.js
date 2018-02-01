@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import axios from 'axios';
 import ShoppingForm from './ShoppingForm.js';
 
 class Shopping extends Component {
