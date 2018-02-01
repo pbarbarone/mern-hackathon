@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import ChoreForm from './ChoreForm.js';
 
 class Chores extends Component {
 	constructor(props){
@@ -8,85 +9,48 @@ class Chores extends Component {
 				newTask: '',
 				date: '',
 				roommateId: '',
-				roommateName:''
+				roommateName:'',
+				dashboard: ''
 			}
 	}
 
-	add = (e) => {
-		e.preventDefault();
-		axios.post('/lists/chore/create', {
-			task: this.state.newTask,
-			roommateId: this.state.roommateId,
-			date: this.state.date,
-			house: this.props.house._id,
-			roommateName: this.state.roommateName
-		}).then(response => {
-			this.props.refreshList();
-			console.log("refresh list firing");
-		});
-		console.log(this.state.newTask +' ' + this.state.roommateId + ' ' + this.state.date)
-		console.log('this should be a house ' + this.props.house._id);
-		console.log('these are our roommates' + this.props.roommates);
-};
-
-
-	addChore = (e) =>{
-		this.setState({newTask: e.target.value})
+	componentWillMount(){
+		this.setState({dashboard: this.props.dashboard});
 	}
-
-	addDate = (e) =>{
-		this.setState({date: e.target.value})
-	}
-
-	addName = (name) => {
-		this.setState({roommateName: name});
-	}
-
-
-
-	addRoommate = (e) =>{
-		let base = this;
-		const roommateId = e.target.value;
-		base.setState({roommateId: roommateId});
-		base.props.roommates.forEach(function(rm){
-			console.log("drop down name" + rm.name);
-			if(rm.id === roommateId){
-				base.addName(rm.name);
-			}
-		});
-	}
-
 
 	render(){
+		console.log("DASHBOARD "+this.state.dashboard);
 		console.log("length of roommates array" + this.props.roommates.length);
-		const roommateOptions = this.props.roommates.map(r => {
-			return <option value={r.id}>{r.name}</option>
-			});
-		return(
+		if(this.state.dashboard==="househub"){
+			return(
 			<div className="chore-container">
 				<h2 className="chore-header"> Chores </h2>
-				<form className="chore-form" onSubmit={this.add}>
-        			<input type="text" placeholder="Add a Chore" onChange={this.addChore} value={this.state.newTask} required/>
-        			<select required onChange={this.addRoommate}>
-        				<option value="" disabled selected hidden>Assign a Roommate</option>
-        				{roommateOptions}
-        			</select>
-        			<input type="date" onChange={this.addDate} value={this.state.date}  required/>
-				</form>
-				<button className="pressy-thing" onClick={this.add}> Add to List </button>
+				<ChoreList chores={this.props.house.chores} onDelete={this.deleteItem} /> 
+				<ChoreForm house={this.props.house} refreshList={this.props.refreshList} roommates={this.props.roommates} />
+			</div>
+			)
+		}else if(this.state.dashboard==="profile"){
+			return(
+			<div className="chore-container">
+				<h2 className="chore-header"> Chores </h2>
 				<ChoreList chores={this.props.house.chores} onDelete={this.deleteItem} /> 
 			</div>
-		)
+			)
+		} else {
+			console.log("dashboard broken");
+		}
 	}
 }
 
 class ChoreList extends Component {
 	render(){
-			const allChores = this.props.chores.map(chore => {
-				return (<ListItem task={chore.task} date={chore.date} roommate={chore.roommateName} onDelete={this.props.onDelete} />)
-			})
+		const allChores = this.props.chores.map(chore => {
+			return (<ListItem task={chore.task} date={chore.date} roommate={chore.roommateName} onDelete={this.props.onDelete} />)
+		})
 		return(
-			<ul className ="chore-list">{allChores}</ul>
+			<div>
+				<ul className ="chore-list">{allChores}</ul>
+			</div>
 		)
 	}
 }
@@ -104,16 +68,5 @@ class ListItem extends Component {
 		)
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
 
 export default Chores
