@@ -11,16 +11,13 @@ class Househub extends Component {
 
   render(){
 
-    
     if(this.props.house){
       return (
         <div>
           {console.log("is there a useeeeeeeeer?" + this.props.user)}
           {console.log("ROOMATES: " + this.props.roommates)}
           {console.log("User has a house!"+ this.props.house)}
-
           <HouseBoard house={this.props.house} roommates={this.props.roommates} refreshList={this.addHouse} />
-          
         </div>)
     }
     else {
