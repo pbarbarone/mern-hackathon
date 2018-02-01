@@ -18,11 +18,13 @@ class Chores extends Component {
 	}
 
 	render(){
-		if(this.state.dashboard==="househub"){
+dashboard==="househub"){
 			return(
 			<div className="chore-container">
 				<h2 className="chore-header"> Chores </h2>
+
 				<ChoreList dashboard={this.state.dashboard} user={this.props.user} chores={this.props.house.chores} onDelete={this.deleteItem} /> 
+
 				<ChoreForm house={this.props.house} refreshList={this.props.refreshList} roommates={this.props.roommates} />
 			</div>
 			)
