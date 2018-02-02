@@ -23,13 +23,13 @@ router.post('/chore/create', function (req, res, next){
 
 // Delete chore route
 router.delete('/chore/delete', function(req, res, next) {
-	console.log("99999999 DELETE ROUTE CALLED"+req.body.choreId);
 	House.findById(req.body.houseId, function(err, house){
 		console.log("%%%%%%%%%%%"+house);
 		house.chores.id(req.body.choreId).remove();
 		house.save(function (err) {
   		if (err) return handleError(err);
   		console.log('the chore was removed');
+  		res.json(house);
 		});
 	});
 });
