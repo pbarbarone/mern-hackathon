@@ -72,6 +72,22 @@ router.post('/bill/create', function (req, res, next){
 	});	
 });
 
+router.post('/memo/create', function (req, res, next){
+	console.log('memo post route firing!');
+	console.log("HELENS "+req.body.subject, req.body.content, req.body.date);
+	House.findOneAndUpdate({_id: req.body.house}, 
+		{$push: {memos: {
+		subject: req.body.subject,
+		content: req.body.content,
+		date: req.body.date
+	}}},
+	function(err, house){
+		if(err) res.send(err);
+		console.log('what the fuck we lookin at PETER', house);
+		res.json(house);
+	});	
+});
+
 
 
 
