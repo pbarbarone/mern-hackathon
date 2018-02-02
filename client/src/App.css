@@ -1,20 +1,18 @@
 html,
 body {
-   margin:0;
+   margin:0 auto;
    height:100%;
    text-align: center
 }
 
-.househub, .profile {
-  max-height: 80%;
-  margin-top: -38px;
-  max-width: 75%;
-}
-
 .content-container {
-  position:relative;
-  margin: 0 auto;
-  margin-bottom: -20px;
+    position: relative;
+    margin: 0 auto;
+    margin-bottom: -20px;
+    background-image: url(/static/media/paintedladies.3e0d6e9f.jpg);
+    background-size: cover;
+    height: 100vh;
+    background-position: center;
 }
 
 nav {
@@ -27,7 +25,7 @@ nav {
 }
 
 ul {
-  list-style: none
+  list-style: none;
 }
 
 .footer {
@@ -141,7 +139,6 @@ nav a:hover {
   grid-template-columns: 1fr 1fr;
   grid-gap: 10px;
   margin: 0 auto;
-  margin-bottom: 30px;
-  max-width: 75%;
-  max-height: 75%;
+  width: 85%;
+  height: 85%;
 }

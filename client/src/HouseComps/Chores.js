@@ -61,8 +61,6 @@ class ChoreList extends Component {
 	}
 }	
 
-
-//NEED TO GET .THEN PROMIS RUNNING!!!!
 class ListItem extends Component {
 
 	deleteChore = (e) => {

@@ -9,6 +9,7 @@ class Bills extends Component {
 			return(
 				<div className="bills-container">
 					<BillList bills={this.props.house.billPerUser} />
+					<Link to="/editbill">Edit Bill</Link>
 					<Link  to="/newbill">Add New Bill</Link>
 				</div>
 			)
@@ -18,7 +19,7 @@ class Bills extends Component {
 			return(
 				<div>
 					<h1>No Bills for now! Hallelujah?</h1>
-					<Link  to="/newbill">Add New Bill</Link>
+					<Link to="/newbill">Add New Bill</Link>
 				</div>
 			)
 		}
