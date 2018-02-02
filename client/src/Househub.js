@@ -23,9 +23,7 @@ class Househub extends Component {
       );
     }
     else{
-      return(
-        <div><h1>You Must be Logged In to See this Page!</h1></div>
-      )
+      return(<h1>You Must be Logged In to See this Page!</h1>)
     }
   }
 }
