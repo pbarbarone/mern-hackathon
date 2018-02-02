@@ -27,12 +27,8 @@ class Login extends Component {
     axios.post('/auth/login', {
       email: this.state.email,
       password: this.state.password,
-      // house: this.state.house
     }).then((result) => {
       localStorage.setItem('mernToken', result.data.token);
-      // console.log("state of the house  " + result.data.house);
-      // this.setState({house: result.data.house})
-      // this.setState({roommates: result.data.roommates})
       this.setState({ success: true });
       this.props.updateUser();
 
