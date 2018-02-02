@@ -103,7 +103,7 @@ class App extends Component {
               <Route path="/newbill" component={
                 () => (<BillForm refreshList={this.getUser} house={this.state.house} />)} />
               <Route path="/newmemo" component={
-                () => (<MemoForm house={this.state.house} />)} />
+                () => (<MemoForm refreshList={this.getUser} house={this.state.house} user={this.state.user}/>)} />
             <div className="push"></div>
           </div>
         </Router>

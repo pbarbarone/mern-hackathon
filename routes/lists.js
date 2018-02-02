@@ -69,12 +69,13 @@ router.post('/bill/create', function (req, res, next){
 //Post new memo route
 router.post('/memo/create', function (req, res, next){
 	console.log('memo post route firing!');
-	console.log("HELENS "+req.body.subject, req.body.content, req.body.date);
+	console.log("HELENS "+req.body.subject, req.body.content, req.body.roommateName, req.body.date);
 	House.findOneAndUpdate({_id: req.body.house}, 
 		{$push: {memos: {
 		subject: req.body.subject,
 		content: req.body.content,
-		date: req.body.date
+		date: req.body.date,
+		roommateName: req.body.roommateName
 	}}},
 	function(err, house){
 		if(err) res.send(err);

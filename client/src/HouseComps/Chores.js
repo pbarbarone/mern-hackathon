@@ -31,7 +31,7 @@ class Chores extends Component {
 			return(
 			<div className="chore-container">
 				<h2 className="chore-header"> Chores </h2>
-				<ChoreList dashboard={this.state.dashboard} user={this.props.user} chores={this.props.house.chores} house={this.props.house} onDelete={this.deleteItem} /> 
+				<ChoreList dashboard={this.state.dashboard} refreshList={this.props.refreshList} user={this.props.user} chores={this.props.house.chores} house={this.props.house} onDelete={this.deleteItem} /> 
 			</div>
 			)
 		} 

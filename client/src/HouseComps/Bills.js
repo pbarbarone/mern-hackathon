@@ -3,19 +3,23 @@ import { Link } from 'react-router-dom';
 
 class Bills extends Component {
 	render(){
-		if(this.props.house.billPerUser>0){
+		console.log(this.props.house.billPerUser.length);
+		if(this.props.house.billPerUser.length > 0){
 			console.log("Trying to render Bill List");
 			return(
 				<div className="bills-container">
 					<BillList bills={this.props.house.billPerUser} />
-					<Link refreshList to="/newbill">Add New Bill</Link>
+					<Link  to="/newbill">Add New Bill</Link>
 				</div>
 			)
 		}
-		else{
+		else {
 			console.log("No bills!");
 			return(
-				<h1>No Bills for now! Hallelujah?</h1>
+				<div>
+					<h1>No Bills for now! Hallelujah?</h1>
+					<Link  to="/newbill">Add New Bill</Link>
+				</div>
 			)
 		}
 	}
