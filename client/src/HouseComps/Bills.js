@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 
 class Bills extends Component {
 	render(){
-		console.log("Length of billPerUser: "+this.props.house.billPerUser.length);
 		if(this.props.house.billPerUser>0){
 			console.log("Trying to render Bill List");
 			return(
