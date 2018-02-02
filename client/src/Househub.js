@@ -12,10 +12,7 @@ class Househub extends Component {
   render(){
 
   if(this.props.user && this.props.house){
-      return (
-        <div className="househub">
-          <HouseBoard user={this.props.user} house={this.props.house} roommates={this.props.roommates} refreshList={this.props.refreshUser} dashboard={"househub"}/>
-        </div>)
+      return (<HouseBoard user={this.props.user} house={this.props.house} roommates={this.props.roommates} refreshList={this.props.refreshUser} dashboard={"househub"}/>)
     }
     else if(this.props.user && !this.props.house){
       return (

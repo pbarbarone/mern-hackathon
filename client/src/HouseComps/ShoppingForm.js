@@ -12,9 +12,6 @@ class ShoppingForm extends Component {
 			}
 	}
 
-
-	
-
 	addItem = (e) =>{
 		this.setState({newItem: e.target.value})
 
@@ -38,10 +35,8 @@ class ShoppingForm extends Component {
 			house: this.props.house._id,
 			roommateName: this.state.roommateName
 		}).then(response => {
-			console.log("refeshlist is firing in shopping");
 			this.props.refreshList();
 		})
-		console.log(this.state.newItem +' ' + this.state.roommateId + ' ' + this.state.date)
 	}
 
 	addRoommate = (e) =>{
@@ -57,14 +52,11 @@ class ShoppingForm extends Component {
 	}
 
 	render(){
-		console.log("shoppingDash"+this.state.dashboard);
-		console.log("length of roommates array in shopping = " + this.props.roommates.length)
 		const roommateOptions = this.props.roommates.map(r => {
 			return <option value={r.id}>{r.name}</option>
-			});
-
+		});
 		return(
-			<div className="shopping-container">
+			<div className="form-container">
 				<form className="shopping-form" onSubmit={this.add}>
         			<input type="text" placeholder="Add an item" onChange={this.addItem} value={this.state.newItem} required/>
         			<select required onChange={this.addRoommate}>
@@ -75,7 +67,7 @@ class ShoppingForm extends Component {
 				</form>
 				<button className="pressy-thing" onClick={this.add}> Add to List </button>
 			</div>
-			)
+		)
 	}
 }
 

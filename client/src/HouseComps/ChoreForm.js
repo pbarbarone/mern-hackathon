@@ -60,7 +60,7 @@ class ChoreForm extends Component {
 			return <option value={r.id}>{r.name}</option>
 		});
 		return(
-			<div>
+			<div className="form-container">
 				<form className="chore-form" onSubmit={this.add}>
 					<input type="text" placeholder="Add a Chore" onChange={this.addChore} value={this.state.newTask} required/>
 					<select required onChange={this.addRoommate}>

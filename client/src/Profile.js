@@ -11,12 +11,7 @@ class Profile extends Component {
 
   render(){
     if(this.props.user && this.props.house) {
-      return (
-        <div className="profile">
-          <h1>PROFILE PAGE!!</h1>
-          <HouseBoard user={this.props.user} house={this.props.house} refreshList={this.addHouse} dashboard={"profile"} />
-        </div>
-      )
+      return (<HouseBoard user={this.props.user} house={this.props.house} refreshList={this.addHouse} dashboard={"profile"} />)
     }
     else if (this.props.user && !this.props.house){
       return (
