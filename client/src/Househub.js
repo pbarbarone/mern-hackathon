@@ -9,17 +9,16 @@ class Househub extends Component {
     console.log("addHouse called in Househub.js");
     this.props.refreshUser();
   }
-
   render(){
-<<<<<<< HEAD
-    {/*if(!this.props.roommates){
-      return (<Redirect to="/" />);
-    }
 
-    else */} 
-=======
->>>>>>> 6105c2b29090374096472520a57b80c4e8a999a2
-      if(this.props.user && this.props.house){
+
+   
+{/*    if(!this.props.roommates){
+      return (<Redirect to="/" />);
+    }*/}
+    {/*else*/} 
+
+    if(this.props.user && this.props.house){
       return (
         <div>
           {console.log("is there a useeeeeeeeer?" + this.props.user)}
@@ -28,9 +27,7 @@ class Househub extends Component {
           <HouseBoard user={this.props.user} house={this.props.house} roommates={this.props.roommates} refreshList={this.props.refreshUser} dashboard={"househub"}/>
         </div>)
     }
-
     else if(this.props.user && !this.props.house){
-
       return (
         <div>
           {console.log("I am in the else statement!")}
