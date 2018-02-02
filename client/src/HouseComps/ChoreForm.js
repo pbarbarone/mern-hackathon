@@ -2,14 +2,15 @@ import React, {Component} from 'react';
 import axios from 'axios';
 
 class ChoreForm extends Component {
+
 	constructor(props){
-		super(props)
-			this.state= {
-				newTask: '',
-				date: '',
-				roommateId: '',
-				roommateName:'',
-			}
+		super(props);
+		this.state= {
+			newTask: '',
+			date: '',
+			roommateId: '',
+			roommateName:''
+		}
 	}
 
 	addChore = (e) =>{
@@ -37,9 +38,6 @@ class ChoreForm extends Component {
 			base.props.refreshList();
 			console.log("refresh list firing");
 		});
-		console.log(this.state.newTask +' ' + this.state.roommateId + ' ' + this.state.date)
-		console.log('this should be a house ' + this.props.house._id);
-		console.log('these are our roommates' + this.props.roommates);
 	};
 
 	addRoommate = (e) =>{
