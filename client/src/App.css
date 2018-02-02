@@ -26,6 +26,10 @@ nav {
   height: 20px;
 }
 
+ul {
+  list-style: none;
+}
+
 .footer {
   background-color: #555;
    position:absolute;
