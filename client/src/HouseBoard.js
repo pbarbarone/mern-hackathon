@@ -13,7 +13,7 @@ class HouseBoard extends Component {
 					<Chores user={this.props.user} house={this.props.house} roommates={this.props.roommates} refreshList={this.props.refreshList} dashboard={this.props.dashboard}  />
 					<Shopping user={this.props.user} house={this.props.house} roommates={this.props.roommates} refreshList={this.props.refreshList} dashboard={this.props.dashboard}  />
 					<Bills house={this.props.house} refreshList={this.props.refreshList} dashboard={this.props.dashboard} />
-					<Messages />
+										<Messages house={this.props.house} refreshList={this.props.refreshList} dashboard={this.props.dashboard} />
 				</div>
 			</div>
 		);

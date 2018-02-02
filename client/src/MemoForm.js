@@ -21,15 +21,17 @@ class MemoForm extends Component {
 	addMemo = (e) => {
 		let base = this;
 		console.log("addMemo pressed");
+		console.log(base.props.user.name)
 		e.preventDefault();
 		axios.post('/lists/memo/create', {
 			house: base.props.house._id,
 			subject: base.state.subject,
 			content: base.state.content,
-			date: base.state.date
+			date: base.state.date,
+			roommateName: base.props.user.name
 		}).then(response => {
 			this.setState({redirect: true});
-			console.log(response);
+			this.props.refreshList();
 		});
 	}
 
