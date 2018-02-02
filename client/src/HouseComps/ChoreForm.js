@@ -13,19 +13,27 @@ class ChoreForm extends Component {
 		}
 	}
 
-	addChore = (e) =>{
-		this.setState({newTask: e.target.value})
-	}
-
-	addDate = (e) =>{
-		this.setState({date: e.target.value})
+	handleChange = (e) => {
+		this.setState({[e.target.name]: e.target.value});
 	}
 
 	addName = (name) => {
 		this.setState({roommateName: name});
 	}
 
-	add = (e) => {
+	addRoommate = (e) =>{
+		let base = this;
+		const roommateId = e.target.value;
+		base.setState({roommateId: roommateId});
+		base.props.roommates.forEach(function(rm){
+			console.log("drop down name" + rm.name);
+			if(rm.id === roommateId){
+				base.addName(rm.name);
+			}
+		});
+	}
+
+	addChore = (e) => {
 		let base = this;
 		e.preventDefault();
 		axios.post('/lists/chore/create', {
@@ -40,18 +48,6 @@ class ChoreForm extends Component {
 		});
 	};
 
-	addRoommate = (e) =>{
-		let base = this;
-		const roommateId = e.target.value;
-		base.setState({roommateId: roommateId});
-		base.props.roommates.forEach(function(rm){
-			console.log("drop down name" + rm.name);
-			if(rm.id === roommateId){
-				base.addName(rm.name);
-			}
-		});
-	}
-
 
 	render(){
 		console.log(this.props.roommates.length);
@@ -60,16 +56,16 @@ class ChoreForm extends Component {
 			return <option value={r.id}>{r.name}</option>
 		});
 		return(
-			<div>
-				<form className="chore-form" onSubmit={this.add}>
-					<input type="text" placeholder="Add a Chore" onChange={this.addChore} value={this.state.newTask} required/>
+			<div className="form-container">
+				<form className="chore-form" onSubmit={this.addChore}>
+					<input type="text" placeholder="Add a Chore" name="newTask" onChange={this.handleChange} value={this.state.newTask} required/>
 					<select required onChange={this.addRoommate}>
 						<option value="" disabled selected hidden>Assign a Roommate</option>
 						{roommateOptions}
 					</select>
-					<input type="date" onChange={this.addDate} value={this.state.date}  required/>
+					<input type="date" name="date" onChange={this.handleChange} value={this.state.date}  required/>
 				</form>
-				<button className="pressy-thing" onClick={this.add}> Add to List </button>
+				<button className="pressy-thing" onClick={this.addChore}> Add to List </button>
 			</div>
 		)
 	}

@@ -23,13 +23,13 @@ router.post('/chore/create', function (req, res, next){
 
 // Delete chore route
 router.delete('/chore/delete', function(req, res, next) {
-	console.log("99999999 DELETE ROUTE CALLED"+req.body.choreId);
 	House.findById(req.body.houseId, function(err, house){
 		console.log("%%%%%%%%%%%"+house);
 		house.chores.id(req.body.choreId).remove();
 		house.save(function (err) {
   		if (err) return handleError(err);
   		console.log('the chore was removed');
+  		res.json(house);
 		});
 	});
 });
@@ -50,6 +50,19 @@ router.post('/shopping/create', function (req, res, next){
 	});	
 });
 
+// Delete pantry item route
+router.delete('/item/delete', function(req, res, next) {
+	House.findById(req.body.houseId, function(err, house){
+		console.log("%%%%%%%%%%%"+house);
+		house.shoppingItems.id(req.body.itemId).remove();
+		house.save(function (err) {
+  		if (err) return handleError(err);
+  		console.log('the item was removed');
+  		res.json(house);
+		});
+	});
+});
+
 //Post new bill route
 router.post('/bill/create', function (req, res, next){
 	console.log('bill post route firing!', req.body.rent, req.body.utilities, req.body.dueDate, req.body.house);
@@ -66,15 +79,33 @@ router.post('/bill/create', function (req, res, next){
 	});	
 });
 
+// //This is the memo post route Taylor had before
+// router.post('/memo/create', function (req, res, next){
+// 	console.log('memo post route firing!');
+// 	console.log("HELENS "+req.body.subject, req.body.content, req.body.date);
+// 	House.findOneAndUpdate({_id: req.body.house}, 
+// 		{$push: {memos: {
+// 		subject: req.body.subject,
+// 		content: req.body.content,
+// 		date: req.body.date
+// 	}}},
+// 	function(err, house){
+// 		if(err) res.send(err);
+// 		console.log('what the fuck we lookin at PETER', house);
+// 		res.json(house);
+// 	});	
+// });
+
 //Post new memo route
 router.post('/memo/create', function (req, res, next){
 	console.log('memo post route firing!');
-	console.log("HELENS "+req.body.subject, req.body.content, req.body.date);
+	console.log("HELENS "+req.body.subject, req.body.content, req.body.roommateName, req.body.date);
 	House.findOneAndUpdate({_id: req.body.house}, 
 		{$push: {memos: {
 		subject: req.body.subject,
 		content: req.body.content,
-		date: req.body.date
+		date: req.body.date,
+		roommateName: req.body.roommateName
 	}}},
 	function(err, house){
 		if(err) res.send(err);

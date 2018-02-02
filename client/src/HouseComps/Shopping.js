@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import ShoppingForm from './ShoppingForm.js';
+import axios from 'axios';
 
 class Shopping extends Component {
 	constructor(props){
@@ -22,7 +23,7 @@ class Shopping extends Component {
 			return(
 				<div className="shopping-container">
 					<h2 className="shopping-header"> Pantry List </h2>
-					<PantryList dashboard={this.state.dashboard} user={this.props.user} pantry={this.props.house.shoppingItems} onDelete={this.deleteItem} /> 
+					<PantryList dashboard={this.state.dashboard} house={this.props.house} user={this.props.user} pantry={this.props.house.shoppingItems} refreshList={this.props.refreshList} /> 
 					<ShoppingForm house={this.props.house} refreshList={this.props.refreshList} roommates={this.props.roommates} />
 				</div>
 			)
@@ -30,7 +31,7 @@ class Shopping extends Component {
 			return(
 				<div className="shopping-container">
 					<h2 className="shopping-header"> Pantry List </h2>
-					<PantryList dashboard={this.state.dashboard} user={this.props.user} pantry={this.props.house.shoppingItems} onDelete={this.deleteItem} /> 
+					<PantryList dashboard={this.state.dashboard} house={this.props.house} user={this.props.user} pantry={this.props.house.shoppingItems} refreshList={this.props.refreshList} /> 
 				</div>
 				)
 		}else{
@@ -42,46 +43,43 @@ class Shopping extends Component {
 
 class PantryList extends Component {
 	render(){
-		if(this.props.dashboard === "profile"){
-			const userShopp = [];
-			for(var i=0; i < this.props.pantry.length; i++){
-				if(this.props.user.id == this.props.pantry[i].user){
-					userShopp.push(this.props.pantry[i]);
-
-
+		if(this.props.pantry && this.props.pantry.length>0) {
+			const userItems = this.props.pantry.map(item => {
+				if(this.props.dashboard==="profile" && this.props.user.id===item.user) {
+					return (<ListItem item={item} house={this.props.house} refreshList={this.props.refreshList} />)
 				}
-			}
-		const userItems = userShopp.map(itemU => {
-				return (<ListItem item={itemU.item} date={itemU.date} roommate={itemU.roommateName} onDelete={this.props.onDelete} />)
-			})
-			return(
-				<div>
-					<ul className ="pantry-list">{userItems}</ul>
-				</div>
-			)
-		}else if(this.props.dashboard ==="househub"){
-			const allShopp = this.props.pantry.map(item => {
-				return (<ListItem item={item.item} date={item.date} roommate={item.roommateName} onDelete={this.props.onDelete} />)
-			})
-			return(
-			<ul className ="pantry-list">{allShopp}</ul>
-			)
-		}else {
-			console.log("error in shopping conditional");
+				else if (this.props.dashboard==="househub") {
+					return (<ListItem item={item} house={this.props.house} refreshList={this.props.refreshList} />)
+				}
+			});
+			return(<div><ul className="shopping-list">{userItems}</ul></div>)
+		} else {
+			return (<p>Shopping List Empty!</p>)
 		}
 	}	
 }
 
 class ListItem extends Component {
-	deleteHandler = () => {
-		this.props.onDelete(this.props.item)
+
+	deleteItem = (e) => {
+		let base = this;
+		e.preventDefault();
+		console.log("base.props.item._id: "+base.props.item._id);
+		axios.delete('/lists/item/delete', {
+			data: {
+				itemId: base.props.item._id,
+				houseId: base.props.house._id
+			}
+		}).then(response => {
+				base.props.refreshList();
+		});
 	}
+
 	render(){
-		console.log("reaching render of listitem component");
 		return(
 			<li className="list-item">
-				{this.props.item}
-				<button className="delete-button" onClick={this.deleteHandler}>X</button>
+				{this.props.item.item}
+				<button className="delete-button" onClick={this.deleteItem}>X</button>
 			</li>
 		)
 	}
