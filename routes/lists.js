@@ -21,16 +21,20 @@ router.post('/chore/create', function (req, res, next){
 	});	
 });
 
-// // Delete chore route
-// router.delete('/delete/:id', function(req, res, next){
-// 	House.chores.findOneAndRemove({task: req.params.task}, function(err){
-// 		if(err) return res.send(err);
-// 		console.log('task completed');
-// 	});
-// 	res.redirect('/')
-// });
+// Delete chore route
+router.delete('/chore/delete', function(req, res, next) {
+	console.log("99999999 DELETE ROUTE CALLED"+req.body.choreId);
+	House.findById(req.body.houseId, function(err, house){
+		console.log("%%%%%%%%%%%"+house);
+		house.chores.id(req.body.choreId).remove();
+		house.save(function (err) {
+  		if (err) return handleError(err);
+  		console.log('the chore was removed');
+		});
+	});
+});
 
-
+//Post new shopping list item route
 router.post('/shopping/create', function (req, res, next){
 	console.log('shopping post route firing', req.body.item, req.body.roommateId, req.body.date, req.body.house);
 	House.findOneAndUpdate({_id: req.body.house}, 
@@ -41,22 +45,12 @@ router.post('/shopping/create', function (req, res, next){
 		roommateName: req.body.roommateName}}},
 	function(err, house){
 		if(err) res.send(err);
-		console.log('what the fuck we lookin at', house);
+		console.log('what the fuck we lookin at TAYLOR', house);
 		res.json(house);
 	});	
 });
 
-
-
-//Delete shopping item
-// router.delete('/delete/:id', function(req, res, next){
-// 	House.shoppingItems.findOneAndRemove({task: req.params.task}, function(err){
-// 		if(err) return res.send(err);
-// 		console.log('task completed');
-// 	});
-// 	res.redirect('/')
-// });
-
+//Post new bill route
 router.post('/bill/create', function (req, res, next){
 	console.log('bill post route firing!', req.body.rent, req.body.utilities, req.body.dueDate, req.body.house);
 	House.findOneAndUpdate({_id: req.body.house}, 
@@ -72,6 +66,7 @@ router.post('/bill/create', function (req, res, next){
 	});	
 });
 
+//Post new memo route
 router.post('/memo/create', function (req, res, next){
 	console.log('memo post route firing!');
 	console.log("HELENS "+req.body.subject, req.body.content, req.body.date);
@@ -87,22 +82,5 @@ router.post('/memo/create', function (req, res, next){
 		res.json(house);
 	});	
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 module.exports = router;
