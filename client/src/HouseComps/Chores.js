@@ -23,7 +23,7 @@ class Chores extends Component {
 			return(
 			<div className="chore-container">
 				<h2 className="chore-header"> Chores </h2>
-				<ChoreList dashboard={this.state.dashboard} user={this.props.user} chores={this.props.house.chores} house={this.props.house} onDelete={this.deleteItem} /> 
+				<ChoreList dashboard={this.state.dashboard} refreshList={this.props.refreshList} user={this.props.user} chores={this.props.house.chores} house={this.props.house} onDelete={this.deleteItem} /> 
 				<ChoreForm house={this.props.house} refreshList={this.props.refreshList} roommates={this.props.roommates} />
 			</div>
 			)
@@ -74,14 +74,9 @@ class ListItem extends Component {
 				choreId: base.props.chore._id,
 				houseId: base.props.house._id
 			}
-		}).then(function(err, chore){
-			if(err) {
-				console.log(err);
-			} else {
+		}).then(response => {
 				base.props.refreshList();
-				console.log("refresh list firing");
-			}
-		})
+		});
 	}
 
 	render(){
