@@ -11,6 +11,7 @@ import Profile from './Profile.js';
 import Signup from './auth/Signup.js';
 import Househub from './Househub.js';
 import BillForm from './BillForm.js';
+import MemoForm from './MemoForm.js';
 
 class App extends Component {
   constructor(props){
@@ -88,7 +89,6 @@ class App extends Component {
         <Router>
           <div className="content-container">
             <Nav user={this.state.user} updateUser={this.updateUser} />
-            <main>
               <Flash flashType={this.state.flashType} flash={this.state.flash} setFlash={this.setFlash} cancelFlash={this.cancelFlash} />
               <Route exact path="/" component={
                 () => (<Home user={this.state.user} house={this.state.house} setFlash={this.setFlash} />)} />
@@ -99,14 +99,13 @@ class App extends Component {
               <Route path="/profile" component={
                 () => (<Profile user={this.state.user} house={this.state.house} roommates={this.state.roommates} refreshUser={this.getUser} setFlash={this.setFlash} />)} />
               <Route path="/househub" component={
-
                 () => (<Househub  user={this.state.user} house={this.state.house} roommates={this.state.roommates} refreshUser={this.getUser} setFlash={this.setFlash} />)} />
               <Route path="/newbill" component={
-                () => (<BillForm house={this.state.house} />)} />
-
-            </main>
+                () => (<BillForm refreshList={this.getUser} house={this.state.house} />)} />
+              <Route path="/newmemo" component={
+                () => (<MemoForm house={this.state.house} />)} />
             <div className="push"></div>
-            </div>
+          </div>
         </Router>
         <Footer />
       </div>

@@ -19,7 +19,6 @@ class Chores extends Component {
 	render(){
 
 		if(this.state.dashboard==="househub"){
-
 			return(
 			<div className="chore-container">
 				<h2 className="chore-header"> Chores </h2>
@@ -41,9 +40,6 @@ class Chores extends Component {
 }
 
 //if state.dashboard===profile, only render chores for user
-
-
-
 
 class ChoreList extends Component {
 

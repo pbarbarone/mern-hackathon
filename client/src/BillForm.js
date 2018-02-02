@@ -29,6 +29,7 @@ class BillForm extends Component {
 			dueDate: base.state.dueDate
 		}).then(response => {
 			this.setState({redirect: true});
+			this.props.refreshList();
 		});
 	}
 

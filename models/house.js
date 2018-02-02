@@ -26,7 +26,8 @@ var houseSchema = new mongoose.Schema({
 				}],
 	memos: [{
 					subject: String,
-					content: String
+					content: String,
+					date: Date
 			}]
 });
 
