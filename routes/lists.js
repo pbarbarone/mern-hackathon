@@ -21,14 +21,15 @@ router.post('/chore/create', function (req, res, next){
 	});	
 });
 
-// // Delete chore route
-// router.delete('/delete/:id', function(req, res, next){
-// 	House.chores.findOneAndRemove({task: req.params.task}, function(err){
-// 		if(err) return res.send(err);
-// 		console.log('task completed');
-// 	});
-// 	res.redirect('/')
-// });
+// Delete chore route
+router.delete('/chore/delete', function(req, res, next){
+	console.log("99999999 DELETE ROUTE CALLED"+req.body.id);
+	// House.chores.findByIdAndRemove(req.body.id, function(err){
+	// 	if(err) return res.send(err);
+	// 	console.log('task completed');
+	// });
+	res.send("yo!");
+});
 
 
 router.post('/shopping/create', function (req, res, next){
