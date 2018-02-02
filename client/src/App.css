@@ -5,6 +5,11 @@ body {
    text-align: center
 }
 
+.househub, .profile {
+  max-height: 80%;
+  margin-top: -38px;
+}
+
 .content-container {
   position:relative;
   margin-bottom: -20px;
@@ -129,9 +134,7 @@ nav a:hover {
   grid-template-rows: 1fr 1fr;
   grid-template-columns: 1fr 1fr;
   grid-gap: 10px;
-  height: 100vh;
-  width: 100vh;
   margin: 0 auto;
   margin-bottom: 30px;
-
+  max-height: 75%;
 }
