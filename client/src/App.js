@@ -102,7 +102,7 @@ class App extends Component {
 
                 () => (<Househub  user={this.state.user} house={this.state.house} roommates={this.state.roommates} refreshUser={this.getUser} setFlash={this.setFlash} />)} />
               <Route path="/newbill" component={
-                () => (<BillForm house={this.state.house} />)} />
+                () => (<BillForm refreshList={this.getUser} house={this.state.house} />)} />
 
             </main>
             <div className="push"></div>

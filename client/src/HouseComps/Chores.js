@@ -36,8 +36,7 @@ class Chores extends Component {
 				<ChoreList dashboard={this.state.dashboard} user={this.props.user} chores={this.props.house.chores} onDelete={this.deleteItem} /> 
 			</div>
 			)
-		} else {
-		}
+		} 
 	}
 }
 
