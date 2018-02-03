@@ -4,8 +4,6 @@ body {
    height:100%;
    text-align: center;
    font-family: 'Roboto', sans-serif;
-
-
 }
 
 .content-container {
@@ -162,3 +160,4 @@ nav a:hover {
   display: grid;
   grid-template-columns: 2fr 3fr 3fr .5fr;
 }
+

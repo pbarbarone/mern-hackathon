@@ -52,7 +52,18 @@ class PantryList extends Component {
 					return (<ListItem item={item} house={this.props.house} refreshList={this.props.refreshList} />)
 				}
 			});
-			return(<div className="list"><ul className="shopping-list">{userItems}</ul></div>)
+			return(
+				<div className="list">
+					<ul className="shopping-list">
+						<li className="pantry-grid-header">
+							<span>Item</span>
+							<span>Roommate</span>
+							<span>Purchase Date</span>
+							<span>Remove</span>
+						</li>
+					{userItems}</ul>
+				</div>
+			)
 		} else {
 			return (<p>Shopping List Empty!</p>)
 		}
@@ -75,10 +86,17 @@ class ListItem extends Component {
 		});
 	}
 
+	
+
 	render(){
-		return(
-			<li className="list-item">
-				{this.props.item.item}
+		
+		const rawDate = new Date(this.props.item.date);
+		const date = rawDate.getMonth() + 1 + '/' + rawDate.getDate()  + '/' + rawDate.getFullYear();
+		return(				
+			<li className="pantry-list-item">
+				<span>{this.props.item.item}</span>
+				<span>{this.props.item.roommateName}</span>
+				<span>{date}</span>
 				<button className="delete-button" onClick={this.deleteItem}>X</button>
 			</li>
 		)

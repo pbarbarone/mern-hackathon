@@ -11,7 +11,7 @@ class Messages extends Component {
 			});
 		return(
 			<div className="memo-container">
-			<h2>Message Board</h2>
+			<h2>Memos</h2>
 			<ul>
 				{allMessages}
 			</ul>

@@ -57,7 +57,7 @@ class ShoppingForm extends Component {
         				<option value="" disabled selected hidden>Assign a Roommate</option>
         				{roommateOptions}
         			</select>
-        			<input type="date" name="date" onChange={this.addhandleChange} value={this.state.date}  required/>
+        			<input type="date" name="date" onChange={this.handleChange} value={this.state.date}  required/>
 				</form>
 				<button className="pressy-thing" onClick={this.addItem}> Add to List </button>
 			</div>
