@@ -79,22 +79,22 @@ router.post('/bill/create', function (req, res, next){
 	});	
 });
 
-// //This is the memo post route Taylor had before
-// router.post('/memo/create', function (req, res, next){
-// 	console.log('memo post route firing!');
-// 	console.log("HELENS "+req.body.subject, req.body.content, req.body.date);
-// 	House.findOneAndUpdate({_id: req.body.house}, 
-// 		{$push: {memos: {
-// 		subject: req.body.subject,
-// 		content: req.body.content,
-// 		date: req.body.date
-// 	}}},
-// 	function(err, house){
-// 		if(err) res.send(err);
-// 		console.log('what the fuck we lookin at PETER', house);
-// 		res.json(house);
-// 	});	
-// });
+//Edit bill route
+router.post('/bill/update', function(req, res, next){
+	console.log('bill post route firing!', req.body.rent, req.body.utilities, req.body.dueDate, req.body.house, req.body.billId);
+	House.findById(req.body.house, function (err, house) {
+  		// handle errors ..
+  		var bill =  house.billPerUser.id(req.body.billId);
+  		bill.rent = req.body.rent;
+  		bill.utilities = req.body.utilities;
+  		bill.dueDate = req.body.dueDate;
+ 		house.save(function (err) {
+  		if (err) return handleError(err);
+  		console.log('bill was updated');
+  		res.json(house);
+		});
+	});
+});
 
 //Post new memo route
 router.post('/memo/create', function (req, res, next){
@@ -112,6 +112,19 @@ router.post('/memo/create', function (req, res, next){
 		console.log('what the fuck we lookin at PETER', house);
 		res.json(house);
 	});	
+});
+
+// Delete memo route
+router.delete('/memo/delete', function(req, res, next) {
+	House.findById(req.body.houseId, function(err, house){
+		console.log("%%%%%%%%%%%"+house);
+		house.memos.id(req.body.memoId).remove();
+		house.save(function (err) {
+  		if (err) return handleError(err);
+  		console.log('the memo was removed');
+  		res.json(house);
+		});
+	});
 });
 
 module.exports = router;

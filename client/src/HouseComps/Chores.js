@@ -51,7 +51,7 @@ class ChoreList extends Component {
 				}
 			})
 			return(
-				<div>
+				<div className="list">
 					<ul className ="chore-list">{choresUser}</ul>
 				</div>
 			)

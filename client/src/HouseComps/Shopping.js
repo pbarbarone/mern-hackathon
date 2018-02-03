@@ -52,7 +52,7 @@ class PantryList extends Component {
 					return (<ListItem item={item} house={this.props.house} refreshList={this.props.refreshList} />)
 				}
 			});
-			return(<div><ul className="shopping-list">{userItems}</ul></div>)
+			return(<div className="list"><ul className="shopping-list">{userItems}</ul></div>)
 		} else {
 			return (<p>Shopping List Empty!</p>)
 		}
