@@ -51,8 +51,15 @@ class ChoreList extends Component {
 				}
 			})
 			return(
-				<div>
-					<ul className ="chore-list">{choresUser}</ul>
+				<div className="list">
+					<ul className ="chore-list">
+						<li className="chore-grid-header">
+							<span>Task</span>
+							<span>Roommate</span>
+							<span>Do it by</span>
+							<span>Remove</span>
+						</li>
+					{choresUser}</ul>
 				</div>
 			)
 		} else {
@@ -78,9 +85,13 @@ class ListItem extends Component {
 	}
 
 	render(){
+		const rawDate = new Date(this.props.chore.date);
+		const date = rawDate.getMonth() + 1 + '/' + rawDate.getDate()  + '/' + rawDate.getFullYear();
 		return(
-			<li className="list-item">
-				{this.props.chore.task}
+			<li className="chore-list-item">
+				<span>{this.props.chore.task}</span>
+				<span>{this.props.chore.roommateName}</span>
+				<span>{date}</span>
 				<button className="delete-button" onClick={this.deleteChore}>X</button>
 			</li>
 		)

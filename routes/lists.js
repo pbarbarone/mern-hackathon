@@ -114,4 +114,17 @@ router.post('/memo/create', function (req, res, next){
 	});	
 });
 
+// Delete memo route
+router.delete('/memo/delete', function(req, res, next) {
+	House.findById(req.body.houseId, function(err, house){
+		console.log("%%%%%%%%%%%"+house);
+		house.memos.id(req.body.memoId).remove();
+		house.save(function (err) {
+  		if (err) return handleError(err);
+  		console.log('the memo was removed');
+  		res.json(house);
+		});
+	});
+});
+
 module.exports = router;

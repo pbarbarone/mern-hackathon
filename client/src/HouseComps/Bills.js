@@ -31,8 +31,6 @@ class BillList extends Component {
 		const currentBill = this.props.bills.length - 1;
 		const rawDate = new Date(this.props.bills[currentBill].dueDate);
 		const dateDue = rawDate.getMonth() + 1 + '/' + rawDate.getDate()  + '/' + rawDate.getFullYear();
-		console.log(dateDue);
-		console.log(this.props.bills[currentBill].dueDate);
 		return(
 			<div className="bills-container">
 				<h2>Upcoming Bills Due!</h2>

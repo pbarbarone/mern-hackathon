@@ -2,7 +2,10 @@ html,
 body {
    margin:0 auto;
    height:100%;
-   text-align: center
+   text-align: center;
+   font-family: 'Roboto', sans-serif;
+
+
 }
 
 .content-container {
@@ -26,6 +29,7 @@ nav {
 
 ul {
   list-style: none;
+  padding: 0 5px;
 }
 
 .footer {
@@ -105,7 +109,7 @@ nav a:hover {
 }
 
 .home-form{
-  background-color: rgba(130,130,130,.3);
+  background-color: rgba(130,130,130,.9);
   height: 150px;
   display: inline-block;
   width: 700px;
@@ -129,8 +133,9 @@ nav a:hover {
   font-size: 18px;;
 }
 
-.messages-container,.bills-container, .shopping-container, .chore-container {
-  background-color: rgba(100,100,100,.3);
+.memo-container, .bills-container, .shopping-container, .chore-container {
+  background-color: rgba(100,100,100,.7);
+  max-height: 40vh;
 }
 
 .widget-container{
@@ -141,4 +146,19 @@ nav a:hover {
   margin: 0 auto;
   width: 85%;
   height: 85%;
+}
+
+.house-banner{
+  font-family: 'Rammetto One', cursive;
+  font-size: 62;
+
+}
+.list {
+  max-height: 40vh;
+  overflow: scroll;
+}
+
+.pantry-list-item, .chore-list-item, .pantry-grid-header, .chore-grid-header{
+  display: grid;
+  grid-template-columns: 2fr 3fr 3fr .5fr;
 }
