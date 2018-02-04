@@ -15,7 +15,7 @@ class HouseBoard extends Component {
 
 componentDidMount(){
 	if (this.props.dashboard === "profile"){
-		console.log("PROFILE PROFILE PROFIIIILE");
+		console.log("PROFILE PROFILE PROFIIIILE" +this.props.house._id);
 		this.setState({
 			bannerState: this.props.user.name
 		});
@@ -36,6 +36,7 @@ componentDidMount(){
 					<Bills house={this.props.house} refreshList={this.props.refreshList} dashboard={this.props.dashboard} />
 					<Shopping user={this.props.user} house={this.props.house} roommates={this.props.roommates} refreshList={this.props.refreshList} dashboard={this.props.dashboard}  />
 				</div>
+				<h2 className="house-id">Your House Id is: {this.props.house._id}</h2>
 			</div>
 		);
 	}

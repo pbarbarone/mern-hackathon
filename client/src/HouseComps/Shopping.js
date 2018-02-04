@@ -53,15 +53,22 @@ class PantryList extends Component {
 				}
 			});
 			return(
-				<div className="list">
-					<ul className="shopping-list">
-						<li className="pantry-grid-header">
-							<span>Item</span>
-							<span>Roommate</span>
-							<span>Purchase Date</span>
-							<span>Remove</span>
-						</li>
-					{userItems}</ul>
+				<div>
+					<div className="list-header">
+						<ul>
+							<li className="pantry-grid-header">
+								<span>Item</span>
+								<span>Roommate</span>
+								<span>Purchase Date</span>
+								<span>Remove</span>
+							</li>
+						</ul>
+					</div>
+					<div className="list">
+						<ul className="shopping-list">
+							{userItems}
+						</ul>
+					</div>
 				</div>
 			)
 		} else {

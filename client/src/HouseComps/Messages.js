@@ -11,11 +11,11 @@ class Messages extends Component {
 			});
 		return(
 			<div className="memo-container">
-			<h2>Memos</h2>
-			<ul>
+				<h2 className="memo-header">Memos</h2>
+			<ul className="memo-list">
 				{allMessages}
 			</ul>
-				<Link  to="/newmemo"> Write Memo </Link>
+				<Link className="memo-link" to="/newmemo"> Write Memo </Link>
 			</div>
 		)
 	} 
@@ -47,13 +47,12 @@ class MessageList extends Component {
 			base.props.refreshList()
 		});
 	}
-
 	render(){
 		return(
-			<li className="list-item">
-				{this.props.message.roommateName} posted: {this.props.message.subject}- {this.props.message.content}
-				<button className="delete-button" onClick={this.deleteMemo}>X</button>
-			</li>
+				<li className="memo-item">
+					<span>{this.props.message.roommateName} posted: {this.props.message.subject}- {this.props.message.content}</span>
+					<button className="delete-button" onClick={this.deleteMemo}>X</button>
+				</li>
 		)
 	}
 }

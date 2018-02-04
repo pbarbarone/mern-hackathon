@@ -128,23 +128,49 @@ nav a:hover {
   font-size: 18px;;
 }
 
-.shopping-container, .chore-container, .memo-container, .bills-container  {
+.shopping-container, .chore-container, .memo-container, .bills-container{
   background-color: #8bbcbd;
-  max-height: 40vh;
+  height: 45vh;
   border: solid black 2px;
   border-radius: 8px;
+}
+
+.home-container{
+  background-color: #8bbcbd;
+  height: 45vh;
+  border-radius: 4px;
+  display: inline-block;
+  padding: 5px 15px;
+  width: 75vh;
+  text-align: left;
+  margin-bottom: 20px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
 }
 
 .widget-container{
   display: grid;
   grid-template-rows: 1fr 1fr;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  grid-gap: 10px;
+  grid-gap: 35px;
   margin: 0 auto;
-  width: 85%;
+  width: 75%;
   height: 85%;
   position: relative;
   bottom: 41px;
+}
+
+.house-id{
+  font-size: 14px;
+  display: inline-block;
+}
+
+.memo-header, .shopping-header, .chore-header, .bill-header{
+  color: black;
+  font-size: 28px;
+  text-decoration: underline;
+  margin: 0 0 -10px 0;
+  font-family: 'Lily Script One', cursive;
 }
 
 .house-banner{
@@ -153,31 +179,120 @@ nav a:hover {
   bottom: 44px;
 }
 
-.list {
-  max-height: 25vh;
+.memo-item {
+  display: grid;
+  grid-template-columns: 10fr .5fr;
+  text-align: left;
+  color: black;
+  font-family: 'Roboto', sans-serif;
+}
+
+.memo-list {
+  max-height: 30vh;
+  margin: 15px 10px 10px 10px;
   overflow: scroll;
 }
 
-.pantry-list-item, .chore-list-item, .pantry-grid-header, .chore-grid-header{
-  display: grid;
+.pantry-grid-header, .chore-grid-header{
+  color: black;
+  margin-bottom: 4px;
+  text-decoration: underline;
+  text-align: left;  display: grid;
   grid-template-columns: 2fr 3fr 3fr .5fr;
 }
 
-.bill-list-history, .bill-grid-header{
+.pantry-list-item, .chore-list-item{
+  display: grid;
+  grid-template-columns: 2fr 3fr 3fr .5fr;
+  text-align: left;
+  color: black;
+  font-family: 'Roboto', sans-serif;
+}
+
+.list {
+  max-height: 25vh;
+  margin: -10px 10px 10px 10px;
+  overflow: scroll;
+}
+
+.bill-list-history{
   display: grid;
   grid-template-columns: 3fr 3fr 3fr;
 }
-.bill-list{
-  width: 600px;
-  height: 400px;
-  background-color: red;
-  margin: 0 auto;
+
+.bill-grid-header{
+  display: grid;
+  grid-template-columns: 3fr 3fr 3fr;
+  text-decoration: underline;
 }
 
-/****************************
-=====Peter's css block ======
-*****************************/
+.bill-container{
+  background-color: #8bbcbd;
+  height: 38vh;
+  width: 60vh;
+  border: 2px solid #000;
+  border-radius: 8px;
+  display: inline-block;
+  margin-bottom: 20px;
+  font-family: 'Roboto', sans-serif;
+}
 
+.past-bills{
+  max-height: 28vh;
+  margin: -10px 10px 10px 10px;
+  overflow: scroll;
+}
+
+.bill-link, .memo-link{
+  color: #273231;
+  text-decoration: none;
+  margin:  0 8px 0 8px;
+}
+
+.bill-link:hover, .memo-link:hover{
+  color: white;
+  text-decoration: none;
+  margin:  0 8px 0 8px;
+}
+
+.bill-each{
+  color: black;
+  margin-bottom: -12px;
+}
+
+.bill-due{
+  color: black;
+  margin-bottom: 15px;
+}
+
+.delete-button{
+  background-color: transparent;
+  border: none;
+  font-size: 17px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 800;
+}
+
+.delete-button:hover{
+  color: red;
+}
+
+.form-field{
+  width: 130px;
+  margin: 0 11px 5px 11px;
+}
+
+.pressy-thing{
+  background-color: transparent;
+  border: none;
+  font-family: 'Roboto', sans-serif;
+  font-size: 15px;
+}
+
+.pressy-thing:hover{
+  color: white;
+  text-decoration: underline;
+}
 .nav-hero{
   height: 30vh;
   background-image: url(/cropped-ladies.jpg);
@@ -206,20 +321,3 @@ nav a:hover {
   font-size: 50px;
   }
 }
-
-
-<<<<<<< HEAD
-=======
-
-
-
-
-
-
-
-
-
-
-
-
->>>>>>> 3fc11a2ee6addf854d9358919cc704688db5c56c

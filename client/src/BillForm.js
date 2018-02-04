@@ -62,7 +62,7 @@ class BillForm extends Component {
         else if(this.props.mode==="add"){
             return(
                 <div>
-                    <h2>Add a New Bill</h2>
+                    <h1 className ="house-banner" >Add a New Bill</h1>
                     <form onSubmit={this.handleSubmit}>
                         <label>Rent: <strong>$</strong></label>
                         <input type="text" name="rent" onChange={this.handleChange} value={this.state.rent} required/>
@@ -77,7 +77,7 @@ class BillForm extends Component {
         }else if(this.props.mode==="edit"){
             return(
                 <div>
-                    <h2>Edit Current Bill</h2>
+                    <h1 className ="house-banner" >Edit Current Bill</h1>
                     <form onSubmit={this.handleSubmit}>
                         <label>Rent: <strong>$</strong></label>
                         <input type="text" name="rent" onChange={this.handleChange} value={this.state.rent} required/>
@@ -92,7 +92,7 @@ class BillForm extends Component {
         }else if(this.props.mode==="allbills"){
             return(
                 <div>
-                    <h2>Past Bills</h2>
+                    <h1 className ="house-banner" >Past Bills</h1>
                     <Billhistory bills={this.props.house.billPerUser} />
                 </div>
             )

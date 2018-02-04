@@ -2,13 +2,24 @@ import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
 
 class Bills extends Component {
+    constructor(props){
+        super(props)
+            this.state={
+                dashboard: ''
+            }
+    }
+
+componentWillMount(){
+        this.setState({dashboard: this.props.dashboard});
+    }
+
     render(){
         console.log(this.props.house.billPerUser.length);
         if(this.props.house.billPerUser.length > 0){
             console.log("Trying to render Bill List");
             return(
                 <div className="bills-container">
-                    <BillList bills={this.props.house.billPerUser} />
+                    <BillList dashboard={this.state.dashboard} bills={this.props.house.billPerUser} />
                 </div>
             )
         }
@@ -29,17 +40,31 @@ class BillList extends Component {
         const currentBill = this.props.bills.length - 1;
         const rawDate = new Date(this.props.bills[currentBill].dueDate);
         const dateDue = rawDate.getMonth() + 1 + '/' + rawDate.getDate()  + '/' + rawDate.getFullYear();
-        return(
-            <div className="bill">
-                <h2>Upcoming Bills Due!</h2>
-                <p>Current Utility Bill Amount : ${this.props.bills[currentBill].utilities} </p>
-                <p>Current Rent Due : ${this.props.bills[currentBill].rent} </p>
-                <p> due date : {dateDue} </p>
-                <Link to="/editbill">Edit Bill</Link>
-                <Link  to="/newbill">Add New Bill</Link>
-                <Link to="/allbills">See Past Bills</Link>
-            </div>
-        )
+        if(this.props.dashboard==="profile"){
+            return(
+                <div className="bill">
+                    <h2 className="bill-header">Current House Bills</h2>
+                    <p className="bill-each">Rent: ${this.props.bills[currentBill].rent} </p>
+                    <p className="bill-each">Utilities: ${this.props.bills[currentBill].utilities} </p>
+                    <p className="bill-due">Due Date: {dateDue} </p>
+                    <hr />
+                    <Link className="bill-link" to="/allbills">See Past Bills</Link>
+                </div>
+            )
+        }else {
+            return(
+                <div className="bill">
+                    <h2 className="bill-header">Current House Bills</h2>
+                    <p className="bill-each">Rent: ${this.props.bills[currentBill].rent} </p>
+                    <p className="bill-each">Utilities: ${this.props.bills[currentBill].utilities} </p>
+                    <p className="bill-due">Due Date: {dateDue} </p>
+                    <hr />
+                    <Link className="bill-link" to="/editbill">Edit Bill</Link>
+                    <Link className="bill-link" to="/newbill">Add New Bill</Link><br></br>
+                    <Link className="bill-link" to="/allbills">See Past Bills</Link>
+                </div>
+            )
+        }
     }
 }
 
