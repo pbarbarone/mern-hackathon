@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
+
 class Bills extends Component {
     render(){
         console.log(this.props.house.billPerUser.length);
@@ -22,6 +23,7 @@ class Bills extends Component {
         }
     }
 }
+
 class BillList extends Component {
     render(){
         const currentBill = this.props.bills.length - 1;
@@ -40,4 +42,5 @@ class BillList extends Component {
         )
     }
 }
+
 export default Bills

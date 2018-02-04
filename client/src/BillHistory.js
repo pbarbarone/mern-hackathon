@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+
 class Billhistory extends Component {
     render(){
         const allBills = this.props.bills.map(bill => {
@@ -18,6 +19,7 @@ class Billhistory extends Component {
                 )
     }
 }
+
 class BillList extends Component {
     render(){
         const rawDate = new Date(this.props.date);
@@ -31,4 +33,5 @@ class BillList extends Component {
         )
     }
 }
+
 export default Billhistory;
