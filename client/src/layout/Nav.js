@@ -21,13 +21,11 @@ class Nav extends Component {
         </span>);
     }
 
-    return(
-        <div>
+    return( 
           <nav>
             <a href="/">Home</a>
             {links}
           </nav>
-        </div>
       );
   }
 }

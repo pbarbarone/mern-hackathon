@@ -31,10 +31,10 @@ componentDidMount(){
 			<div className="houseboard">
 				<h1 className ="house-banner"> {this.state.bannerState}'s Hub </h1>
 				<div className="widget-container">
-					<Chores user={this.props.user} house={this.props.house} roommates={this.props.roommates} refreshList={this.props.refreshList} dashboard={this.props.dashboard}  />
-					<Shopping user={this.props.user} house={this.props.house} roommates={this.props.roommates} refreshList={this.props.refreshList} dashboard={this.props.dashboard}  />
-					<Bills house={this.props.house} refreshList={this.props.refreshList} dashboard={this.props.dashboard} />
 					<Messages house={this.props.house} refreshList={this.props.refreshList} dashboard={this.props.dashboard} />
+					<Chores user={this.props.user} house={this.props.house} roommates={this.props.roommates} refreshList={this.props.refreshList} dashboard={this.props.dashboard}  />
+					<Bills house={this.props.house} refreshList={this.props.refreshList} dashboard={this.props.dashboard} />
+					<Shopping user={this.props.user} house={this.props.house} roommates={this.props.roommates} refreshList={this.props.refreshList} dashboard={this.props.dashboard}  />
 				</div>
 			</div>
 		);
