@@ -6,17 +6,23 @@ class Billhistory extends Component {
             return <BillList rent={bill.rent} utilities={bill.utilities} date={bill.dueDate} />
         })
             return(
-                <div className="bill-list">
-                    <ul className="past-bills">
-                        <li className="bill-grid-header">
-                            <span>Rent</span>
-                            <span>Utilities</span>
-                            <span>Date</span>
-                        </li>
-                    {allBills}
-                    </ul>
+                <div className="bill-container">
+                    <div className="bill-list">
+                        <ul>
+                            <li className="bill-grid-header">
+                                <span>Rent</span>
+                                <span>Utilities</span>
+                                <span>Date</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div className="past-bills">
+                        <ul>
+                            {allBills}
+                        </ul>
+                    </div>
                 </div>
-                )
+            )
     }
 }
 

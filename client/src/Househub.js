@@ -10,7 +10,6 @@ class Househub extends Component {
     this.props.refreshUser();
   }
   render(){
-
   if(this.props.user && this.props.house){
       return (<HouseBoard user={this.props.user} house={this.props.house} roommates={this.props.roommates} refreshList={this.props.refreshUser} dashboard={"househub"}/>)
     }
@@ -23,7 +22,9 @@ class Househub extends Component {
       );
     }
     else{
-      return(<h1>You Must be Logged In to See this Page!</h1>)
+      return(
+        <h1>You Must be Logged In to See this Page!</h1>
+        )
     }
   }
 }

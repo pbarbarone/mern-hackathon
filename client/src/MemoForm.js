@@ -42,7 +42,7 @@ class MemoForm extends Component {
 		else {
 			return(
 				<div>
-					<h2>Memo Form Page!</h2>
+					<h1 className ="house-banner">Write a Memo</h1>
 					<form onSubmit={this.addMemo}>
 						<label>Subject: </label>
 						<input type="text" name="subject" onChange={this.handleChange} value={this.state.subject} required/>

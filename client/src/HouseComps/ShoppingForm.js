@@ -52,14 +52,14 @@ class ShoppingForm extends Component {
 		return(
 			<div className="form-container">
 				<form className="shopping-form" onSubmit={this.addItem}>
-        			<input type="text" name="newItem" placeholder="Add an item" onChange={this.handleChange} value={this.state.newItem} required/>
+        			<input className="form-field" type="text" name="newItem" placeholder="Add an item" onChange={this.handleChange} value={this.state.newItem} required/><br />
         			<select required onChange={this.addRoommate}>
-        				<option value="" disabled selected hidden>Assign a Roommate</option>
+        				<option value="" disabled selected hidden>Assign</option>
         				{roommateOptions}
         			</select>
-        			<input type="date" name="date" onChange={this.handleChange} value={this.state.date}  required/>
+        			<input className="form-field" type="date" name="date" onChange={this.handleChange} value={this.state.date}  required/>
 				</form>
-				<button className="pressy-thing" onClick={this.addItem}> Add to List </button>
+				<button className="pressy-thing" onClick={this.addItem}> Add it! </button>
 			</div>
 		)
 	}

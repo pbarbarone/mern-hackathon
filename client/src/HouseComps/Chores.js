@@ -51,15 +51,22 @@ class ChoreList extends Component {
 				}
 			})
 			return(
-				<div className="list">
-					<ul className ="chore-list">
-						<li className="chore-grid-header">
-							<span>Task</span>
-							<span>Roommate</span>
-							<span>Do it by</span>
-							<span>Remove</span>
-						</li>
-					{choresUser}</ul>
+				<div>
+					<div className="list-header">
+						<ul>
+							<li className="chore-grid-header">
+								<span>Task</span>
+								<span>Roommate</span>
+								<span>Do it by</span>
+								<span>Remove</span>
+							</li>
+						</ul>
+					</div>
+					<div className="list">
+						<ul className ="chore-list">
+							{choresUser}
+						</ul>
+					</div>
 				</div>
 			)
 		} else {
