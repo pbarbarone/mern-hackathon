@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { Redirect } from 'react-router-dom';
 import axios from 'axios';
+import Billhistory from "./BillHistory.js";
 
 class BillForm extends Component {
 	constructor(props) {
@@ -63,11 +64,10 @@ class BillForm extends Component {
 		if(this.state.redirect){
 			return(<Redirect to="/househub" />);
 		}
-		else {
+		else if(this.props.mode==="add"){
 			return(
 				<div>
-					<h2>Bill Form Page!</h2>
-					<p>gather rent, utilities, due date</p>
+					<h2>Add a New Bill</h2>
 					<form onSubmit={this.handleSubmit}>
 						<label>Rent: <strong>$</strong></label>
 						<input type="text" name="rent" onChange={this.handleChange} value={this.state.rent} required/>
@@ -77,6 +77,28 @@ class BillForm extends Component {
 						<input type="date" name="dueDate" onChange={this.handleChange} value={this.state.dueDate} required/>
 						<input type="submit" value="Submit" />
 					</form>
+				</div>
+			)
+		}else if(this.props.mode==="edit"){
+			return(
+				<div>
+					<h2>Edit Current Bill</h2>
+					<form onSubmit={this.handleSubmit}>
+						<label>Rent: <strong>$</strong></label>
+						<input type="text" name="rent" onChange={this.handleChange} value={this.state.rent} required/>
+						<label>Utilities: <strong>$</strong></label>
+						<input type="text" name="utilities" onChange={this.handleChange} value={this.state.utilities} required/>
+						<label>Due Date: </label>
+						<input type="date" name="dueDate" onChange={this.handleChange} value={this.state.dueDate} required/>
+						<input type="submit" value="Submit" />
+					</form>
+				</div>
+			)
+		}else if(this.props.mode==="allbills"){
+			return(
+				<div>
+					<h2>Past Bills</h2>
+					<Billhistory bills={this.props.house.billPerUser} />
 				</div>
 			)
 		}

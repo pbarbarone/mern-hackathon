@@ -11,6 +11,7 @@ class Bills extends Component {
 					<BillList bills={this.props.house.billPerUser} />
 					<Link to="/editbill">Edit Bill</Link>
 					<Link  to="/newbill">Add New Bill</Link>
+					<Link to="/allbills">See Past Bills</Link>
 				</div>
 			)
 		}
@@ -18,7 +19,7 @@ class Bills extends Component {
 			console.log("No bills!");
 			return(
 				<div>
-					<h1>No Bills for now! Hallelujah?</h1>
+					<h1>No Outstanding Bills! Hallelujah!</h1>
 					<Link to="/newbill">Add New Bill</Link>
 				</div>
 			)
@@ -34,8 +35,8 @@ class BillList extends Component {
 		return(
 			<div className="bills-container">
 				<h2>Upcoming Bills Due!</h2>
-				<p>Current Utility Bill Amount : {this.props.bills[currentBill].utilities} </p>
-				<p>Current Rent Due : {this.props.bills[currentBill].rent} </p>
+				<p>Current Utility Bill Amount : ${this.props.bills[currentBill].utilities} </p>
+				<p>Current Rent Due : ${this.props.bills[currentBill].rent} </p>
 				<p> due date : {dateDue} </p>
 			</div>
 		)

@@ -106,6 +106,8 @@ class App extends Component {
                 () => (<MemoForm refreshList={this.getUser} house={this.state.house} user={this.state.user}/>)} />
               <Route path="/editbill" component={
                 () => (<BillForm mode={"edit"} refreshList={this.getUser} house={this.state.house}/>)}/>
+              <Route path="/allbills" component={
+                () => (<BillForm mode={"allbills"} refreshList={this.getUser} house={this.state.house}/>)}/>
             <div className="push"></div>
           </div>
         </Router>
