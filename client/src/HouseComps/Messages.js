@@ -21,7 +21,7 @@ class Messages extends Component {
 	} 
 			else {
 				return(
-					<div>
+					<div className="memo-container">
 						<p>Your house has no current messages!</p>
 						<Link  to="/newmemo"> Write Memo </Link>
 					</div>

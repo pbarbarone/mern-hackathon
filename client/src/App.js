@@ -88,6 +88,9 @@ class App extends Component {
       <div className="App">
         <Router>
           <div className="content-container">
+          <div className="nav-hero">
+            <span className="nav-hub-header">HouseHub</span>
+          </div>
             <Nav user={this.state.user} updateUser={this.updateUser} house={this.state.house} />
               <Flash flashType={this.state.flashType} flash={this.state.flash} setFlash={this.setFlash} cancelFlash={this.cancelFlash} />
               <Route exact path="/" component={
@@ -106,6 +109,8 @@ class App extends Component {
                 () => (<MemoForm refreshList={this.getUser} house={this.state.house} user={this.state.user}/>)} />
               <Route path="/editbill" component={
                 () => (<BillForm mode={"edit"} refreshList={this.getUser} house={this.state.house}/>)}/>
+              <Route path="/allbills" component={
+                () => (<BillForm mode={"allbills"} refreshList={this.getUser} house={this.state.house}/>)}/>
             <div className="push"></div>
           </div>
         </Router>
