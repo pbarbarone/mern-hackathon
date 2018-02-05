@@ -10,9 +10,9 @@ class Billhistory extends Component {
                     <div className="bill-list">
                         <ul>
                             <li className="bill-grid-header">
+                                <span>Date</span>
                                 <span>Rent</span>
                                 <span>Utilities</span>
-                                <span>Date</span>
                             </li>
                         </ul>
                     </div>

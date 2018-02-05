@@ -45,24 +45,32 @@ class BillList extends Component {
             return(
                 <div className="bill">
                     <h2 className="bill-header">Current House Bills</h2>
-                    <p className="bill-each">Rent: ${this.props.bills[currentBill].rent} </p>
-                    <p className="bill-each">Utilities: ${this.props.bills[currentBill].utilities} </p>
-                    <p className="bill-due">Due Date: {dateDue} </p>
+                    <div className="house-bill">
+                        <p className="bill-each">Rent:    ${this.props.bills[currentBill].rent} </p>
+                        <p className="bill-each">Utilities:    ${this.props.bills[currentBill].utilities} </p>
+                        <p className="bill-due">Due Date:     {dateDue} </p>
+                    </div>                
                     <hr />
-                    <Link className="bill-link" to="/allbills">See Past Bills</Link>
+                    <div className="bill-links">
+                        <Link className="bill-link" to="/allbills">See Past Bills</Link>
+                    </div>
                 </div>
             )
         }else {
             return(
                 <div className="bill">
                     <h2 className="bill-header">Current House Bills</h2>
-                    <p className="bill-each">Rent: ${this.props.bills[currentBill].rent} </p>
-                    <p className="bill-each">Utilities: ${this.props.bills[currentBill].utilities} </p>
-                    <p className="bill-due">Due Date: {dateDue} </p>
+                    <div className="house-bill">
+                        <p className="bill-each">Rent:     ${this.props.bills[currentBill].rent} </p>
+                        <p className="bill-each">Utilities:    ${this.props.bills[currentBill].utilities} </p>
+                        <p className="bill-due">Due Date:     {dateDue} </p>
                     <hr />
-                    <Link className="bill-link" to="/editbill">Edit Bill</Link>
-                    <Link className="bill-link" to="/newbill">Add New Bill</Link><br></br>
-                    <Link className="bill-link" to="/allbills">See Past Bills</Link>
+                    </div>
+                    <div className="bill-links">
+                        <Link className="bill-link" to="/editbill">Edit Bill</Link>
+                        <Link className="bill-link" to="/newbill">Add New Bill</Link><br></br>
+                        <Link className="bill-link" to="/allbills">See Past Bills</Link>
+                    </div>
                 </div>
             )
         }

@@ -60,7 +60,7 @@ class Login extends Component {
                        onChange={this.handlePasswordChange}
                   />
                 </div>
-                <input type="submit" value="Login" className="login-button" />
+                <input type="submit" value="Login" className="form-button" />
               </form>);
     }
     return (
