@@ -24,12 +24,10 @@ class App extends Component {
   }
 
   componentDidMount = () => {
-    console.log('cdm');
     this.getUser();
   }
 
   getUser = () => {
-    console.log("GET USER CALLED!");
     // If there is a token in localStorage
     let token = localStorage.getItem('mernToken');
     if (token === 'undefined' || token === null || token === '' || token === undefined) {
@@ -47,7 +45,6 @@ class App extends Component {
       }).then(response => {
         //   Store the token and user
         localStorage.setItem('mernToken', response.data.token);
-        console.log('returned data', response.data);
         this.setState({
           token: response.data.token,
           user: response.data.user,

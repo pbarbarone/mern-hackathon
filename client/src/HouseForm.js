@@ -20,12 +20,10 @@ class HouseForm extends Component {
 
   createHouse = (e) => {
     e.preventDefault();
-    console.log("createHouse function has been called");
     axios.post('/house/create', {
       name: this.state.houseName,
       user: this.props.user
     }).then(response => {
-    	console.log("CREATEHOUSE AXIOS RESPONSE: "+response.data.user);
     	this.props.obtainHouse();
     });
   }
@@ -36,7 +34,6 @@ class HouseForm extends Component {
       houseId: this.state.houseId,
       user: this.props.user
     }).then(response => {
-    	console.log("JOINHOUSE AXIOS RESPONSE: "+response.data);
     	this.props.obtainHouse();
     });
 }
@@ -47,6 +44,7 @@ class HouseForm extends Component {
 	          <div>
 	            {console.log("User does not have a house!")}
 	            <h1 className ="house-banner">Add or join a HouseHub</h1>
+
 	            <form  className="join-house" onSubmit={this.joinHouse}>
 	              <label className="form-label" >House ID</label>
 	              <input type="text" onChange={this.handleIdChange} required/><br />

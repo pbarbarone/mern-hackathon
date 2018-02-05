@@ -26,7 +26,6 @@ class ChoreForm extends Component {
 		const roommateId = e.target.value;
 		base.setState({roommateId: roommateId});
 		base.props.roommates.forEach(function(rm){
-			console.log("drop down name" + rm.name);
 			if(rm.id === roommateId){
 				base.addName(rm.name);
 			}
@@ -44,14 +43,11 @@ class ChoreForm extends Component {
 			roommateName: base.state.roommateName
 		}).then(response => {
 			base.props.refreshList();
-			console.log("refresh list firing");
 		});
 	};
 
 
 	render(){
-		console.log(this.props.roommates.length);
-		console.log(this.props.house);
 		const roommateOptions = this.props.roommates.map(r => {
 			return <option value={r.id}>{r.name}</option>
 		});

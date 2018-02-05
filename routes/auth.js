@@ -10,7 +10,6 @@ var jwt = require('jsonwebtoken');
 
 // POST /auth/login route - returns a JWT
 router.post('/login', function(req, res, next) {
-  console.log('/auth/login post route', req.body);
   var hashedPass = '';
   var passwordMatch = false;
   // look up user
@@ -45,7 +44,6 @@ router.post('/login', function(req, res, next) {
 
 /* POST /auth/signup route */
 router.post('/signup', function(req, res, next) {
-  console.log('/auth/signup post route', req.body);
   // Find by email
   User.findOne({ email: req.body.email }, function(err, user) {
     if (user) {
@@ -59,7 +57,6 @@ router.post('/signup', function(req, res, next) {
         password: req.body.password
       }, function(err, user) {
         if (err){
-          console.log('DB error', err);
           res.status(500).send({error: true, message: 'Database Error - ' + err.message});
         }
         else {
@@ -92,11 +89,9 @@ router.post('/me/from/token', function(req, res, next) {
       '_id': user._id
     }, function(err, user) {
       if (err){
-        console.log('DB error', err);
         return res.status(500).send({error: true, message: 'Database Error - ' + err.message});
       }
       else if(!user){
-        console.log('User not found error');
         return res.status(400).json({error: true, message: 'User Not Found!'});
       }
       //Note: you can renew token by creating new token(i.e.
@@ -115,20 +110,17 @@ router.post('/me/from/token', function(req, res, next) {
           //Next thing we want it to do is query User to find that user
           //Next push that user into the roommates array
           async.forEach(house.users, function(roommate, callback){
-            console.log("ASYNC FOREACH:"+roommate); //THIS DOES WHAT IT IS SUPPOSED TO
             User.findById(roommate, function(err, roommate) {
               if(err) {
                 console.log(err);
               }
               else {
-                console.log("USER.FINDBYID: "+roommate); //THIS DOES WHAT IT IS SUPPOSED TO
                 roommates.push(roommate);
               }
               callback(null);
             });
           },
           function(){
-            console.log("ROOMMATES:"+roommates); //THIS DOES WHAT IT IS SUPPOSED TO
             res.json({
               user: user,
               token: token,

@@ -80,7 +80,6 @@ class ListItem extends Component {
 	deleteChore = (e) => {
 		let base = this;
 		e.preventDefault();
-		console.log("&&&&&&&&& base.props.house._id "+base.props.house._id);
 		axios.delete('/lists/chore/delete', {
 			data: {
 				choreId: base.props.chore._id,

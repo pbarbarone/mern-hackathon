@@ -17,7 +17,6 @@ class BillForm extends Component {
         this.setState({[e.target.name]: e.target.value});
     }
     addBill = (e) => {
-        console.log("addBill called!");
         let base = this;
         axios.post('/lists/bill/create', {
             house: base.props.house._id,
@@ -30,11 +29,8 @@ class BillForm extends Component {
         });
     }
     updateBill = () => {
-        console.log("updateBill called");
         let base = this;
         var billInQuestion = base.props.house.billPerUser[base.props.house.billPerUser.length-1];
-        console.log("billInQuestion"+billInQuestion);
-        console.log("$$$$$$$$$$$$$billInQuestion._id:"+ billInQuestion._id);
         axios.post('/lists/bill/update', {
             house: base.props.house._id,
             billId: billInQuestion._id,
