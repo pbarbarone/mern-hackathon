@@ -280,7 +280,7 @@ nav a:hover {
 }
 
 .all-past-memos{
-  max-height: 55vh;
+  max-height: 340px;
   margin: -10px 10px 10px 10px;
   overflow: scroll;
 }
