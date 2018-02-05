@@ -26,7 +26,8 @@ componentWillMount(){
         else {
             console.log("No bills!");
             return(
-                <div>
+                <div className="bills-container">
+                <h2 className="bill-header">Current House Bills</h2>
                     <h1>No Outstanding Bills! Hallelujah!</h1>
                     <Link to="/newbill">Add New Bill</Link>
                 </div>
