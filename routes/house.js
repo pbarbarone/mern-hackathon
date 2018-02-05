@@ -8,7 +8,6 @@ var House = require('../models/house');
 //CREATE HOUSE
 router.post('/create', function(req, res, next){
 	var user = req.body.user;
-	console.log("house post (create) route called, req.body: "+ req.body.name);
 	House.create({
 		name: req.body.name
 	}, function(err, house){
@@ -29,7 +28,6 @@ router.post('/create', function(req, res, next){
 
 //JOIN HOUSE
 router.post('/join', function(req, res, next){
-	console.log("house post (join) route called, req.body: "+ req.body);
 	var user = req.body.user;
 	House.findOneAndUpdate({_id: req.body.houseId}, {$push: {users: user.id}}, function(err, house) {
 		if(err) console.log(err);
@@ -40,17 +38,5 @@ router.post('/join', function(req, res, next){
 	});
 });
 
-// //DELETE ROOMMATE FROM HOUSE
-// router.delete('/delete/roommate/:id', function (req, res, next){
-// 	House.users.findOneAndRemove()
-// })
-
-//DELETE HOUSE
-// router.delete('/delete/:id', function (req, res, next){
-// 	House.findOneAndRemove({_id: req.params.id}, function(err){
-// 		if(err) return console.log(err);
-// 	})
-// 	res.redirect('/');
-// })
 
 module.exports = router;

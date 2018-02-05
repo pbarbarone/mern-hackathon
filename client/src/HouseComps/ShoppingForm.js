@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+
 class ShoppingForm extends Component {
     constructor(props){
         super(props)
@@ -10,23 +11,26 @@ class ShoppingForm extends Component {
                 roommateName:'',
             }
     }
+
     handleChange = (e) => {
         this.setState({[e.target.name]: e.target.value});
     }
+
     addName = (name) => {
         this.setState({roommateName: name});
     }
+
     addRoommate = (e) =>{
         let base = this;
         const roommateId = e.target.value;
         base.setState({roommateId: roommateId});
         base.props.roommates.forEach(function(rm){
-            console.log("drop down name" + rm.name);
             if(rm.id === roommateId){
                 base.addName(rm.name);
             }
         });
     }
+
     addItem = (e) => {
         e.preventDefault();
         axios.post('/lists/shopping/create', {
@@ -39,6 +43,7 @@ class ShoppingForm extends Component {
             this.props.refreshList();
         })
     }
+
     render(){
         const roommateOptions = this.props.roommates.map(r => {
             return <option value={r.id}>{r.name}</option>
@@ -58,4 +63,6 @@ class ShoppingForm extends Component {
         )
     }
 }
+
+
 export default ShoppingForm

@@ -3,6 +3,8 @@ import Messages from './HouseComps/Messages.js';
 import Chores from './HouseComps/Chores.js';
 import Bills from './HouseComps/Bills.js';
 import Shopping from './HouseComps/Shopping.js';
+
+
 class HouseBoard extends Component {
     constructor(props){
         super(props);
@@ -10,14 +12,13 @@ class HouseBoard extends Component {
             bannerState: ''
         }
     }
+
 componentDidMount(){
     if (this.props.dashboard === "profile"){
-        console.log("PROFILE PROFILE PROFIIIILE" +this.props.house._id);
         this.setState({
             bannerState: this.props.user.name
         });
     } else if (this.props.dashboard === "househub"){
-        console.log("HOUSE HOUSE HOUSE");
         this.setState({
                 bannerState: this.props.house.name
             });

@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+
+
 class Messages extends Component {
     render(){
         if(this.props.house.memos.length > 0){
@@ -27,12 +29,13 @@ class Messages extends Component {
             }
     }
 }
+
 class MessageList extends Component {
+
     deleteMemo = (e) => {
         let base = this;
         e.preventDefault();
-        console.log("front-end DELETE button HELEN!! " +base.props.message._id)
-        console.log("front-end DELETE button HOUSE ID HANK!! " +base.props.house._id)
+
         axios.delete('lists/memo/delete', {
             data: {
                 memoId: base.props.message._id,
@@ -51,4 +54,5 @@ class MessageList extends Component {
         )
     }
 }
+
 export default Messages;

@@ -5,23 +5,28 @@ body {
    text-align: center;
   font-family: 'Raleway', sans-serif;
 }
+
 .content-container {
     position: relative;
     margin: 0 auto;
     margin-bottom: -20px;
     height: 100vh;
 }
+
 nav {
   padding: 10px;
   background-color: #263231;
 }
+
 .push {
   height: 20px;
 }
+
 ul {
   list-style: none;
   padding: 0 5px;
 }
+
 .footer {
   background-color: #555;
    position:fixed;
@@ -29,25 +34,31 @@ ul {
    width:100%;
    height:20px;   /* Height of the footer */
 }
+
 nav a {
   margin: 10px;
   text-decoration: none;
   font-size: 18px;
   color: #8BBCBD;
   font-family: 'Rajdhani', sans-serif;
+
 }
+
 nav a:hover {
   color: #CEB8A6;
 }
+
 .footer-text {
   color: #fff;
   font-size: 10px;
 }
+
 .home {
   background-image: url('./paintedladies.jpg');
   background-repeat: no-repeat;
   background-size: cover;
 }
+
 .btn-primary {
   color: #fff;
   background-color: #11f;
@@ -55,9 +66,11 @@ nav a:hover {
   border: none;
   padding: 3px;
 }
+
 .btn-primary:hover {
   background-color: #77f;
 }
+
 .error {
   background-color: pink;
   color: red;
@@ -67,6 +80,7 @@ nav a:hover {
   width: 75%;
   margin: 10px auto;
 }
+
 .success {
   background-color: #ceffce;
   color: green;
@@ -76,51 +90,61 @@ nav a:hover {
   width: 75%;
   margin: 10px auto;
 }
+
 .no-flash {
   visibility: hidden;
   padding: 10px 30px;
   width: 75%;
   margin: 10px auto;
 }
+
 .x-button {
   background-color: red;
   color: white;
   border-radius: 2px;
   float: right;
 }
+
 .home-form{
   background-color: rgba(130,130,130,.9);
   height: 150px;
   display: inline-block;
   width: 700px;
 }
+
 .form-form{
   padding-top: 60px;
 }
+
 .login-input{
   height: 40px;
   width: 300px;
   font-size: 18px;;
 }
+
 .house-id{
   font-size: 14px;
   display: inline-block;
 }
+
 .house-banner{
   font-family: 'Rajdhani', sans-serif;
   position: relative;
   bottom: 44px;
 }
+
 .home-tagline{
   margin-top: -12px;
   font-size: 44px;
   font-family: 'Righteous', cursive;
 }
+
 @media (max-width: 525px) {
   .home-tagline{
   font-size: 32px;
   }
 }
+
 .home-container{
   background-color: #8bbcbd;
   height: 55%;
@@ -132,23 +156,28 @@ nav a:hover {
   font-size: 32px;
   font-family: 'Rajdhani', sans-serif;
 }
+
 @media (max-width: 525px) {
   .home-tagline{
   font-size: 32px;
   }
 }
+
 .sign-up{
   font-family: 'Rajdhani', sans-serif;
   font-size: 28px;
 }
+
 @media (max-width: 525px) {
   .home-container, .sign-up{
   font-size: 20px;
   }
 }
+
 .pantry-grid-header, .chore-grid-header{
   display: grid;
   grid-template-columns: 5fr 2fr 3fr .5fr;
+
 }
 .each-header{
   color: black;
@@ -158,6 +187,7 @@ nav a:hover {
   text-align: left; 
   font-family: 'Rajdhani', sans-serif;
 }
+
 .pantry-list-item, .chore-list-item{
   display: grid;
   grid-template-columns: 5fr 2fr 3fr .5fr;
@@ -166,11 +196,13 @@ nav a:hover {
   color: black;
   font-family: 'Rajdhani', sans-serif;
 }
+
 .list {
   height: 230px;
   margin: -10px 10px 10px 10px;
   overflow: scroll;
 }
+
 @media (max-width: 525px) {
   .list{
   height: 220px;
@@ -182,12 +214,14 @@ nav a:hover {
   border: solid black 2px;
   border-radius: 8px;
 }
+
 .memo-container, .bills-container{
   background-color: #8bbcbd;
   height: 300px;
   border: solid black 2px;
   border-radius: 8px;
 }
+
 .widget-container{
   display: grid;
   grid-template-rows: 1fr 1fr;
@@ -199,6 +233,7 @@ nav a:hover {
   position: relative;
   bottom: 41px;
 }
+
 .memo-item {
   display: grid;
   grid-template-columns: 10fr .5fr;
@@ -206,28 +241,33 @@ nav a:hover {
   color: black;
   font-family: 'Rajdhani', sans-serif;
 }
+
 .memo-list {
   max-height: 30vh;
   margin: 25px 10px 10px 10px;
   overflow: scroll;
 }
+
 .memo-header, .shopping-header, .chore-header, .bill-header{
   color: black;
   font-size: 28px;
   margin: 5px 0 -10px 0;
   font-family: 'Righteous', cursive;
 }
+
 .memo-all-history{
   display: grid;
   grid-template-columns: 3fr 3fr 6fr 3fr;
   text-align: left;
 }
+
 .memo-grid-header{
   display: grid;
   grid-template-columns: 3fr 3fr 6fr 3fr;
   text-decoration: underline;
   text-align: left;
 }
+
 .memo-all-container{
   background-color: #8bbcbd;
   height: 68vh;
@@ -238,11 +278,13 @@ nav a:hover {
   margin: -40px 0 20px 0;
   font-family: 'Rajdhani', sans-serif;
 }
+
 .all-past-memos{
-  max-height: 55vh;
+  max-height: 340px;
   margin: -10px 10px 10px 10px;
   overflow: scroll;
 }
+
 .memo-grid-header{
   display: grid;
   grid-template-columns: 3fr 3fr 6fr 3fr;
@@ -251,6 +293,7 @@ nav a:hover {
   font-size: 20px;
   font-family: 'Righteous', cursive;
 }
+
 .house-bill{
   margin: 15 0 10px 0;
   display: inline-block;
@@ -259,18 +302,22 @@ nav a:hover {
   text-align: left;
   font-family: 'Rajdhani', sans-serif;
 }
+
 .bill-grid-header{
   display: grid;
   grid-template-columns: 3fr 3fr 3fr;
   text-decoration: underline;
   font-family: 'Righteous', cursive;
+
 }
+
 .bill-list-history{
   display: grid;
   font-size: 20px;
   grid-template-columns: 3fr 3fr 3fr;
   font-family: 'Rajdhani', sans-serif;
 }
+
 .bill-container{
   background-color: #8bbcbd;
   height: 300px;
@@ -281,11 +328,13 @@ nav a:hover {
   margin: -40px 0 20px 0;
   font-family: 'Raleway', sans-serif;
 }
+
 .past-bills{
   height: 250px;
   margin: -10px 10px 10px 10px;
   overflow: scroll;
 }
+
 .bill-link, .memo-link{
   color: #273231;
   font-size: 16px;
@@ -293,14 +342,17 @@ nav a:hover {
   font-family: 'Righteous', cursive;
   margin:  4px 8px 0 8px;
 }
+
 .bill-link:hover, .memo-link:hover{
   color: white;
   text-decoration: none;
   margin:  0 8px 0 8px;
 }
+
 .bill-links{
   margin-top: 65px;
 }
+
 .delete-button{
   background-color: transparent;
   border: none;
@@ -308,9 +360,11 @@ nav a:hover {
   font-family: 'Rajdhani', sans-serif;
   font-weight: 800;
 }
+
 .delete-button:hover{
   color: red;
 }
+
 .form-field{
   width: 130px;
   margin: 0 11px 5px 11px;
@@ -322,6 +376,7 @@ nav a:hover {
   border-radius: 3px;
   text-align: center;
 }
+
 .form-field-add{
   width: 130px;
   height: 25px;
@@ -334,6 +389,7 @@ nav a:hover {
   border-radius: 3px;
   text-align: center;
 }
+
 .drop-down{
   background-color: rgb(70,70,70);
   height: 25px;
@@ -343,28 +399,34 @@ nav a:hover {
   border-radius: 3px;
   text-align: center;
 }
+
 .pressy-thing{
   background-color: transparent;
   border: none;
   font-family: 'Righteous', cursive;
   font-size: 18px;
 }
+
 .pressy-thing:hover{
   color: white;
   text-decoration: underline;
 }
+
 .memo-form{
   text-align: left;
   display: inline-block;
 }
+
 .memo-content-input{
   height: 40px;
   width: 300px;
 }
+
 .form-label{
   font-size: 18px;
   font-family: 'Rajdhani', sans-serif;
 }
+
 .form-button{
   background-color: rgb(248,110, 113);
   color: black;
@@ -375,6 +437,7 @@ nav a:hover {
   font-family: 'Rajdhani', sans-serif;
   font-size: 20px;
 }
+
 .memo-button{
   background-color: rgb(248,110, 113);
   color: black;
@@ -386,6 +449,7 @@ nav a:hover {
   font-size: 20px;
   text-align: center;
 }
+
 .form-input{
   margin-left: 20px;
 }
@@ -395,6 +459,7 @@ nav a:hover {
   background-size: cover;
   background-position: center;
 }
+
 .nav-hub-header{
   font-family: 'Righteous', cursive;
   font-size: 86px;
@@ -409,6 +474,8 @@ nav a:hover {
     -1px 1px 0 #000,
      1px 1px 0 #000;
 }
+
+
 @media (max-width: 525px) {
   .nav-hub-header{
   font-size: 50px;

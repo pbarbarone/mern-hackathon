@@ -12,6 +12,7 @@ import Signup from './auth/Signup.js';
 import Househub from './Househub.js';
 import BillForm from './BillForm.js';
 import MemoForm from './MemoForm.js';
+import Allmemos from "./Allmemos.js";
 
 class App extends Component {
   constructor(props){
@@ -23,12 +24,10 @@ class App extends Component {
   }
 
   componentDidMount = () => {
-    console.log('cdm');
     this.getUser();
   }
 
   getUser = () => {
-    console.log("GET USER CALLED!");
     // If there is a token in localStorage
     let token = localStorage.getItem('mernToken');
     if (token === 'undefined' || token === null || token === '' || token === undefined) {
@@ -46,7 +45,6 @@ class App extends Component {
       }).then(response => {
         //   Store the token and user
         localStorage.setItem('mernToken', response.data.token);
-        console.log('returned data', response.data);
         this.setState({
           token: response.data.token,
           user: response.data.user,
@@ -88,7 +86,10 @@ class App extends Component {
       <div className="App">
         <Router>
           <div className="content-container">
-            <Nav user={this.state.user} updateUser={this.updateUser} />
+          <div className="nav-hero">
+            <span className="nav-hub-header">HouseHub</span>
+          </div>
+            <Nav user={this.state.user} updateUser={this.updateUser} house={this.state.house} />
               <Flash flashType={this.state.flashType} flash={this.state.flash} setFlash={this.setFlash} cancelFlash={this.cancelFlash} />
               <Route exact path="/" component={
                 () => (<Home user={this.state.user} house={this.state.house} setFlash={this.setFlash} />)} />
@@ -100,12 +101,16 @@ class App extends Component {
                 () => (<Profile user={this.state.user} house={this.state.house} roommates={this.state.roommates} refreshUser={this.getUser} setFlash={this.setFlash} />)} />
               <Route path="/househub" component={
                 () => (<Househub  user={this.state.user} house={this.state.house} roommates={this.state.roommates} refreshUser={this.getUser} setFlash={this.setFlash} />)} />
-              <Route path="/newbill" component={
-                () => (<BillForm mode={"add"} refreshList={this.getUser} house={this.state.house} />)} />
               <Route path="/newmemo" component={
                 () => (<MemoForm refreshList={this.getUser} house={this.state.house} user={this.state.user}/>)} />
+              <Route path="/allmemos" component={
+                () => (<Allmemos refreshList={this.getUser} house={this.state.house} user={this.state.user}/>)} />
+              <Route path="/newbill" component={
+                () => (<BillForm mode={"add"} refreshList={this.getUser} house={this.state.house} />)} />
               <Route path="/editbill" component={
                 () => (<BillForm mode={"edit"} refreshList={this.getUser} house={this.state.house}/>)}/>
+              <Route path="/allbills" component={
+                () => (<BillForm mode={"allbills"} refreshList={this.getUser} house={this.state.house}/>)}/>
             <div className="push"></div>
           </div>
         </Router>

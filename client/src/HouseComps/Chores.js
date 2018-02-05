@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import ChoreForm from './ChoreForm.js';
 import axios from 'axios';
+
 class Chores extends Component {
     constructor(props){
         super(props)
@@ -11,10 +12,13 @@ class Chores extends Component {
                 dashboard: ''
             }
     }
+
     componentWillMount(){
         this.setState({dashboard: this.props.dashboard});
     }
+
     render(){
+
         if(this.state.dashboard==="househub"){
             return(
             <div className="chore-container">
@@ -33,7 +37,9 @@ class Chores extends Component {
         } 
     }
 }
+
 class ChoreList extends Component {
+
     render(){
         if(this.props.chores && this.props.chores.length>0) {
             const choresUser = this.props.chores.map(chore => {
@@ -68,11 +74,12 @@ class ChoreList extends Component {
         }
     }
 }   
+
 class ListItem extends Component {
+
     deleteChore = (e) => {
         let base = this;
         e.preventDefault();
-        console.log("&&&&&&&&& base.props.house._id "+base.props.house._id);
         axios.delete('/lists/chore/delete', {
             data: {
                 choreId: base.props.chore._id,
@@ -82,6 +89,7 @@ class ListItem extends Component {
                 base.props.refreshList();
         });
     }
+
     render(){
         const rawDate = new Date(this.props.chore.date);
         const date = rawDate.getMonth() + 1 + '/' + rawDate.getDate()  + '/' + rawDate.getFullYear();
@@ -95,4 +103,5 @@ class ListItem extends Component {
         )
     }
 }
+
 export default Chores

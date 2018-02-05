@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+
 class ChoreForm extends Component {
+
     constructor(props){
         super(props);
         this.state= {
@@ -10,23 +12,26 @@ class ChoreForm extends Component {
             roommateName:''
         }
     }
+
     handleChange = (e) => {
         this.setState({[e.target.name]: e.target.value});
     }
+
     addName = (name) => {
         this.setState({roommateName: name});
     }
+
     addRoommate = (e) =>{
         let base = this;
         const roommateId = e.target.value;
         base.setState({roommateId: roommateId});
         base.props.roommates.forEach(function(rm){
-            console.log("drop down name" + rm.name);
             if(rm.id === roommateId){
                 base.addName(rm.name);
             }
         });
     }
+
     addChore = (e) => {
         let base = this;
         e.preventDefault();
@@ -38,12 +43,11 @@ class ChoreForm extends Component {
             roommateName: base.state.roommateName
         }).then(response => {
             base.props.refreshList();
-            console.log("refresh list firing");
         });
     };
+
+
     render(){
-        console.log(this.props.roommates.length);
-        console.log(this.props.house);
         const roommateOptions = this.props.roommates.map(r => {
             return <option value={r.id}>{r.name}</option>
         });
@@ -62,4 +66,5 @@ class ChoreForm extends Component {
         )
     }
 }
+
 export default ChoreForm;
