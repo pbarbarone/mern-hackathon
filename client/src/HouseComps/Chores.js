@@ -55,10 +55,10 @@ class ChoreList extends Component {
 					<div className="list-header">
 						<ul>
 							<li className="chore-grid-header">
-								<span>Task</span>
-								<span>Roommate</span>
-								<span>Do it by</span>
-								<span>Remove</span>
+								<span className="each-header" >Task</span>
+								<span className="each-header">Roomie</span>
+								<span className="each-header">Done by</span>
+								<span className="each-header">Done</span>
 							</li>
 						</ul>
 					</div>

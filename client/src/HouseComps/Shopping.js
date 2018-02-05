@@ -56,10 +56,10 @@ class PantryList extends Component {
 					<div className="list-header">
 						<ul>
 							<li className="pantry-grid-header">
-								<span>Item</span>
-								<span>Roommate</span>
-								<span>Purchase Date</span>
-								<span>Remove</span>
+								<span className="each-header">Item</span>
+								<span className="each-header">Roomie</span>
+								<span className="each-header">Purchased</span>
+								<span className="each-header">Remove</span>
 							</li>
 						</ul>
 					</div>

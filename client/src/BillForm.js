@@ -60,13 +60,13 @@ class BillForm extends Component {
                 <div>
                     <h1 className ="house-banner" >Add a New Bill</h1>
                     <form onSubmit={this.handleSubmit}>
-                        <label>Rent: <strong>$</strong></label>
-                        <input type="text" name="rent" onChange={this.handleChange} value={this.state.rent} required/>
-                        <label>Utilities: <strong>$</strong></label>
-                        <input type="text" name="utilities" onChange={this.handleChange} value={this.state.utilities} required/>
-                        <label>Due Date: </label>
-                        <input type="date" name="dueDate" onChange={this.handleChange} value={this.state.dueDate} required/>
-                        <input type="submit" value="Submit" />
+                        <label className="form-label" >Rent: <strong>$</strong></label>
+                        <input className="form-input" type="text" name="rent" onChange={this.handleChange} value={this.state.rent} required/><br />
+                        <label className="form-label" >Utilities: <strong>$</strong></label>
+                        <input className="form-input" type="text" name="utilities" onChange={this.handleChange} value={this.state.utilities} required/><br />
+                        <label className="form-label" >Due Date: </label>
+                        <input className="form-input" type="date" name="dueDate" onChange={this.handleChange} value={this.state.dueDate} required/><br />
+                        <input className="form-button" type="submit" value="Submit" />
                     </form>
                 </div>
             )
@@ -75,13 +75,13 @@ class BillForm extends Component {
                 <div>
                     <h1 className ="house-banner" >Edit Current Bill</h1>
                     <form onSubmit={this.handleSubmit}>
-                        <label>Rent: <strong>$</strong></label>
-                        <input type="text" name="rent" onChange={this.handleChange} value={this.state.rent} required/>
-                        <label>Utilities: <strong>$</strong></label>
-                        <input type="text" name="utilities" onChange={this.handleChange} value={this.state.utilities} required/>
-                        <label>Due Date: </label>
-                        <input type="date" name="dueDate" onChange={this.handleChange} value={this.state.dueDate} required/>
-                        <input type="submit" value="Submit" />
+                        <label className="form-label" >Rent: <strong>$</strong></label>
+                        <input className="form-input" type="text" name="rent" onChange={this.handleChange} value={this.state.rent} required/><br />
+                        <label className="form-label" >Utilities: <strong>$</strong></label>
+                        <input className="form-input" type="text" name="utilities" onChange={this.handleChange} value={this.state.utilities} required/><br />
+                        <label className="form-label" >Due Date: </label>
+                        <input className="form-input" type="date" name="dueDate" onChange={this.handleChange} value={this.state.dueDate} required/><br />
+                        <input className="form-button" type="submit" value="Submit" />
                     </form>
                 </div>
             )

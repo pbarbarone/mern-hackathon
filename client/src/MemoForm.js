@@ -43,14 +43,15 @@ class MemoForm extends Component {
 			return(
 				<div>
 					<h1 className ="house-banner">Write a Memo</h1>
-					<form onSubmit={this.addMemo}>
-						<label>Subject: </label>
-						<input type="text" name="subject" onChange={this.handleChange} value={this.state.subject} required/>
-						<label>Memo: </label>
-						<input type="text" name="content" onChange={this.handleChange} value={this.state.content} required/>
-						<label>Date: </label>
-						<input type="date" name="date" onChange={this.handleChange} value={this.state.date} required/>
-						<input type="submit" value="Submit" />
+					<form className="memo-form" onSubmit={this.addMemo}>
+						<label className="form-label" >Subject: </label>
+						<input className="form-input" type="text" name="subject" onChange={this.handleChange} value={this.state.subject} required/><br />
+						<label className="form-label" >Memo:</label>
+						<br />
+						<input className="memo-content-input" type="text" name="content" onChange={this.handleChange} value={this.state.content} required/><br />
+						<label className="form-label" >Date: </label>
+						<input className="form-input" type="date" name="date" onChange={this.handleChange} value={this.state.date} required/><br />
+						<input className="memo-button" type="submit" value="Submit" />
 					</form>
 				</div>
 			)

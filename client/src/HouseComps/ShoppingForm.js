@@ -51,8 +51,8 @@ class ShoppingForm extends Component {
 		return(
 			<div className="form-container">
 				<form className="shopping-form" onSubmit={this.addItem}>
-        			<input className="form-field" type="text" name="newItem" placeholder="Add an item" onChange={this.handleChange} value={this.state.newItem} required/><br />
-        			<select required onChange={this.addRoommate}>
+        			<input className="form-field-add" type="text" name="newItem" placeholder="Add an item" onChange={this.handleChange} value={this.state.newItem} required/><br />
+        			<select className="drop-down" required onChange={this.addRoommate}>
         				<option value="" disabled selected hidden>Assign</option>
         				{roommateOptions}
         			</select>

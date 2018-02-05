@@ -8,26 +8,28 @@ class Allmemos extends Component{
 			return <MemoList roommate={memo.roommateName} subject={memo.subject} content={memo.content} date={memo.date} />
 		})
 		return(
-			<div className="memo-all-container">
-				<div className="memo-all-list">
-					<ul>
-						<li className="memo-grid-header">
-                            <span>Posted By</span>
-                            <span>Subject</span>
-                            <span>Contents</span>
-                            <span>Date</span>
-                        </li>
-                    </ul>
-                </div>
-                <div className="all-past-memos">
-                	<ul>
-                		{allMemos}
-                	</ul>
-                </div>
-                <hr />
-                <Link className="memo-link" to="/newmemo"> Write New Memo </Link>
-
-			</div>
+            <div>
+                <h1 className ="house-banner" >House Memos</h1>
+    			<div className="memo-all-container">
+    				<div className="memo-all-list">
+    					<ul>
+    						<li className="memo-grid-header">
+                                <span>Posted By</span>
+                                <span>Subject</span>
+                                <span>Contents</span>
+                                <span>Date</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div className="all-past-memos">
+                    	<ul>
+                    		{allMemos}
+                    	</ul>
+                    </div>
+                    <hr />
+                    <Link className="memo-link" to="/newmemo"> Write New Memo </Link>
+    			</div>
+            </div>
 		)
 	}
 }
