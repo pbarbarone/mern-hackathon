@@ -2,62 +2,52 @@ html,
 body {
    margin:0 auto;
    height:100%;
-   text-align: center
+   text-align: center;
+  font-family: 'Raleway', sans-serif;
 }
-
 .content-container {
     position: relative;
     margin: 0 auto;
     margin-bottom: -20px;
-    background-image: url(/static/media/paintedladies.3e0d6e9f.jpg);
-    background-size: cover;
     height: 100vh;
-    background-position: center;
 }
-
 nav {
-  background-color: #555;
   padding: 10px;
+  background-color: #263231;
 }
-
 .push {
   height: 20px;
 }
-
 ul {
   list-style: none;
+  padding: 0 5px;
 }
-
 .footer {
   background-color: #555;
-   position:absolute;
+   position:fixed;
    bottom:0;
    width:100%;
    height:20px;   /* Height of the footer */
 }
-
 nav a {
   margin: 10px;
   text-decoration: none;
   font-size: 18px;
-  color: rgb(248,110, 113);
+  color: #8BBCBD;
+  font-family: 'Rajdhani', sans-serif;
 }
-
 nav a:hover {
-  color: #7f4dd2;
+  color: #CEB8A6;
 }
-
 .footer-text {
   color: #fff;
   font-size: 10px;
 }
-
 .home {
   background-image: url('./paintedladies.jpg');
   background-repeat: no-repeat;
   background-size: cover;
 }
-
 .btn-primary {
   color: #fff;
   background-color: #11f;
@@ -65,11 +55,9 @@ nav a:hover {
   border: none;
   padding: 3px;
 }
-
 .btn-primary:hover {
   background-color: #77f;
 }
-
 .error {
   background-color: pink;
   color: red;
@@ -79,7 +67,6 @@ nav a:hover {
   width: 75%;
   margin: 10px auto;
 }
-
 .success {
   background-color: #ceffce;
   color: green;
@@ -89,56 +76,341 @@ nav a:hover {
   width: 75%;
   margin: 10px auto;
 }
-
 .no-flash {
   visibility: hidden;
   padding: 10px 30px;
   width: 75%;
   margin: 10px auto;
 }
-
 .x-button {
   background-color: red;
   color: white;
   border-radius: 2px;
   float: right;
 }
-
 .home-form{
-  background-color: rgba(130,130,130,.3);
+  background-color: rgba(130,130,130,.9);
   height: 150px;
   display: inline-block;
   width: 700px;
 }
-
 .form-form{
   padding-top: 60px;
 }
-
-.login-button{
-  background-color: rgb(248,110, 113);
-  color: black;
-  margin-top: 20px;
-  width: 150px;
-  height: 30px;
-}
-
 .login-input{
   height: 40px;
   width: 300px;
   font-size: 18px;;
 }
-
-.messages-container,.bills-container, .shopping-container, .chore-container {
-  background-color: rgba(100,100,100,.3);
+.house-id{
+  font-size: 14px;
+  display: inline-block;
 }
-
+.house-banner{
+  font-family: 'Rajdhani', sans-serif;
+  position: relative;
+  bottom: 44px;
+}
+.home-tagline{
+  margin-top: -12px;
+  font-size: 44px;
+  font-family: 'Righteous', cursive;
+}
+@media (max-width: 525px) {
+  .home-tagline{
+  font-size: 32px;
+  }
+}
+.home-container{
+  background-color: #8bbcbd;
+  height: 55%;
+  border-radius: 2px;
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 32px;
+  font-family: 'Rajdhani', sans-serif;
+}
+@media (max-width: 525px) {
+  .home-tagline{
+  font-size: 32px;
+  }
+}
+.sign-up{
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 28px;
+}
+@media (max-width: 525px) {
+  .home-container, .sign-up{
+  font-size: 20px;
+  }
+}
+.pantry-grid-header, .chore-grid-header{
+  display: grid;
+  grid-template-columns: 5fr 2fr 3fr .5fr;
+}
+.each-header{
+  color: black;
+  text-decoration: underline;  
+  font-size: 19px;
+  margin-left: 8px;
+  text-align: left; 
+  font-family: 'Rajdhani', sans-serif;
+}
+.pantry-list-item, .chore-list-item{
+  display: grid;
+  grid-template-columns: 5fr 2fr 3fr .5fr;
+  text-align: left;
+  margin: 0 2px;
+  color: black;
+  font-family: 'Rajdhani', sans-serif;
+}
+.list {
+  height: 230px;
+  margin: -10px 10px 10px 10px;
+  overflow: scroll;
+}
+@media (max-width: 525px) {
+  .list{
+  height: 220px;
+  }
+}
+.shopping-container, .chore-container{
+  background-color: #8bbcbd;
+  height: 400px;
+  border: solid black 2px;
+  border-radius: 8px;
+}
+.memo-container, .bills-container{
+  background-color: #8bbcbd;
+  height: 300px;
+  border: solid black 2px;
+  border-radius: 8px;
+}
 .widget-container{
   display: grid;
   grid-template-rows: 1fr 1fr;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+  grid-gap: 35px;
   margin: 0 auto;
-  width: 85%;
+  width: 75%;
   height: 85%;
+  position: relative;
+  bottom: 41px;
+}
+.memo-item {
+  display: grid;
+  grid-template-columns: 10fr .5fr;
+  text-align: left;
+  color: black;
+  font-family: 'Rajdhani', sans-serif;
+}
+.memo-list {
+  max-height: 30vh;
+  margin: 25px 10px 10px 10px;
+  overflow: scroll;
+}
+.memo-header, .shopping-header, .chore-header, .bill-header{
+  color: black;
+  font-size: 28px;
+  margin: 5px 0 -10px 0;
+  font-family: 'Righteous', cursive;
+}
+.memo-all-history{
+  display: grid;
+  grid-template-columns: 3fr 3fr 6fr 3fr;
+  text-align: left;
+}
+.memo-grid-header{
+  display: grid;
+  grid-template-columns: 3fr 3fr 6fr 3fr;
+  text-decoration: underline;
+  text-align: left;
+}
+.memo-all-container{
+  background-color: #8bbcbd;
+  height: 68vh;
+  width: 70vw;
+  border: 2px solid #000;
+  border-radius: 4px;
+  display: inline-block;
+  margin: -40px 0 20px 0;
+  font-family: 'Rajdhani', sans-serif;
+}
+.all-past-memos{
+  max-height: 55vh;
+  margin: -10px 10px 10px 10px;
+  overflow: scroll;
+}
+.memo-grid-header{
+  display: grid;
+  grid-template-columns: 3fr 3fr 6fr 3fr;
+  text-decoration: underline;
+  text-align: left;
+  font-size: 20px;
+  font-family: 'Righteous', cursive;
+}
+.house-bill{
+  margin: 15 0 10px 0;
+  display: inline-block;
+  width: 250px;
+  font-size: 18px;
+  text-align: left;
+  font-family: 'Rajdhani', sans-serif;
+}
+.bill-grid-header{
+  display: grid;
+  grid-template-columns: 3fr 3fr 3fr;
+  text-decoration: underline;
+  font-family: 'Righteous', cursive;
+}
+.bill-list-history{
+  display: grid;
+  font-size: 20px;
+  grid-template-columns: 3fr 3fr 3fr;
+  font-family: 'Rajdhani', sans-serif;
+}
+.bill-container{
+  background-color: #8bbcbd;
+  height: 300px;
+  width: 450px;
+  border: 2px solid #000;
+  border-radius: 8px;
+  display: inline-block;
+  margin: -40px 0 20px 0;
+  font-family: 'Raleway', sans-serif;
+}
+.past-bills{
+  height: 250px;
+  margin: -10px 10px 10px 10px;
+  overflow: scroll;
+}
+.bill-link, .memo-link{
+  color: #273231;
+  font-size: 16px;
+  text-decoration: none;
+  font-family: 'Righteous', cursive;
+  margin:  4px 8px 0 8px;
+}
+.bill-link:hover, .memo-link:hover{
+  color: white;
+  text-decoration: none;
+  margin:  0 8px 0 8px;
+}
+.bill-links{
+  margin-top: 65px;
+}
+.delete-button{
+  background-color: transparent;
+  border: none;
+  font-size: 17px;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 800;
+}
+.delete-button:hover{
+  color: red;
+}
+.form-field{
+  width: 130px;
+  margin: 0 11px 5px 11px;
+  font-family: 'Rajdhani', sans-serif;
+  background-color: rgb(70,70,70);
+  font-size: 14px;
+  border: none;
+  color: #8bbcbd;
+  border-radius: 3px;
+  text-align: center;
+}
+.form-field-add{
+  width: 130px;
+  height: 25px;
+  margin: 0 11px 5px 11px;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 18px;
+  background-color: rgb(70,70,70);
+  border: none;
+  color: #8bbcbd;
+  border-radius: 3px;
+  text-align: center;
+}
+.drop-down{
+  background-color: rgb(70,70,70);
+  height: 25px;
+  width: 80px;
+  border: none;
+  color: #8bbcbd;
+  border-radius: 3px;
+  text-align: center;
+}
+.pressy-thing{
+  background-color: transparent;
+  border: none;
+  font-family: 'Righteous', cursive;
+  font-size: 18px;
+}
+.pressy-thing:hover{
+  color: white;
+  text-decoration: underline;
+}
+.memo-form{
+  text-align: left;
+  display: inline-block;
+}
+.memo-content-input{
+  height: 40px;
+  width: 300px;
+}
+.form-label{
+  font-size: 18px;
+  font-family: 'Rajdhani', sans-serif;
+}
+.form-button{
+  background-color: rgb(248,110, 113);
+  color: black;
+  margin: 20px 0;
+  width: 150px;
+  height: 30px;
+  border-radius: 3px;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 20px;
+}
+.memo-button{
+  background-color: rgb(248,110, 113);
+  color: black;
+  margin-top: 20px;
+  width: 150px;
+  height: 30px;
+  border-radius: 3px;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 20px;
+  text-align: center;
+}
+.form-input{
+  margin-left: 20px;
+}
+.nav-hero{
+  height: 30vh;
+  background-image: url(/cropped-ladies.jpg);
+  background-size: cover;
+  background-position: center;
+}
+.nav-hub-header{
+  font-family: 'Righteous', cursive;
+  font-size: 86px;
+  position: relative;
+  top: 59px;
+  -webkit-text-stroke: 1px black;
+  color: #ceb8a6;
+  text-shadow:
+     3px 3px 0 #000,
+    -1px -1px 0 #000,  
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+     1px 1px 0 #000;
+}
+@media (max-width: 525px) {
+  .nav-hub-header{
+  font-size: 50px;
+  }
 }

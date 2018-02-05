@@ -96,7 +96,6 @@ router.post('/bill/update', function(req, res, next){
 	});
 });
 
-
 //Post new memo route
 router.post('/memo/create', function (req, res, next){
 	console.log('memo post route firing!');
@@ -113,6 +112,19 @@ router.post('/memo/create', function (req, res, next){
 		console.log('what the fuck we lookin at PETER', house);
 		res.json(house);
 	});	
+});
+
+// Delete memo route
+router.delete('/memo/delete', function(req, res, next) {
+    House.findById(req.body.houseId, function(err, house){
+        console.log("%%%%%%%%%%%"+house);
+        house.memos.id(req.body.memoId).remove();
+        house.save(function (err) {
+        if (err) return handleError(err);
+        console.log('the memo was removed');
+        res.json(house);
+        });
+    });
 });
 
 module.exports = router;
