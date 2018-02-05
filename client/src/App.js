@@ -12,6 +12,7 @@ import Signup from './auth/Signup.js';
 import Househub from './Househub.js';
 import BillForm from './BillForm.js';
 import MemoForm from './MemoForm.js';
+import Allmemos from "./Allmemos.js";
 
 class App extends Component {
   constructor(props){
@@ -103,10 +104,12 @@ class App extends Component {
                 () => (<Profile user={this.state.user} house={this.state.house} roommates={this.state.roommates} refreshUser={this.getUser} setFlash={this.setFlash} />)} />
               <Route path="/househub" component={
                 () => (<Househub  user={this.state.user} house={this.state.house} roommates={this.state.roommates} refreshUser={this.getUser} setFlash={this.setFlash} />)} />
-              <Route path="/newbill" component={
-                () => (<BillForm mode={"add"} refreshList={this.getUser} house={this.state.house} />)} />
               <Route path="/newmemo" component={
                 () => (<MemoForm refreshList={this.getUser} house={this.state.house} user={this.state.user}/>)} />
+              <Route path="/allmemos" component={
+                () => (<Allmemos refreshList={this.getUser} house={this.state.house} user={this.state.user}/>)} />
+              <Route path="/newbill" component={
+                () => (<BillForm mode={"add"} refreshList={this.getUser} house={this.state.house} />)} />
               <Route path="/editbill" component={
                 () => (<BillForm mode={"edit"} refreshList={this.getUser} house={this.state.house}/>)}/>
               <Route path="/allbills" component={

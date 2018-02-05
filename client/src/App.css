@@ -3,7 +3,7 @@ body {
    margin:0 auto;
    height:100%;
    text-align: center;
-   font-family: 'Roboto', sans-serif;
+  font-family: 'Raleway', sans-serif;
 }
 
 .content-container {
@@ -40,6 +40,8 @@ nav a {
   text-decoration: none;
   font-size: 18px;
   color: #8BBCBD;
+  font-family: 'Rajdhani', sans-serif;
+
 }
 
 nav a:hover {
@@ -135,19 +137,6 @@ nav a:hover {
   border-radius: 8px;
 }
 
-.home-container{
-  background-color: #8bbcbd;
-  height: 45vh;
-  border-radius: 4px;
-  display: inline-block;
-  padding: 5px 15px;
-  width: 75vh;
-  text-align: left;
-  margin-bottom: 20px;
-  font-family: 'Roboto', sans-serif;
-  font-size: 16px;
-}
-
 .widget-container{
   display: grid;
   grid-template-rows: 1fr 1fr;
@@ -170,13 +159,54 @@ nav a:hover {
   font-size: 28px;
   text-decoration: underline;
   margin: 0 0 -10px 0;
-  font-family: 'Lily Script One', cursive;
+  font-family: 'Righteous', cursive;
 }
 
 .house-banner{
-  font-family: 'Bree Serif', serif;
+  font-family: 'Rajdhani', sans-serif;
   position: relative;
   bottom: 44px;
+}
+
+.home-tagline{
+  margin-top: -12px;
+  font-size: 44px;
+  font-family: 'Righteous', cursive;
+}
+
+@media (max-width: 525px) {
+  .home-tagline{
+  font-size: 32px;
+  }
+}
+
+.home-container{
+  background-color: #8bbcbd;
+  height: 55%;
+  border-radius: 2px;
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 32px;
+  font-family: 'Rajdhani', sans-serif;
+}
+
+@media (max-width: 525px) {
+  .home-tagline{
+  font-size: 32px;
+  }
+}
+
+.sign-up{
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 28px;
+}
+
+@media (max-width: 525px) {
+  .home-container, .sign-up{
+  font-size: 20px;
+  }
 }
 
 .memo-item {
@@ -184,7 +214,7 @@ nav a:hover {
   grid-template-columns: 10fr .5fr;
   text-align: left;
   color: black;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Raleway', sans-serif;
 }
 
 .memo-list {
@@ -206,11 +236,41 @@ nav a:hover {
   grid-template-columns: 2fr 3fr 3fr .5fr;
   text-align: left;
   color: black;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Raleway', sans-serif;
 }
 
 .list {
-  max-height: 25vh;
+  max-height: 22vh;
+  margin: -10px 10px 10px 10px;
+  overflow: scroll;
+}
+
+.memo-all-history{
+  display: grid;
+  grid-template-columns: 3fr 3fr 6fr 3fr;
+  text-align: left;
+}
+
+.memo-grid-header{
+  display: grid;
+  grid-template-columns: 3fr 3fr 6fr 3fr;
+  text-decoration: underline;
+  text-align: left;
+}
+
+.memo-all-container{
+  background-color: #8bbcbd;
+  height: 48vh;
+  width: 70vw;
+  border: 2px solid #000;
+  border-radius: 4px;
+  display: inline-block;
+  margin-bottom: 20px;
+  font-family: 'Raleway', sans-serif;
+}
+
+.all-past-memos{
+  max-height: 55vh;
   margin: -10px 10px 10px 10px;
   overflow: scroll;
 }
@@ -229,12 +289,12 @@ nav a:hover {
 .bill-container{
   background-color: #8bbcbd;
   height: 38vh;
-  width: 60vh;
+  width: 40vw;
   border: 2px solid #000;
   border-radius: 8px;
   display: inline-block;
   margin-bottom: 20px;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Raleway', sans-serif;
 }
 
 .past-bills{
@@ -269,7 +329,7 @@ nav a:hover {
   background-color: transparent;
   border: none;
   font-size: 17px;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Rajdhani', sans-serif;
   font-weight: 800;
 }
 
@@ -285,7 +345,7 @@ nav a:hover {
 .pressy-thing{
   background-color: transparent;
   border: none;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Rajdhani', sans-serif;
   font-size: 15px;
 }
 
@@ -301,15 +361,15 @@ nav a:hover {
 }
 
 .nav-hub-header{
-  font-family: 'Lily Script One', cursive;
+  font-family: 'Righteous', cursive;
   font-size: 86px;
   position: relative;
   top: 59px;
- -webkit-text-stroke: 1px black;
- color: #ceb8a6;
- text-shadow:
+  -webkit-text-stroke: 1px black;
+  color: #ceb8a6;
+  text-shadow:
      3px 3px 0 #000,
-   -1px -1px 0 #000,  
+    -1px -1px 0 #000,  
     1px -1px 0 #000,
     -1px 1px 0 #000,
      1px 1px 0 #000;
