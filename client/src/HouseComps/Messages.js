@@ -50,7 +50,7 @@ class MessageList extends Component {
 	render(){
 		return(
 				<li className="memo-item">
-					<span>{this.props.message.roommateName} posted: {this.props.message.subject}- {this.props.message.content}</span>
+					<span>{this.props.message.roommateName} posted: <Link to="/allmemos">{this.props.message.subject}</Link></span>
 					<button className="delete-button" onClick={this.deleteMemo}>X</button>
 				</li>
 		)

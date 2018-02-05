@@ -32,9 +32,9 @@ class BillList extends Component {
         const date = rawDate.getMonth() + 1 + '/' + rawDate.getDate()  + '/' + rawDate.getFullYear();
         return(
             <li className="bill-list-history">
+                <span>{date}</span>
                 <span>${this.props.rent}</span>
                 <span>${this.props.utilities}</span>
-                <span>{date}</span>
             </li>
         )
     }
