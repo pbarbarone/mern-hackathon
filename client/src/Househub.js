@@ -6,7 +6,6 @@ import HouseForm from './HouseForm.js';
 class Househub extends Component {
 
   addHouse = () => {
-    console.log("addHouse called in Househub.js");
     this.props.refreshUser();
   }
   render(){
@@ -16,7 +15,6 @@ class Househub extends Component {
     else if(this.props.user && !this.props.house){
       return (
         <div>
-          {console.log("I am in the else statement!")}
           <HouseForm user={this.props.user} obtainHouse={this.props.refreshUser} />
         </div>
       );

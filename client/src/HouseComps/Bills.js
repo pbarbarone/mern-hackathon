@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
-
 class Bills extends Component {
     constructor(props){
         super(props)
@@ -8,15 +7,11 @@ class Bills extends Component {
                 dashboard: ''
             }
     }
-
 componentWillMount(){
         this.setState({dashboard: this.props.dashboard});
     }
-
     render(){
-        console.log(this.props.house.billPerUser.length);
         if(this.props.house.billPerUser.length > 0){
-            console.log("Trying to render Bill List");
             return(
                 <div className="bills-container">
                     <BillList dashboard={this.state.dashboard} bills={this.props.house.billPerUser} />
@@ -24,9 +19,9 @@ componentWillMount(){
             )
         }
         else {
-            console.log("No bills!");
             return(
-                <div>
+                <div className="bills-container">
+                <h2 className="bill-header">Current House Bills</h2>
                     <h1>No Outstanding Bills! Hallelujah!</h1>
                     <Link to="/newbill">Add New Bill</Link>
                 </div>
@@ -34,7 +29,6 @@ componentWillMount(){
         }
     }
 }
-
 class BillList extends Component {
     render(){
         const currentBill = this.props.bills.length - 1;
@@ -67,5 +61,4 @@ class BillList extends Component {
         }
     }
 }
-
 export default Bills

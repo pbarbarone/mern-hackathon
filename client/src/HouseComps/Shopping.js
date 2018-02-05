@@ -35,7 +35,6 @@ class Shopping extends Component {
 				</div>
 				)
 		}else{
-			console.log("dashboard failure on shop")
 		}
 	}
 }
@@ -82,7 +81,6 @@ class ListItem extends Component {
 	deleteItem = (e) => {
 		let base = this;
 		e.preventDefault();
-		console.log("base.props.item._id: "+base.props.item._id);
 		axios.delete('/lists/item/delete', {
 			data: {
 				itemId: base.props.item._id,

@@ -15,12 +15,10 @@ class HouseBoard extends Component {
 
 componentDidMount(){
 	if (this.props.dashboard === "profile"){
-		console.log("PROFILE PROFILE PROFIIIILE" +this.props.house._id);
 		this.setState({
 			bannerState: this.props.user.name
 		});
 	} else if (this.props.dashboard === "househub"){
-		console.log("HOUSE HOUSE HOUSE");
 		this.setState({
 				bannerState: this.props.house.name
 			});

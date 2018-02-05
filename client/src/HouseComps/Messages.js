@@ -35,8 +35,6 @@ class MessageList extends Component {
 	deleteMemo = (e) => {
 		let base = this;
 		e.preventDefault();
-		console.log("front-end DELETE button HELEN!! " +base.props.message._id)
-		console.log("front-end DELETE button HOUSE ID HANK!! " +base.props.house._id)
 
 		axios.delete('lists/memo/delete', {
 			data: {

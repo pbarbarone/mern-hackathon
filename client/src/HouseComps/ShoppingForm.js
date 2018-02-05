@@ -25,7 +25,6 @@ class ShoppingForm extends Component {
 		const roommateId = e.target.value;
 		base.setState({roommateId: roommateId});
 		base.props.roommates.forEach(function(rm){
-			console.log("drop down name" + rm.name);
 			if(rm.id === roommateId){
 				base.addName(rm.name);
 			}
