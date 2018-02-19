@@ -3,8 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node server.js", //per https://coursework.vschool.io/deploying-mern-with-heroku/
-    // "start": "node ./bin/www",
+    "start": "node server.js",
     "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build"
   },
   "dependencies": {
@@ -25,6 +24,6 @@
     "serve-favicon": "~2.4.5"
   },
   "engines": {
-    "node": "8.9.2" //per https://coursework.vschool.io/deploying-mern-with-heroku/
+    "node": "8.9.2"
   }
 }
