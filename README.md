@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 # Summary: 
 HouseHub is a full-stack web-based application to help roommate assess and track household responsibilities. The project started as a 7-hour hackathon project and was expanded on from there as a week-long "create a start-up" project. 
+=======
+# Summary
+ A full-stack MERN app, for adults 
+>>>>>>> ae9d7c9c5db328d34ab8480e09a059b070de5328
 
 The purpose of the application is to provide a platform through which roommmates can add and track house chores, add and see current and past bills, add and track recently - or soon to be - purchased food staples, and post house issues and updates through a memo board. New users can choose to create a new house or join an existing house that one of their roommates already set up. Users join existing houses through a unique HouseId sent by a roommate. The HouseId is only available to logged in users attached to a house. 
 
@@ -50,4 +55,8 @@ DELETE | /lists/memo/delete | delete existing memo
 * Create appropriate hooks/validations for data entries.
 * Allow users to unjoin houses, delete houses, and delete user accounts.
 * Incorporate an option for designating a house admin that gives data entry/manipulation privileges from their account.
+<<<<<<< HEAD
 * Kudos board: where users can give shoutouts to roommates who go above and beyond.
+=======
+* Kudos board: where users can give shoutouts to roommates who go above and beyond.
+>>>>>>> ae9d7c9c5db328d34ab8480e09a059b070de5328

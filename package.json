@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www",
+    "start": "node server.js", //per https://coursework.vschool.io/deploying-mern-with-heroku/
+    // "start": "node ./bin/www",
     "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build"
   },
   "dependencies": {
@@ -22,5 +23,8 @@
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
     "serve-favicon": "~2.4.5"
+  },
+  "engines": {
+    "node": "8.9.2" //per https://coursework.vschool.io/deploying-mern-with-heroku/
   }
 }
